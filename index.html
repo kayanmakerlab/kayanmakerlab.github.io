@@ -167,7 +167,7 @@ details.bd summary{cursor:pointer;width:max-content}
 .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 @media(max-width:480px){.products{grid-template-columns:1fr 1fr;gap:10px}}
 .prod{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.prod .pic{aspect-ratio:4/3;display:grid;place-items:center;font-size:52px;background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 24px,var(--surface-2);border-bottom:1px solid var(--line)}
+.prod .pic{aspect-ratio:1/1;display:grid;place-items:center;font-size:52px;background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 24px,var(--surface-2);border-bottom:1px solid var(--line)}
 .prod .pic img{width:100%;height:100%;object-fit:cover}
 .prod .body{padding:12px;display:flex;flex-direction:column;gap:4px;flex:1}
 .prod .cat{font-size:12px;color:var(--accent);font-weight:500}
@@ -337,7 +337,7 @@ footer nav{display:flex;margin:0}
  <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. اختار القسم واطلب مباشرة عبر واتساب.</p>
  <div class="cats" id="cats" role="toolbar" aria-label="أقسام المتجر"></div>
  <div class="products" id="products"></div>
- <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل، ومنأكدها عالواتساب. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
+ <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل، ومنأكدها عالواتساب. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
 </div></section>
 
 <section id="how"><div class="wrap">
@@ -481,16 +481,16 @@ $('matCards').innerHTML=Object.keys(CFG.mats).map(function(k){var m=CFG.mats[k];
 var CATS={kitchen:['المطبخ','🍽️'],keys:['ميداليات','🔑'],desk:['المكتب','🖊️'],toys:['ألعاب وفيدجت','🧸'],home:['البيت والديكور','🪴'],car:['السيارة','🚗'],tools:['أدوات','🛠️'],gifts:['هدايا','🎁']};
 // g: الوزن بالغرام ، h: وقت الطباعة بالساعات ، img: مسار الصورة (مثلاً assets/products/83628.jpg)
 var PRODUCTS=[
- {id:83628,c:'kitchen',n:'مشبك أكياس',g:12,h:0.77,by:'neoyarus',lic:'CC BY-SA',src:'https://www.printables.com/model/83628-print-in-place-bag-clip',img:''},
- {id:509410,c:'kitchen',n:'مشبك أكياس بقفل',g:23,h:2,by:'squinn',lic:'CC BY',src:'https://www.printables.com/model/509410-curvy-cam-lock-bag-clip',img:''},
- {id:467047,c:'kitchen',n:'فتّاحة قناني بإيد وحدة',g:27,h:4.1,by:'quattro',lic:'CC BY-SA',src:'https://www.printables.com/model/467047-hexagonal-one-handed-bottle-opener-updated',img:''},
- {id:215691,c:'kitchen',n:'حامل إسفنجة للمجلى',g:118,h:3.4,by:'Catdad Workshop',lic:'CC BY-SA',src:'https://www.printables.com/model/215691-kitchen-sponge-dish-vase-mode',img:''},
- {id:175046,c:'keys',n:'ميدالية ديناصور مرنة',g:7,h:0.96,by:'sander19',lic:'CC BY',src:'https://www.printables.com/model/175046-flexi-rex-keychain',img:''},
- {id:125291,c:'keys',n:'منظّم مفاتيح',g:12,h:1.71,by:'basti30',lic:'CC BY',src:'https://www.printables.com/model/125291-single-hand-key-organizer',img:''},
- {id:273425,c:'keys',n:'ميدالية أداة متعددة',g:6,h:0.61,by:'Cristian',lic:'CC0',src:'https://www.printables.com/model/273425-keychain-tool-edc-tool',img:''},
- {id:84122,c:'keys',n:'ميدالية اسم للكلب',g:4,h:0.84,by:'Tmwa11',lic:'CC0',src:'https://www.printables.com/model/84122-customizable-dog-tag-vv',img:''},
+ {id:83628,c:'kitchen',n:'مشبك أكياس',g:12,h:0.77,by:'neoyarus',lic:'CC BY-SA',src:'https://www.printables.com/model/83628-print-in-place-bag-clip',img:'assets/products/83628.jpg'},
+ {id:509410,c:'kitchen',n:'مشبك أكياس بقفل',g:23,h:2,by:'squinn',lic:'CC BY',src:'https://www.printables.com/model/509410-curvy-cam-lock-bag-clip',img:'assets/products/509410.jpg'},
+ {id:467047,c:'kitchen',n:'فتّاحة قناني بإيد وحدة',g:27,h:4.1,by:'quattro',lic:'CC BY-SA',src:'https://www.printables.com/model/467047-hexagonal-one-handed-bottle-opener-updated',img:'assets/products/467047.jpg'},
+ {id:215691,c:'kitchen',n:'حامل إسفنجة للمجلى',g:118,h:3.4,by:'Catdad Workshop',lic:'CC BY-SA',src:'https://www.printables.com/model/215691-kitchen-sponge-dish-vase-mode',img:'assets/products/215691.jpg'},
+ {id:175046,c:'keys',n:'ميدالية ديناصور مرنة',g:7,h:0.96,by:'sander19',lic:'CC BY',src:'https://www.printables.com/model/175046-flexi-rex-keychain',img:'assets/products/175046.jpg'},
+ {id:125291,c:'keys',n:'منظّم مفاتيح',g:12,h:1.71,by:'basti30',lic:'CC BY',src:'https://www.printables.com/model/125291-single-hand-key-organizer',img:'assets/products/125291.jpg'},
+ {id:273425,c:'keys',n:'ميدالية أداة متعددة',g:6,h:0.61,by:'Cristian',lic:'CC0',src:'https://www.printables.com/model/273425-keychain-tool-edc-tool',img:'assets/products/273425.jpg'},
+ {id:84122,c:'keys',n:'ميدالية اسم للكلب',g:4,h:0.84,by:'Tmwa11',lic:'CC0',src:'https://www.printables.com/model/84122-customizable-dog-tag-vv',img:'assets/products/84122.jpg'},
  {id:564262,c:'desk',n:'منظّم كابلات للشنطة',g:36,h:3.18,by:'squinn',lic:'CC BY',src:'https://www.printables.com/model/564262-portable-cable-organizer-winder',img:''},
- {id:359285,c:'desk',n:'مشبك كابلات بقفل',g:29,h:2.96,by:'FH',lic:'CC BY-SA',src:'https://www.printables.com/model/359285-klamma-locking-cable-clip',img:''},
+ {id:359285,c:'desk',n:'مشبك كابلات بقفل',g:29,h:2.96,by:'FH',lic:'CC BY-SA',src:'https://www.printables.com/model/359285-klamma-locking-cable-clip',img:'assets/products/359285.jpg'},
  {id:376433,c:'desk',n:'ستاند تابلت',g:51,h:4.3,by:'vilerage',lic:'CC BY',src:'https://www.printables.com/model/376433-tablet-stand',img:''},
  {id:27759,c:'desk',n:'ستاند ساعة',g:16,h:1.73,by:'Fredslund',lic:'CC BY',src:'https://www.printables.com/model/27759-watch-stand-no-support',img:''},
  {id:632884,c:'desk',n:'حامل أقلام تنين',g:51,h:8.04,by:'Peter Farell',lic:'CC BY',src:'https://www.printables.com/model/632884-dragon-pen-holder',img:''},
@@ -505,17 +505,17 @@ var PRODUCTS=[
  {id:149039,c:'home',n:'علّاقة قابلة للطي',g:13,h:1.72,by:'RostaP',lic:'CC BY-SA',src:'https://www.printables.com/model/149039-foldable-hook',img:''},
  {id:281659,c:'home',n:'تمثال قطة',g:56,h:4.67,by:'Artmonso',lic:'CC0',src:'https://www.printables.com/model/281659-minimalist-cat-sculpture',img:''},
  {id:126404,c:'car',n:'مشبك نظارات للسيارة',g:19,h:0.78,by:'Celta',lic:'CC BY-SA',src:'https://www.printables.com/model/126404-sunglasses-car-clip',img:''},
- {id:133800,c:'car',n:'سلة مهملات لباب السيارة',g:69,h:5.12,by:'Katarn',lic:'CC BY',src:'https://www.printables.com/model/133800-car-door-trash-bin',img:''},
- {id:1500247,c:'car',n:'مكشطة جليد للسيارة',g:41,h:1.49,by:'Emkatech (Mike)',lic:'CC BY-SA',src:'https://www.printables.com/model/1500247-ice-scraper-for-car-durable-winter-tool',img:''},
+ {id:133800,c:'car',n:'سلة مهملات لباب السيارة',g:69,h:5.12,by:'Katarn',lic:'CC BY',src:'https://www.printables.com/model/133800-car-door-trash-bin',img:'assets/products/133800.jpg'},
+ {id:1500247,c:'car',n:'مكشطة جليد للسيارة',g:41,h:1.49,by:'Emkatech (Mike)',lic:'CC BY-SA',src:'https://www.printables.com/model/1500247-ice-scraper-for-car-durable-winter-tool',img:'assets/products/1500247.jpg'},
  {id:89506,c:'tools',n:'قاطع شريط لاصق',g:8,h:0.59,by:'Kevin.S3',lic:'CC BY',src:'https://www.printables.com/model/89506-tape-cutter',img:''},
  {id:1529706,c:'tools',n:'ملقط تثبيت',g:42,h:2.99,by:'MrViddy',lic:'CC BY',src:'https://www.printables.com/model/1529706-basic-clamp-print-in-place',img:''},
- {id:76157,c:'tools',n:'دليل حفر 90 درجة',g:17,h:1.44,by:'RobSmo',lic:'CC BY',src:'https://www.printables.com/model/76157-drill-and-screw-guide-90-degree',img:''},
+ {id:76157,c:'tools',n:'دليل حفر 90 درجة',g:17,h:1.44,by:'RobSmo',lic:'CC BY',src:'https://www.printables.com/model/76157-drill-and-screw-guide-90-degree',img:'assets/products/76157.jpg'},
  {id:89550,c:'tools',n:'أداة ورشة 11 بـ 1',g:9,h:0.97,by:'occupied_brain',lic:'CC BY-SA',src:'https://www.printables.com/model/89550-11-in-1-workshop-multipurpose-tool',img:''},
  {id:288069,c:'gifts',n:'قطة شبح لطيفة',g:11,h:1.63,by:'ncsandor',lic:'CC BY',src:'https://www.printables.com/model/288069-cute-cat-ghost',img:''},
- {id:223241,c:'gifts',n:'قطة مرنة',g:21,h:2.3,by:'rbid',lic:'CC BY-SA',src:'https://www.printables.com/model/223241-single-color-flexi-cat',img:''},
- {id:391094,c:'gifts',n:'قلب دوّار',g:19,h:1.93,by:'thiebes',lic:'CC BY',src:'https://www.printables.com/model/391094-heart-spinny-fidget-toy-ornament-for-valentines-da',img:''},
- {id:57497,c:'gifts',n:'علبة هدية على شكل قلب',g:41,h:5.21,by:'Devmiser',lic:'CC BY',src:'https://www.printables.com/model/57497-heart-shaped-box-v2',img:''},
- {id:56287,c:'gifts',n:'سوار قلوب',g:10,h:1.55,by:'M4NU',lic:'CC BY',src:'https://www.printables.com/model/56287-unchain-my-heart-print-in-place-bracelet',img:''}
+ {id:223241,c:'gifts',n:'قطة مرنة',g:21,h:2.3,by:'rbid',lic:'CC BY-SA',src:'https://www.printables.com/model/223241-single-color-flexi-cat',img:'assets/products/223241.jpg'},
+ {id:391094,c:'gifts',n:'قلب دوّار',g:19,h:1.93,by:'thiebes',lic:'CC BY',src:'https://www.printables.com/model/391094-heart-spinny-fidget-toy-ornament-for-valentines-da',img:'assets/products/391094.jpg'},
+ {id:57497,c:'gifts',n:'علبة هدية على شكل قلب',g:41,h:5.21,by:'Devmiser',lic:'CC BY',src:'https://www.printables.com/model/57497-heart-shaped-box-v2',img:'assets/products/57497.jpg'},
+ {id:56287,c:'gifts',n:'سوار قلوب',g:10,h:1.55,by:'M4NU',lic:'CC BY',src:'https://www.printables.com/model/56287-unchain-my-heart-print-in-place-bracelet',img:'assets/products/56287.jpg'}
 ];
 function priceOf(g,h){var c=(g*CFG.mats.PLA.g+h*CFG.hourly)*CFG.fail*CFG.profit;return Math.max(CFG.round,Math.round(c/CFG.round)*CFG.round)}
 (function(){
@@ -527,7 +527,7 @@ function priceOf(g,h){var c=(g*CFG.mats.PLA.g+h*CFG.hourly)*CFG.fail*CFG.profit;
   Object.keys(CATS).forEach(function(k){var n=PRODUCTS.filter(function(p){return p.c===k}).length;if(n)h+=btn(k,CATS[k][0],CATS[k][1],n)});
   catBox.innerHTML=h}
  function render(){
-  box.innerHTML=PRODUCTS.filter(function(p){return cur==='all'||p.c===cur}).map(function(p){
+  box.innerHTML=PRODUCTS.filter(function(p){return cur==='all'||p.c===cur}).sort(function(a,b){return (b.img?1:0)-(a.img?1:0)}).map(function(p){
    var cat=CATS[p.c]||['',''];
    return '<article class="prod"><div class="pic">'+(p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.n)+'" loading="lazy">':'<span aria-hidden="true">'+cat[1]+'</span>')+'</div>'+
    '<div class="body"><span class="cat">'+cat[0]+'</span><h3>'+esc(p.n)+'</h3><span class="meta">≈ '+Math.round(p.g)+' غ · '+fmtT(p.h)+'</span>'+
