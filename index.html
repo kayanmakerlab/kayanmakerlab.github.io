@@ -155,7 +155,7 @@ select:focus,input:focus{border-color:var(--accent);outline:none;box-shadow:0 0 
 details.bd{font-size:13.5px;color:var(--muted);margin-bottom:14px}
 details.bd summary{cursor:pointer;width:max-content}
 .bd dl{display:grid;grid-template-columns:1fr auto;gap:2px 12px;margin:8px 0 0;background:var(--surface-2);border-radius:10px;padding:10px 12px}
-.bd dt{margin:0}.bd dd{margin:0;direction:ltr;text-align:left;color:var(--text);font-variant-numeric:tabular-nums}
+.bd dt{margin:0}.bd dd{margin:0;direction:rtl;text-align:left;color:var(--text);font-variant-numeric:tabular-nums}
 .note{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 
 /* sections */
@@ -297,13 +297,14 @@ footer nav{display:flex;margin:0}
     <div><span>الوزن التقريبي</span><b id="sW">-</b></div>
     <div><span>وقت الطباعة</span><b id="sT">-</b></div>
    </div>
+   <fieldset><legend>الاستلام</legend><div class="seg" id="dlv"></div></fieldset>
    <p class="warn" id="warn" hidden><svg><use href="#i-warn"/></svg><span id="warnTxt"></span></p>
    <div class="price"><span>السعر التقريبي</span><b id="sP" aria-live="polite">-</b></div>
    <details class="bd" id="bd"><summary>تفصيل السعر</summary>
-    <dl><dt>الخامة</dt><dd id="bMat">-</dd><dt>وقت الآلة</dt><dd id="bTime">-</dd><dt>تجهيز</dt><dd id="bSet">-</dd><dt>سعر القطعة الواحدة</dt><dd id="bOne">-</dd></dl>
+    <dl><dt>الخامة</dt><dd id="bMat">-</dd><dt>وقت الطابعة</dt><dd id="bTime">-</dd><dt>هامش التشغيل</dt><dd id="bMarg">-</dd><dt>سعر الطباعة</dt><dd id="bPrint">-</dd><dt>التوصيل</dt><dd id="bDel">-</dd></dl>
    </details>
    <button class="btn wa" id="send" type="button" style="width:100%" disabled><svg><use href="#i-wa"/></svg>اطلب عبر واتساب</button>
-   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.</p>
+   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.<br>التوصيل 5$ لأي منطقة بلبنان، وممكن يتغيّر إذا المنطقة برّا نطاق شركة التوصيل. ما منربح عالتوصيل، هو أتعاب شركة التوصيل بس.</p>
   </div>
  </div>
 </div></div>
@@ -351,7 +352,7 @@ footer nav{display:flex;margin:0}
   <details><summary>أي خامة بختار؟</summary><p>للمجسمات والتحف PLA، للقطع العملية اللي بتتعرض لرطوبة PETG، للحرارة ABS، وللقطع المرنة TPU. شوف قسم <a href="#materials">الخامات</a> أو اسألنا.</p></details>
   <details><summary>شو يعني نسبة التعبئة؟</summary><p>هي كمية المادة جوّا القطعة. 15% خفيفة ومناسبة للمجسمات، 30% للاستخدام العادي، و60% أو أكثر للقطع اللي بتتحمل ضغط.</p></details>
   <details><summary>القياسات بالمعاينة غلط، ليش؟</summary><p>غالباً وحدة الملف مش مليمتر. غيّر «وحدة الملف» لسنتيمتر أو إنش، أو عدّل «الحجم %» لحتى توصل للقياس الصحيح.</p></details>
-  <details><summary>هل في توصيل؟</summary><p>إيه، منوصّل إلى كافة المناطق اللبنانية. منتفق معك على تفاصيل التوصيل عالواتساب.</p></details>
+  <details><summary>هل في توصيل؟</summary><p>إيه، منوصّل إلى كافة المناطق اللبنانية بـ 5$ للطلب كلّه (مش لكل قطعة). إذا المنطقة برّا نطاق شركة التوصيل، ممكن يتغيّر السعر ومنخبرك قبل. ما منربح عالتوصيل، المبلغ كلّه أتعاب شركة التوصيل. وفيك تستلم من المحل مجاناً.</p></details>
   <details><summary>هل ملفي بينرفع لمكان؟</summary><p>لا. المعاينة والحساب بيصيروا بالكامل على جهازك، والملف ما بيوصلنا إلا لما ترسله أنت بالواتساب.</p></details>
  </div>
 </div></section>
@@ -380,22 +381,27 @@ footer nav{display:flex;margin:0}
 <script>
 /* ============ الإعدادات: عدّل الأسعار والخيارات هنا ============ */
 var CFG={
+ // حسب دليل التسعير (أكتوبر 2026):
+ // التكلفة = (الغرامات × سعر الغرام) + (الساعات × تكلفة الساعة)
+ // السعر = التكلفة × هامش الفشل × هامش الربح ، ثم تقريب لأقرب 0.5$ ، ثم + التوصيل
  cur:'$',        // العملة
- min:5,          // أقل سعر للطلب
- setup:2,        // رسوم تجهيز لكل قطعة
- hourly:1.5,     // سعر ساعة الطابعة
- gph:12,         // غرامات بالساعة (سرعة تقريبية)
+ hourly:0.405,   // تكلفة ساعة الطابعة: كهرباء 0.25 + إهلاك 0.125 + صيانة 0.03
+ fail:1.10,      // هامش الفشل 10%
+ profit:1.50,    // هامش الربح 50%
+ round:0.5,      // تقريب السعر لأقرب 0.5$
+ delivery:5,     // التوصيل لأي منطقة بلبنان (مرة وحدة لكل طلب، بلا ربح)
+ gph:22,         // غرامات بالساعة (سرعة تقريبية للطابعة)
  wa:'96181424535',
  bed:[220,220,250], // مساحة الطابعة بالمليمتر
  maxMB:60,
  mats:{ // d: الكثافة غ/سم³ ، g: سعر الغرام ، والباقي للمقارنة (0-100)
-  PLA :{d:1.24,g:0.05,txt:'سهلة ودقيقة، للمجسمات والتحف والنماذج.',str:55,heat:30,flex:10},
-  PETG:{d:1.27,g:0.06,txt:'أقوى وبتتحمل الرطوبة، للقطع العملية.',str:75,heat:55,flex:25},
-  ABS :{d:1.04,g:0.06,txt:'بتتحمل الحرارة، للقطع الهندسية.',str:70,heat:80,flex:20},
-  TPU :{d:1.21,g:0.09,txt:'مرنة، للأغطية والحشوات.',str:45,heat:45,flex:95}
+  PLA :{d:1.24,g:0.021,txt:'سهلة ودقيقة، للمجسمات والتحف والنماذج.',str:55,heat:30,flex:10},
+  PETG:{d:1.27,g:0.025,txt:'أقوى وبتتحمل الرطوبة، للقطع العملية.',str:75,heat:55,flex:25},
+  ABS :{d:1.04,g:0.025,txt:'بتتحمل الحرارة، للقطع الهندسية.',str:70,heat:80,flex:20},
+  TPU :{d:1.21,g:0.038,txt:'مرنة، للأغطية والحشوات.',str:45,heat:45,flex:95}
  },
  infill:[[15,'خفيفة'],[30,'عادية'],[60,'قوية'],[100,'صلبة']], infDef:30,
- quality:[['n','عادية','0.2 مم',1],['f','دقيقة','0.12 مم',1.6]],
+ quality:[['n','عادية','0.2 مم',1],['f','دقيقة','0.16 مم',1.4]],
  colors:[['أبيض','#f2f2ee'],['أسود','#2b2e31'],['رمادي','#8f979b'],['أحمر','#c8312f'],['أزرق','#2563c9'],['أخضر','#2f9e55'],['أصفر','#f2b705'],['برتقالي','#e8731c'],['سماوي','#74d1e3']],
  colDef:8
 };
@@ -426,6 +432,7 @@ function radios(box,name,items,def){
   box.appendChild(inp);box.appendChild(lb)})}
 radios($('inf'),'inf',CFG.infill.map(function(x){return{v:x[0],html:x[0]+'%<small>'+x[1]+'</small>'}}),CFG.infDef);
 radios($('qual'),'qual',CFG.quality.map(function(x){return{v:x[0],html:x[1]+'<small>'+x[2]+'</small>'}}),CFG.quality[0][0]);
+radios($('dlv'),'dlv',[{v:'d',html:'توصيل<small>'+CFG.cur+CFG.delivery+' لكل لبنان</small>'},{v:'p',html:'استلام من المحل<small>مجاناً</small>'}],'d');
 radios($('colors'),'col',CFG.colors.map(function(x,i){return{v:i,html:'<span class="sr">'+x[0]+'</span>',title:x[0],style:'background:'+x[1]}}),CFG.colDef);
 function val(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
 function color(){return CFG.colors[+val('col')]}
@@ -523,7 +530,7 @@ function applyScale(){
  R.dirty=true}
 
 /* ---- pricing ---- */
-function money(x){return CFG.cur+x.toFixed(2)}
+function money(x){return CFG.cur+(x%1?x.toFixed(2):x.toFixed(0))}
 function fmtT(h){var m=Math.max(1,Math.round(h*60));return m<60?m+' د':Math.floor(m/60)+' س '+(m%60?(m%60)+' د':'')}
 function qtyVal(){var q=Math.round(+$('qty').value);return isFinite(q)&&q>=1?Math.min(500,q):1}
 function scaleVal(){var s=+$('scale').value;return isFinite(s)&&s>0?Math.max(10,Math.min(1000,s)):100}
@@ -537,16 +544,19 @@ function calc(){
  data.f=f;data.dimS=data.dim.map(function(x){return x*f});
  var vol=data.vol*f*f*f;
  var w=vol*m.d*(0.25+0.75*inf),h=w/CFG.gph*Q[3];
- var cMat=w*m.g,cTime=h*CFG.hourly,one=cMat+cTime+CFG.setup,total=Math.max(CFG.min,one*q);
- data.out={w:w,h:h,total:total,q:q,one:one};
+ var cMat=w*m.g*q,cTime=h*CFG.hourly*q,cost=cMat+cTime;
+ var print=Math.max(CFG.round,Math.round(cost*CFG.fail*CFG.profit/CFG.round)*CFG.round);
+ var del=val('dlv')==='d'?CFG.delivery:0,total=print+del;
+ data.out={w:w,h:h,total:total,q:q,print:print,del:del};
  var dimTxt=data.dimS.map(function(x){return x.toFixed(1)}).join(' × ');
  $('sDim').textContent=dimTxt;
  $('sVol').textContent=vol.toFixed(1)+' cm³';
  $('sW').textContent=(w*q<1000?Math.round(w*q)+' g':(w*q/1000).toFixed(2)+' kg');
  $('sT').textContent=fmtT(h*q);
  $('sP').textContent=money(total);
- $('bMat').textContent=money(cMat);$('bTime').textContent=money(cTime)+' ('+fmtT(h)+')';$('bSet').textContent=money(CFG.setup);
- $('bOne').textContent=money(one)+(one*q<CFG.min?' · الحد الأدنى للطلب '+money(CFG.min):'');
+ $('bMat').textContent=money(cMat);$('bTime').textContent=fmtT(h*q)+' · '+money(cTime);
+ $('bMarg').textContent=money(print-cost);$('bPrint').textContent=(q>1?money(print/q)+' للقطعة · ':'')+money(print);
+ $('bDel').textContent=del?money(del):'مجاناً (استلام)';
  // bed fit (any orientation)
  var a=data.dimS.slice().sort(function(x,y){return y-x}),b=CFG.bed.slice().sort(function(x,y){return y-x}),fits=a[0]<=b[0]&&a[1]<=b[1]&&a[2]<=b[2];
  var tiny=a[0]<3;
@@ -600,7 +610,7 @@ view.addEventListener('drop',function(e){load(e.dataTransfer.files[0])});
 $('qty').addEventListener('change',function(){this.value=qtyVal()});
 $('scale').addEventListener('change',function(){this.value=scaleVal()});
 document.querySelectorAll('.stepper button').forEach(function(b){b.addEventListener('click',function(){$('qty').value=Math.max(1,Math.min(500,qtyVal()+ +b.dataset.d));calc()})});
-document.querySelectorAll('#inf input,#qual input,#colors input').forEach(function(i){i.addEventListener('change',calc)});
+document.querySelectorAll('#inf input,#qual input,#colors input,#dlv input').forEach(function(i){i.addEventListener('change',calc)});
 if(matchMedia('(pointer:coarse)').matches)$('gesture').textContent='اسحب للتدوير · كبّر بإصبعين';
 
 $('send').addEventListener('click',function(){
@@ -616,7 +626,9 @@ $('send').addEventListener('click',function(){
   (u.value!=='1'||scaleVal()!==100?' (وحدة الملف: '+u.options[u.selectedIndex].text+'، الحجم '+scaleVal()+'%)':'')+
   '\n• الوزن التقريبي: '+Math.round(o.w*o.q)+' غ'+
   '\n• وقت الطباعة التقريبي: '+fmtT(o.h*o.q)+
-  '\n• السعر التقريبي: '+money(o.total)+
+  '\n• الاستلام: '+(o.del?'توصيل ('+money(o.del)+')':'من المحل')+
+  '\n• سعر الطباعة: '+money(o.print)+
+  '\n• المجموع التقريبي: '+money(o.total)+
   '\n\nرح ارفق الملف هون.';
  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
 </script>
