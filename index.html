@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كيان ميكر لاب | طباعة ثلاثية الأبعاد</title>
+<meta name="description" content="كيان ميكر لاب: ارفع ملف STL، شاهد المعاينة ثلاثية الأبعاد، واعرف السعر التقريبي فوراً.">
+<meta name="theme-color" content="#0e8a8a">
+<meta property="og:title" content="كيان ميكر لاب | طباعة ثلاثية الأبعاد">
+<meta property="og:description" content="ارفع ملف STL واعرف سعر طباعته فوراً، واطلب عبر واتساب.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 29 9v14l-13 7-13-7V9z' fill='%230e8a8a'/%3E%3Cpath d='M16 16 29 9M16 16 3 9M16 16v14' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#eef2f1;--surface:#fff;--surface-2:#f6f9f8;--text:#14232b;--muted:#53666e;
+ --accent:#0e8a8a;--accent-2:#0b6f6f;--accent-ink:#fff;--accent-soft:rgba(14,138,138,.1);
+ --signal:#f2b705;--signal-ink:#2b2100;--line:#cfd9d8;--stripe:rgba(14,138,138,.07);
+ --danger:#c0392b;--warn-bg:#fff6d9;--warn-ink:#6b4f00;--wa:#1fa855;
+ --shadow:0 1px 2px rgba(20,35,43,.06),0 8px 24px rgba(20,35,43,.06);
+ --r:14px;color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#0f1a1f;--surface:#17262d;--surface-2:#1c2e36;--text:#e8f0ef;--muted:#9bb0b6;
+ --accent:#3cc4c0;--accent-2:#5fd6d2;--accent-ink:#06201f;--accent-soft:rgba(60,196,192,.12);
+ --line:#28404a;--stripe:rgba(60,196,192,.07);--danger:#ff7b6b;--warn-bg:#3a3110;--warn-ink:#f6dc8a;
+ --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);color-scheme:dark}}
+:root[data-theme="dark"]{
+ --bg:#0f1a1f;--surface:#17262d;--surface-2:#1c2e36;--text:#e8f0ef;--muted:#9bb0b6;
+ --accent:#3cc4c0;--accent-2:#5fd6d2;--accent-ink:#06201f;--accent-soft:rgba(60,196,192,.12);
+ --line:#28404a;--stripe:rgba(60,196,192,.07);--danger:#ff7b6b;--warn-bg:#3a3110;--warn-ink:#f6dc8a;
+ --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 "IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+@media(max-width:480px){.wrap{padding:0 16px}}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;font-size:18px;white-space:nowrap}
+.logo svg{width:26px;height:26px}
+nav{display:flex;gap:20px;font-size:14.5px;margin-inline-start:auto}
+nav a{text-decoration:none;color:var(--muted);padding:4px 0}
+nav a:hover{color:var(--text)}
+@media(max-width:860px){nav{display:none}header .tools{margin-inline-start:auto}}
+.tools{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+.icon-btn svg{width:18px;height:18px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;padding:12px 20px;background:var(--accent);color:var(--accent-ink);font-family:inherit;font-weight:700;font-size:15px;line-height:1.3;text-decoration:none;cursor:pointer;transition:transform .12s,background .2s}
+.btn:hover{background:var(--accent-2)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.alt{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.alt:hover{background:var(--surface-2)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.wa:hover{background:#178f47}
+.btn.sm{padding:8px 12px;font-size:13.5px;border-radius:8px}
+.btn svg{width:18px;height:18px;flex:none}
+@media(max-width:480px){header .btn.cta-h{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(1200px 400px at 85% -10%,var(--accent-soft),transparent 70%),repeating-linear-gradient(0deg,var(--stripe) 0 1px,transparent 1px 12px);padding:48px 0 56px;border-bottom:1px solid var(--line)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:4px 12px;margin-bottom:14px}
+h1{font-size:clamp(30px,5.6vw,52px);line-height:1.2;margin:0 0 12px;font-weight:700;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);max-width:58ch;margin:0 0 18px;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}
+.chips li{display:flex;align-items:center;gap:6px;font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.chips svg{width:15px;height:15px;color:var(--accent)}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:start}
+@media(max-width:880px){.calc{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow)}
+.view{position:relative;aspect-ratio:4/3;border-radius:10px;background:var(--surface-2);border:2px dashed var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);cursor:pointer;transition:border-color .2s,background .2s}
+.view:hover,.view.drag{border-color:var(--accent)}
+.view.drag{background:var(--stripe)}
+.view.has{border-style:solid;cursor:grab}
+.view.has:active{cursor:grabbing}
+.view canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:none}
+.view.has canvas{display:block}
+.view.has .hint,.view.busy .hint{display:none}
+.hint{padding:16px}
+.hint .up{width:56px;height:56px;margin:0 auto 10px;border-radius:14px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.hint .up svg{width:28px;height:28px}
+.hint b{display:block;color:var(--text);font-size:18px;margin-bottom:2px}
+.hint small{display:block;margin-top:6px;font-size:12.5px}
+.loading{display:none;flex-direction:column;align-items:center;gap:10px;font-size:14px}
+.view.busy .loading{display:flex}
+.spin{width:34px;height:34px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--accent);animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.spin{animation-duration:2.4s}html{scroll-behavior:auto}}
+.vtools{position:absolute;bottom:10px;inset-inline:10px;display:none;justify-content:space-between;align-items:flex-end;gap:8px;pointer-events:none}
+.view.has .vtools{display:flex}
+.vtools .gesture{font-size:12px;background:color-mix(in srgb,var(--surface) 85%,transparent);border-radius:8px;padding:4px 8px;color:var(--muted)}
+.vtools .btns{display:flex;gap:6px;pointer-events:auto}
+.vtools .icon-btn{width:34px;height:34px;background:color-mix(in srgb,var(--surface) 90%,transparent)}
+.under{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
+.fname{font-size:13px;color:var(--muted);margin:0;direction:ltr;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1}
+.err{color:var(--danger);font-size:14px;margin:8px 0 0}
+.err:empty{display:none}
+
+fieldset{border:0;margin:0 0 14px;padding:0;min-width:0}
+legend,label.l{display:block;font-size:14px;font-weight:500;margin:0 0 6px;padding:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.row fieldset{margin:0}
+select,input[type=number]{width:100%;height:44px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);font:inherit}
+select:focus,input:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px var(--accent-soft)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px 4px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:500;line-height:1.25;min-height:40px}
+.seg label small{font-weight:400;font-size:11.5px;color:var(--muted)}
+.seg input:checked+label{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.12);color:var(--accent)}
+.seg input:focus-visible+label{outline:3px solid var(--signal);outline-offset:1px}
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.swatches input{position:absolute;opacity:0;pointer-events:none}
+.swatches label{width:32px;height:32px;border-radius:50%;cursor:pointer;border:1px solid rgba(0,0,0,.18);box-shadow:inset 0 0 0 2px var(--surface);position:relative}
+.swatches input:checked+label{outline:2px solid var(--accent);outline-offset:2px}
+.swatches input:focus-visible+label{outline:3px solid var(--signal)}
+.cname{font-weight:400;color:var(--muted);font-size:13px}
+.stepper{display:flex;height:44px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface-2)}
+.stepper button{width:44px;border:0;background:transparent;color:var(--text);font-size:20px;cursor:pointer;font-family:inherit}
+.stepper button:hover{background:var(--accent-soft)}
+.stepper input{border:0;border-radius:0;text-align:center;height:100%;background:transparent;-moz-appearance:textfield}
+.stepper input::-webkit-inner-spin-button{-webkit-appearance:none}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 12px;font-size:14px}
+.stats div{background:var(--surface-2);border-radius:10px;padding:8px 12px}
+.stats span{display:block;color:var(--muted);font-size:12px}
+.stats b{direction:ltr;display:inline-block;font-variant-numeric:tabular-nums}
+.warn{display:flex;gap:8px;align-items:flex-start;background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:13.5px;margin:0 0 12px}
+.warn svg{width:18px;height:18px;flex:none;margin-top:2px}
+.warn[hidden]{display:none}
+.price{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;margin-bottom:6px}
+.price b{font-size:36px;color:var(--accent);font-variant-numeric:tabular-nums;direction:ltr}
+details.bd{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+details.bd summary{cursor:pointer;width:max-content}
+.bd dl{display:grid;grid-template-columns:1fr auto;gap:2px 12px;margin:8px 0 0;background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.bd dt{margin:0}.bd dd{margin:0;direction:ltr;text-align:left;color:var(--text);font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+
+/* sections */
+section{padding:64px 0}
+.alt-bg{background:var(--surface);border-block:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,30px);margin:0 0 6px;line-height:1.3}
+.sub{color:var(--muted);margin:0 0 28px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.grid h3{margin:0 0 4px;font-size:18px}
+.grid p{margin:0;color:var(--muted);font-size:15px}
+.svc .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:12px}
+.svc .ic svg{width:24px;height:24px}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.steps li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 16px 16px}
+.steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--signal);color:var(--signal-ink);font-weight:700;margin-bottom:10px}
+.steps h3{margin:0 0 4px;font-size:17px}.steps p{margin:0;color:var(--muted);font-size:14.5px}
+
+.mats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.mat{border-top:4px solid var(--signal)}
+.mat h3{margin:0;font-size:20px;direction:ltr;text-align:right}
+.mat p{margin:4px 0 12px;color:var(--muted);font-size:15px}
+.meter{display:grid;grid-template-columns:80px 1fr;align-items:center;gap:4px 10px;font-size:13px;color:var(--muted)}
+.meter i{display:block;height:6px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}
+.meter i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--v);background:var(--accent);border-radius:3px}
+[dir=rtl] .meter i::after{inset:0 0 0 auto}
+
+.works .w{padding:0;overflow:hidden}
+.works .pic{aspect-ratio:4/3;display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--stripe) 0 8px,transparent 8px 16px),var(--surface-2);color:var(--accent);border-bottom:1px solid var(--line)}
+.works .pic svg{width:min(40%,110px);height:auto}
+.works .pic img{width:100%;height:100%;object-fit:cover}
+.works .txt{padding:14px 16px 16px}
+
+.faq{max-width:780px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+.faq summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:500;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0;padding:0 16px 16px;color:var(--muted)}
+
+.cta{text-align:center}
+.cta .card{padding:36px 20px;background:linear-gradient(135deg,var(--accent-soft),transparent 60%),var(--surface)}
+.cta .sub{margin-inline:auto}
+.cta .acts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+footer{padding:28px 0 36px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer nav{display:flex;margin:0}
+
+.fab{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .2s}
+.fab:hover{transform:scale(1.06)}
+.fab svg{width:30px;height:30px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+ <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0-4.5 4.5M12 4l4.5 4.5M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7"/></symbol>
+ <symbol id="i-warn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></symbol>
+ <symbol id="i-reset" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5"/></symbol>
+ <symbol id="i-file" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Zm0 0v5h5M12 17v-6m-3 3 3-3 3 3"/></symbol>
+ <symbol id="i-cube" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7L12 2.5Zm0 9.5 8.5-5M12 12 3.5 7M12 12v9.5"/></symbol>
+ <symbol id="i-gear" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M10.3 2h3.4l.5 2.6 1.8.8 2.2-1.5 2.4 2.4-1.5 2.2.8 1.8 2.6.5v3.4l-2.6.5-.8 1.8 1.5 2.2-2.4 2.4-2.2-1.5-1.8.8-.5 2.6h-3.4l-.5-2.6-1.8-.8-2.2 1.5-2.4-2.4 1.5-2.2-.8-1.8L2 13.7v-3.4l2.6-.5.8-1.8-1.5-2.2 2.4-2.4 2.2 1.5 1.8-.8L10.3 2ZM12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z"/></symbol>
+ <symbol id="i-mold" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 7h18v12H3zM3 11h18M8 7V4h8v3M8 15h.01M12 15h.01M16 15h.01"/></symbol>
+ <symbol id="i-gift" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 9h18v4H3zM5 13v8h14v-8M12 9v12M12 9S10.5 3.5 7.5 4.5 9 9 12 9Zm0 0s1.5-5.5 4.5-4.5S15 9 12 9Z"/></symbol>
+ <symbol id="i-ruler" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3 16.5 13.5-13.5 4.5 4.5L7.5 21 3 16.5Zm4-4 2 2m1-5 2 2m1-5 2 2"/></symbol>
+ <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+ <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+</svg>
+
+<header><div class="wrap">
+ <a class="logo" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 29 9v14l-13 7-13-7V9z" fill="var(--accent)"/><path d="M16 16 29 9M16 16 3 9M16 16v14" stroke="var(--accent-ink)" stroke-width="2" fill="none"/></svg>كيان ميكر لاب</a>
+ <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#how">كيف نشتغل</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
+ <div class="tools">
+  <button class="icon-btn" id="theme" type="button" aria-label="تبديل الوضع الليلي"><svg><use href="#i-moon"/></svg></button>
+  <a class="btn cta-h" href="#calc"><svg><use href="#i-up"/></svg>ارفع ملفك</a>
+ </div>
+</div></header>
+
+<main id="top">
+<div class="hero" id="calc"><div class="wrap">
+ <span class="eyebrow"><svg width="14" height="14"><use href="#i-cube"/></svg>طباعة ثلاثية الأبعاد حسب الطلب</span>
+ <h1>ارفع ملف STL،<br>وشوف <em>سعره فوراً</em>.</h1>
+ <p class="lead">معاينة ثلاثية الأبعاد لقطعتك، مع حساب الأبعاد والوزن ووقت الطباعة والسعر التقريبي قبل ما تتواصل معنا.</p>
+ <ul class="chips">
+  <li><svg><use href="#i-check"/></svg>معاينة فورية بالمتصفح</li>
+  <li><svg><use href="#i-check"/></svg>ملفك ما بينرفع لأي سيرفر</li>
+  <li><svg><use href="#i-check"/></svg>طلب مباشر عبر واتساب</li>
+ </ul>
+
+ <div class="calc">
+  <div class="card">
+   <div class="view" id="view" tabindex="0" role="button" aria-label="اختر ملف STL">
+    <div class="hint">
+     <div class="up"><svg><use href="#i-file"/></svg></div>
+     <b>اسحب ملف STL هنا</b>أو اضغط لاختيار الملف من جهازك
+     <small>حتى 60 ميغابايت · Binary أو ASCII</small>
+    </div>
+    <div class="loading" aria-hidden="true"><div class="spin"></div>جاري قراءة الملف…</div>
+    <canvas id="cv" aria-label="معاينة ثلاثية الأبعاد للقطعة"></canvas>
+    <div class="vtools">
+     <span class="gesture" id="gesture">اسحب للتدوير · كبّر بالعجلة أو بإصبعين</span>
+     <div class="btns">
+      <button class="icon-btn" type="button" id="resetV" aria-label="إعادة ضبط العرض" title="إعادة ضبط العرض"><svg><use href="#i-reset"/></svg></button>
+      <button class="icon-btn" type="button" id="newF" aria-label="اختيار ملف آخر" title="ملف آخر"><svg><use href="#i-up"/></svg></button>
+     </div>
+    </div>
+   </div>
+   <input type="file" id="file" accept=".stl,model/stl,application/sla" hidden>
+   <div class="under">
+    <p class="fname" id="fname"></p>
+    <button class="btn alt sm" type="button" id="demo"><svg><use href="#i-cube"/></svg>جرّب نموذج تجريبي</button>
+   </div>
+   <p class="err" id="err" role="alert"></p>
+  </div>
+
+  <div class="card">
+   <div class="row">
+    <div><label class="l" for="mat">الخامة</label><select id="mat"></select></div>
+    <div><label class="l" for="unit">وحدة الملف</label><select id="unit"><option value="1">مليمتر (mm)</option><option value="10">سنتيمتر (cm)</option><option value="25.4">إنش (in)</option></select></div>
+   </div>
+   <fieldset><legend>التعبئة الداخلية</legend><div class="seg" id="inf"></div></fieldset>
+   <fieldset><legend>الجودة</legend><div class="seg" id="qual"></div></fieldset>
+   <fieldset><legend>اللون: <span class="cname" id="cname"></span></legend><div class="swatches" id="colors"></div></fieldset>
+   <div class="row">
+    <div><label class="l" for="scale">الحجم %</label><input type="number" id="scale" min="10" max="1000" step="5" value="100" inputmode="numeric"></div>
+    <div><label class="l" for="qty">الكمية</label>
+     <div class="stepper"><button type="button" data-d="1" aria-label="زيادة">+</button><input type="number" id="qty" min="1" max="500" value="1" inputmode="numeric"><button type="button" data-d="-1" aria-label="إنقاص">−</button></div>
+    </div>
+   </div>
+   <div class="stats">
+    <div><span>الأبعاد (مم)</span><b id="sDim">-</b></div>
+    <div><span>الحجم</span><b id="sVol">-</b></div>
+    <div><span>الوزن التقريبي</span><b id="sW">-</b></div>
+    <div><span>وقت الطباعة</span><b id="sT">-</b></div>
+   </div>
+   <p class="warn" id="warn" hidden><svg><use href="#i-warn"/></svg><span id="warnTxt"></span></p>
+   <div class="price"><span>السعر التقريبي</span><b id="sP" aria-live="polite">-</b></div>
+   <details class="bd" id="bd"><summary>تفصيل السعر</summary>
+    <dl><dt>الخامة</dt><dd id="bMat">-</dd><dt>وقت الآلة</dt><dd id="bTime">-</dd><dt>تجهيز</dt><dd id="bSet">-</dd><dt>سعر القطعة الواحدة</dt><dd id="bOne">-</dd></dl>
+   </details>
+   <button class="btn wa" id="send" type="button" style="width:100%" disabled><svg><use href="#i-wa"/></svg>اطلب عبر واتساب</button>
+   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.</p>
+  </div>
+ </div>
+</div></div>
+
+<section id="how"><div class="wrap">
+ <h2>كيف نشتغل؟</h2><p class="sub">من الملف للقطعة بإيدك بأربع خطوات بسيطة.</p>
+ <ol class="steps">
+  <li><h3>ارفع الملف</h3><p>ارفع ملف STL وشوف المعاينة والأبعاد مباشرة.</p></li>
+  <li><h3>اختر المواصفات</h3><p>الخامة، اللون، التعبئة، الجودة والكمية، والسعر بيتحدث فوراً.</p></li>
+  <li><h3>أرسل الطلب</h3><p>زر واتساب بيجهزلك رسالة فيها كل التفاصيل، وأنت بترفق الملف.</p></li>
+  <li><h3>استلم قطعتك</h3><p>منراجع الملف، منأكدلك السعر والموعد، ومنبلش الطباعة.</p></li>
+ </ol>
+</div></section>
+
+<section id="services" class="alt-bg"><div class="wrap">
+ <h2>خدماتنا</h2><p class="sub">كل شي بيخص الطباعة ثلاثية الأبعاد، من التصميم لحد القطعة النهائية.</p>
+ <div class="grid">
+  <div class="card svc"><div class="ic"><svg><use href="#i-file"/></svg></div><h3>طباعة من ملفك</h3><p>عندك ملف STL؟ منطبعه بالخامة واللون والتعبئة اللي بتختارها.</p></div>
+  <div class="card svc"><div class="ic"><svg><use href="#i-ruler"/></svg></div><h3>قطع مفقودة وهندسة عكسية</h3><p>منقيس القطعة التالفة، منرسمها من جديد، ومنطبعها بنفس القياس.</p></div>
+  <div class="card svc"><div class="ic"><svg><use href="#i-mold"/></svg></div><h3>قوالب ومجسمات</h3><p>قوالب مخصصة وماكيتات ونماذج أولية للمشاريع والفعاليات.</p></div>
+  <div class="card svc"><div class="ic"><svg><use href="#i-gift"/></svg></div><h3>هدايا وتحف</h3><p>مجسمات وأسماء وتحف مخصصة لكل مناسبة.</p></div>
+ </div>
+</div></section>
+
+<section id="materials"><div class="wrap">
+ <h2>الخامات</h2><p class="sub">منقترح الأنسب لاستخدام قطعتك. المقارنة تقريبية للمساعدة بالاختيار.</p>
+ <div class="mats" id="matCards"></div>
+</div></section>
+
+<section id="works" class="alt-bg"><div class="wrap">
+ <h2>أمثلة من أعمالنا</h2><p class="sub">أنواع المشاريع اللي منفذها بالمختبر.</p>
+ <!-- لإضافة صورة حقيقية: استبدل <svg> داخل .pic بـ <img src="..." alt="..."> -->
+ <div class="grid works">
+  <div class="card w"><div class="pic"><svg><use href="#i-gear"/></svg></div><div class="txt"><h3>قطع هندسية ومفقودة</h3><p>تروس وقطع بديلة بحسب القياس.</p></div></div>
+  <div class="card w"><div class="pic"><svg><use href="#i-mold"/></svg></div><div class="txt"><h3>قوالب ومجسمات</h3><p>قوالب مخصصة وماكيتات ونماذج أولية.</p></div></div>
+  <div class="card w"><div class="pic"><svg><use href="#i-gift"/></svg></div><div class="txt"><h3>هدايا مخصصة</h3><p>مجسمات وتحف بأسماء وتصاميم خاصة.</p></div></div>
+ </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+ <h2>أسئلة شائعة</h2><p class="sub">إذا ما لقيت جوابك، راسلنا عالواتساب.</p>
+ <div class="faq">
+  <details><summary>هل السعر اللي بتطلعه الحاسبة نهائي؟</summary><p>لا، هو سعر تقديري مبني على حجم القطعة والخامة والتعبئة. منأكدلك السعر النهائي بعد ما نراجع الملف.</p></details>
+  <details><summary>ما عندي ملف STL، شو بعمل؟</summary><p>أرسلنا صورة الفكرة أو القطعة التالفة مع القياسات، ومنرسملك ياها كملف ثلاثي الأبعاد قبل الطباعة.</p></details>
+  <details><summary>أي خامة بختار؟</summary><p>للمجسمات والتحف PLA، للقطع العملية اللي بتتعرض لرطوبة PETG، للحرارة ABS، وللقطع المرنة TPU. شوف قسم <a href="#materials">الخامات</a> أو اسألنا.</p></details>
+  <details><summary>شو يعني نسبة التعبئة؟</summary><p>هي كمية المادة جوّا القطعة. 15% خفيفة ومناسبة للمجسمات، 30% للاستخدام العادي، و60% أو أكثر للقطع اللي بتتحمل ضغط.</p></details>
+  <details><summary>القياسات بالمعاينة غلط، ليش؟</summary><p>غالباً وحدة الملف مش مليمتر. غيّر «وحدة الملف» لسنتيمتر أو إنش، أو عدّل «الحجم %» لحتى توصل للقياس الصحيح.</p></details>
+  <details><summary>هل ملفي بينرفع لمكان؟</summary><p>لا. المعاينة والحساب بيصيروا بالكامل على جهازك، والملف ما بيوصلنا إلا لما ترسله أنت بالواتساب.</p></details>
+ </div>
+</div></section>
+
+<section class="cta"><div class="wrap"><div class="card">
+ <h2>ما عندك ملف جاهز؟</h2>
+ <p class="sub">أرسل صورة الفكرة أو القطعة التالفة ومنرسملك ياها.</p>
+ <div class="acts">
+  <a class="btn wa" id="wa2" href="https://wa.me/96181424535" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>تواصل عبر واتساب</a>
+  <a class="btn alt" href="#calc">عندي ملف، بدي احسب السعر</a>
+ </div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+ <a class="logo" href="#top" style="font-size:16px">كيان ميكر لاب</a>
+ <nav aria-label="روابط"><a href="#calc">احسب السعر</a><a href="#services">الخدمات</a><a href="#faq">أسئلة</a></nav>
+ <a href="https://wa.me/96181424535" dir="ltr" target="_blank" rel="noopener">+961 81 424 535</a>
+ <span>© <span id="yr">2026</span> كيان ميكر لاب</span>
+</div></footer>
+
+<a class="fab" href="https://wa.me/96181424535" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg><use href="#i-wa"/></svg></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ============ الإعدادات: عدّل الأسعار والخيارات هنا ============ */
+var CFG={
+ cur:'$',        // العملة
+ min:5,          // أقل سعر للطلب
+ setup:2,        // رسوم تجهيز لكل قطعة
+ hourly:1.5,     // سعر ساعة الطابعة
+ gph:12,         // غرامات بالساعة (سرعة تقريبية)
+ wa:'96181424535',
+ bed:[220,220,250], // مساحة الطابعة بالمليمتر
+ maxMB:60,
+ mats:{ // d: الكثافة غ/سم³ ، g: سعر الغرام ، والباقي للمقارنة (0-100)
+  PLA :{d:1.24,g:0.05,txt:'سهلة ودقيقة، للمجسمات والتحف والنماذج.',str:55,heat:30,flex:10},
+  PETG:{d:1.27,g:0.06,txt:'أقوى وبتتحمل الرطوبة، للقطع العملية.',str:75,heat:55,flex:25},
+  ABS :{d:1.04,g:0.06,txt:'بتتحمل الحرارة، للقطع الهندسية.',str:70,heat:80,flex:20},
+  TPU :{d:1.21,g:0.09,txt:'مرنة، للأغطية والحشوات.',str:45,heat:45,flex:95}
+ },
+ infill:[[15,'خفيفة'],[30,'عادية'],[60,'قوية'],[100,'صلبة']], infDef:30,
+ quality:[['n','عادية','0.2 مم',1],['f','دقيقة','0.12 مم',1.6]],
+ colors:[['أبيض','#f2f2ee'],['أسود','#2b2e31'],['رمادي','#8f979b'],['أحمر','#c8312f'],['أزرق','#2563c9'],['أخضر','#2f9e55'],['أصفر','#f2b705'],['برتقالي','#e8731c'],['تركوازي','#0e8a8a']],
+ colDef:8
+};
+/* ================================================================= */
+
+var $=function(i){return document.getElementById(i)};
+var view=$('view'),file=$('file'),err=$('err'),data=null,tris=null;
+$('yr').textContent=new Date().getFullYear();
+
+/* ---- theme ---- */
+(function(){
+ var root=document.documentElement,btn=$('theme');
+ function sys(){return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+ function cur(){return root.dataset.theme||sys()}
+ function paint(){btn.innerHTML='<svg><use href="#i-'+(cur()==='dark'?'sun':'moon')+'"/></svg>'}
+ try{var s=localStorage.getItem('kml-theme');if(s)root.dataset.theme=s}catch(e){}
+ paint();
+ btn.addEventListener('click',function(){var t=cur()==='dark'?'light':'dark';root.dataset.theme=t;try{localStorage.setItem('kml-theme',t)}catch(e){}paint()});
+})();
+
+/* ---- build controls ---- */
+var matSel=$('mat');
+Object.keys(CFG.mats).forEach(function(k){var o=document.createElement('option');o.value=o.textContent=k;matSel.appendChild(o)});
+function radios(box,name,items,def){
+ items.forEach(function(it,i){
+  var id=name+i,inp=document.createElement('input');inp.type='radio';inp.name=name;inp.id=id;inp.value=it.v;if(it.v==def)inp.checked=true;
+  var lb=document.createElement('label');lb.htmlFor=id;lb.innerHTML=it.html;if(it.title)lb.title=it.title;if(it.style)lb.style.cssText=it.style;
+  box.appendChild(inp);box.appendChild(lb)})}
+radios($('inf'),'inf',CFG.infill.map(function(x){return{v:x[0],html:x[0]+'%<small>'+x[1]+'</small>'}}),CFG.infDef);
+radios($('qual'),'qual',CFG.quality.map(function(x){return{v:x[0],html:x[1]+'<small>'+x[2]+'</small>'}}),CFG.quality[0][0]);
+radios($('colors'),'col',CFG.colors.map(function(x,i){return{v:i,html:'<span class="sr">'+x[0]+'</span>',title:x[0],style:'background:'+x[1]}}),CFG.colDef);
+function val(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
+function color(){return CFG.colors[+val('col')]}
+function qual(){var v=val('qual');return CFG.quality.filter(function(q){return q[0]===v})[0]}
+$('cname').textContent=color()[0];
+
+/* material cards */
+$('matCards').innerHTML=Object.keys(CFG.mats).map(function(k){var m=CFG.mats[k];
+ return '<div class="card mat"><h3>'+k+'</h3><p>'+m.txt+'</p><div class="meter">'+
+ '<span>القوة</span><i style="--v:'+m.str+'%"></i><span>تحمّل الحرارة</span><i style="--v:'+m.heat+'%"></i><span>المرونة</span><i style="--v:'+m.flex+'%"></i></div></div>'}).join('');
+
+/* ---- STL parsing ---- */
+function parseSTL(buf){
+ var dv=new DataView(buf),t;
+ if(buf.byteLength>=84){var n=dv.getUint32(80,true);
+  if(84+n*50===buf.byteLength){t=new Float32Array(n*9);var o=84;
+   for(var i=0;i<n;i++){o+=12;for(var j=0;j<9;j++){t[i*9+j]=dv.getFloat32(o,true);o+=4}o+=2}return t}}
+ var txt=new TextDecoder().decode(buf);
+ if(!/^\s*solid/i.test(txt))throw new Error('bad');
+ var re=/vertex\s+(\S+)\s+(\S+)\s+(\S+)/g,a=[],m;
+ while((m=re.exec(txt)))a.push(+m[1],+m[2],+m[3]);
+ if(!a.length||a.length%9)throw new Error('bad');
+ return new Float32Array(a)}
+
+function analyze(t){
+ var mn=[Infinity,Infinity,Infinity],mx=[-Infinity,-Infinity,-Infinity],vol=0;
+ for(var i=0;i<t.length;i+=9){
+  for(var k=0;k<9;k+=3)for(var a=0;a<3;a++){var v=t[i+k+a];if(!isFinite(v))throw new Error('nan');if(v<mn[a])mn[a]=v;if(v>mx[a])mx[a]=v}
+  var ax=t[i],ay=t[i+1],az=t[i+2],bx=t[i+3],by=t[i+4],bz=t[i+5],cx=t[i+6],cy=t[i+7],cz=t[i+8];
+  vol+=(ax*(by*cz-bz*cy)-ay*(bx*cz-bz*cx)+az*(bx*cy-by*cx))/6}
+ return{mn:mn,mx:mx,dim:[mx[0]-mn[0],mx[1]-mn[1],mx[2]-mn[2]],vol:Math.abs(vol)/1000}} // cm³ assuming mm
+
+/* ---- 3D preview ---- */
+var R=null;
+function initGL(){
+ if(R)return R;
+ if(typeof THREE==='undefined')return null;
+ try{
+  var cv=$('cv'),r=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,.1,20000),grp=new THREE.Group();
+  sc.add(grp,new THREE.HemisphereLight(0xffffff,0x445566,.85));
+  var dl=new THREE.DirectionalLight(0xffffff,.75);dl.position.set(1,2,3);sc.add(dl);
+  var dl2=new THREE.DirectionalLight(0xffffff,.25);dl2.position.set(-2,1,-2);sc.add(dl2);
+  R={r:r,sc:sc,cam:cam,grp:grp,auto:true,dist:100,pitch:.42,ty:0,size:50,mesh:null,grid:null,dirty:true};
+  var pts=new Map(),lx=0,ly=0,pd=0;
+  function stop(){R.auto=false}
+  cv.addEventListener('pointerdown',function(e){pts.set(e.pointerId,{x:e.clientX,y:e.clientY});cv.setPointerCapture(e.pointerId);stop();
+   if(pts.size===1){lx=e.clientX;ly=e.clientY}else if(pts.size===2)pd=pdist()});
+  cv.addEventListener('pointermove',function(e){if(!pts.has(e.pointerId))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+   if(pts.size===1){grp.rotation.y+=(e.clientX-lx)*.01;R.pitch=Math.max(-.2,Math.min(1.45,R.pitch+(e.clientY-ly)*.008));lx=e.clientX;ly=e.clientY;R.dirty=true}
+   else if(pts.size===2){var d=pdist();if(pd)zoom(pd/d);pd=d}});
+  function up(e){pts.delete(e.pointerId);if(pts.size===1){var p=pts.values().next().value;lx=p.x;ly=p.y}pd=0}
+  cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+  function pdist(){var a=Array.from(pts.values());return Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}
+  function zoom(f){R.dist=Math.max(R.size*.6,Math.min(R.size*10,R.dist*f));R.dirty=true}
+  cv.addEventListener('wheel',function(e){e.preventDefault();stop();zoom(e.deltaY>0?1.1:.9)},{passive:false});
+  cv.addEventListener('dblclick',resetView);
+  function size(){var w=cv.clientWidth,h=cv.clientHeight;if(w&&h){r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();R.dirty=true}}
+  new ResizeObserver(size).observe(cv);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,vis=true;
+  new IntersectionObserver(function(en){vis=en[0].isIntersecting}).observe(view);
+  (function loop(){requestAnimationFrame(loop);if(!view.classList.contains('has')||!vis)return;
+   if(R.auto&&!reduce){grp.rotation.y+=.006;R.dirty=true}
+   if(!R.dirty)return;R.dirty=false;
+   cam.position.set(0,R.ty+R.dist*Math.sin(R.pitch),R.dist*Math.cos(R.pitch));cam.lookAt(0,R.ty,0);r.render(sc,cam)})();
+ }catch(e){R=null}
+ return R}
+
+function resetView(){if(!R)return;R.grp.rotation.set(0,0,0);R.pitch=.42;R.dist=R.size*2.3;R.auto=true;R.dirty=true}
+
+function show(t,info){
+ var g=initGL();if(!g)return false;
+ if(g.mesh){g.grp.remove(g.mesh);g.mesh.geometry.dispose();g.mesh.material.dispose()}
+ var geo=new THREE.BufferGeometry();
+ geo.setAttribute('position',new THREE.BufferAttribute(t,3));
+ geo.translate(-(info.mn[0]+info.mx[0])/2,-(info.mn[1]+info.mx[1])/2,-info.mn[2]); // centre XY, bottom on plate
+ geo.computeVertexNormals();
+ var mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:color()[1],roughness:.55,metalness:.05}));
+ mesh.rotation.x=-Math.PI/2; // STL is Z-up
+ g.grp.add(mesh);g.mesh=mesh;
+ if(!g.grid){
+  var bed=new THREE.Group(),bx=CFG.bed[0],by=CFG.bed[1];
+  var plate=new THREE.Mesh(new THREE.PlaneGeometry(bx,by),new THREE.MeshBasicMaterial({color:0x0e8a8a,transparent:true,opacity:.07,side:THREE.DoubleSide,depthWrite:false}));
+  plate.rotation.x=-Math.PI/2;bed.add(plate);
+  var gh=new THREE.GridHelper(Math.max(bx,by),Math.max(bx,by)/10,0x0e8a8a,0x7f9a9a);gh.material.transparent=true;gh.material.opacity=.35;bed.add(gh);
+  g.grp.add(bed);g.grid=bed}
+ return true}
+
+function applyScale(){
+ if(!R||!R.mesh||!data)return;
+ var f=data.f;R.mesh.scale.setScalar(f);
+ var d=data.dimS;R.size=Math.max(d[0],d[1],d[2])||50;R.ty=d[2]/2;
+ if(R.lastF!==f){R.dist=R.size*2.3;R.lastF=f}
+ R.dirty=true}
+
+/* ---- pricing ---- */
+function money(x){return CFG.cur+x.toFixed(2)}
+function fmtT(h){var m=Math.max(1,Math.round(h*60));return m<60?m+' د':Math.floor(m/60)+' س '+(m%60?(m%60)+' د':'')}
+function qtyVal(){var q=Math.round(+$('qty').value);return isFinite(q)&&q>=1?Math.min(500,q):1}
+function scaleVal(){var s=+$('scale').value;return isFinite(s)&&s>0?Math.max(10,Math.min(1000,s)):100}
+
+function calc(){
+ $('cname').textContent=color()[0];
+ if(R&&R.mesh){R.mesh.material.color.set(color()[1]);R.dirty=true}
+ if(!data)return;
+ var m=CFG.mats[matSel.value],inf=+val('inf')/100,q=qtyVal(),Q=qual();
+ var f=+$('unit').value*scaleVal()/100;
+ data.f=f;data.dimS=data.dim.map(function(x){return x*f});
+ var vol=data.vol*f*f*f;
+ var w=vol*m.d*(0.25+0.75*inf),h=w/CFG.gph*Q[3];
+ var cMat=w*m.g,cTime=h*CFG.hourly,one=cMat+cTime+CFG.setup,total=Math.max(CFG.min,one*q);
+ data.out={w:w,h:h,total:total,q:q,one:one};
+ var dimTxt=data.dimS.map(function(x){return x.toFixed(1)}).join(' × ');
+ $('sDim').textContent=dimTxt;
+ $('sVol').textContent=vol.toFixed(1)+' cm³';
+ $('sW').textContent=(w*q<1000?Math.round(w*q)+' g':(w*q/1000).toFixed(2)+' kg');
+ $('sT').textContent=fmtT(h*q);
+ $('sP').textContent=money(total);
+ $('bMat').textContent=money(cMat);$('bTime').textContent=money(cTime)+' ('+fmtT(h)+')';$('bSet').textContent=money(CFG.setup);
+ $('bOne').textContent=money(one)+(one*q<CFG.min?' · الحد الأدنى للطلب '+money(CFG.min):'');
+ // bed fit (any orientation)
+ var a=data.dimS.slice().sort(function(x,y){return y-x}),b=CFG.bed.slice().sort(function(x,y){return y-x}),fits=a[0]<=b[0]&&a[1]<=b[1]&&a[2]<=b[2];
+ var tiny=a[0]<3;
+ $('warn').hidden=fits&&!tiny;
+ $('warnTxt').textContent=!fits?'القطعة أكبر من مساحة الطابعة ('+CFG.bed.join('×')+' مم). فينا نقسمها لأجزاء ونجمعها، تواصل معنا للتأكيد.'
+  :'القطعة صغيرة كتير ('+dimTxt+' مم). تأكد من «وحدة الملف» أو كبّر «الحجم %».';
+ $('send').disabled=false;
+ applyScale()}
+
+/* ---- loading ---- */
+function setBusy(b){view.classList.toggle('busy',b);view.setAttribute('aria-busy',b)}
+function use(t,name){
+ var info=analyze(t);
+ if(!t.length||!(info.vol>0))throw new Error('empty');
+ data=info;data.name=name;tris=t;
+ $('fname').textContent=name;
+ var ok=show(t,info);
+ if(ok){view.classList.add('has');view.setAttribute('aria-label','معاينة '+name+'، اضغط Enter لاختيار ملف آخر')}
+ else err.textContent='المعاينة ثلاثية الأبعاد غير مدعومة على هذا المتصفح، بس الحساب شغال.';
+ calc();if(ok)resetView()}
+
+function fail(msg){setBusy(false);data=null;$('send').disabled=true;err.textContent=msg||'تعذّر قراءة الملف. تأكد إنه ملف STL سليم.'}
+function load(f){
+ err.textContent='';
+ if(!f)return;
+ if(!/\.stl$/i.test(f.name))return fail('الملف لازم يكون بصيغة STL.');
+ if(f.size>CFG.maxMB*1048576)return fail('حجم الملف كبير. الحد الأقصى '+CFG.maxMB+' ميغابايت.');
+ setBusy(true);
+ f.arrayBuffer().then(function(b){
+  return new Promise(function(res){setTimeout(function(){res(b)},30)})
+ }).then(function(b){use(parseSTL(b),f.name);setBusy(false)}).catch(function(){fail()})}
+
+function demo(){
+ err.textContent='';
+ if(typeof THREE==='undefined')return fail('تعذّر تحميل مكتبة المعاينة. تأكد من الاتصال بالإنترنت.');
+ var g=new THREE.TorusKnotGeometry(18,6,180,28).toNonIndexed();
+ g.rotateX(Math.PI/2);
+ use(new Float32Array(g.attributes.position.array),'نموذج-تجريبي.stl');g.dispose()}
+
+/* ---- events ---- */
+view.addEventListener('click',function(e){if(!view.classList.contains('has')&&!view.classList.contains('busy'))file.click()});
+view.addEventListener('keydown',function(e){if(e.target===view&&(e.key==='Enter'||e.key===' ')){e.preventDefault();file.click()}});
+$('newF').addEventListener('click',function(e){e.stopPropagation();file.click()});
+$('resetV').addEventListener('click',function(e){e.stopPropagation();resetView()});
+$('demo').addEventListener('click',demo);
+file.addEventListener('change',function(){load(file.files[0]);file.value=''});
+['dragenter','dragover'].forEach(function(n){view.addEventListener(n,function(e){e.preventDefault();view.classList.add('drag')})});
+['dragleave','drop'].forEach(function(n){view.addEventListener(n,function(e){e.preventDefault();view.classList.remove('drag')})});
+view.addEventListener('drop',function(e){load(e.dataTransfer.files[0])});
+['mat','unit','scale','qty'].forEach(function(i){$(i).addEventListener('input',calc)});
+$('qty').addEventListener('change',function(){this.value=qtyVal()});
+$('scale').addEventListener('change',function(){this.value=scaleVal()});
+document.querySelectorAll('.stepper button').forEach(function(b){b.addEventListener('click',function(){$('qty').value=Math.max(1,Math.min(500,qtyVal()+ +b.dataset.d));calc()})});
+document.querySelectorAll('#inf input,#qual input,#colors input').forEach(function(i){i.addEventListener('change',calc)});
+if(matchMedia('(pointer:coarse)').matches)$('gesture').textContent='اسحب للتدوير · كبّر بإصبعين';
+
+$('send').addEventListener('click',function(){
+ if(!data||!data.out)return;var o=data.out,Q=qual(),u=$('unit');
+ var msg='مرحباً كيان ميكر لاب، بدي اطبع هالملف:\n'+
+  '• الملف: '+data.name+
+  '\n• الخامة: '+matSel.value+
+  '\n• اللون: '+color()[0]+
+  '\n• التعبئة: '+val('inf')+'%'+
+  '\n• الجودة: '+Q[1]+' ('+Q[2]+')'+
+  '\n• الكمية: '+o.q+
+  '\n• الأبعاد: '+data.dimS.map(function(x){return x.toFixed(1)}).join(' × ')+' مم'+
+  (u.value!=='1'||scaleVal()!==100?' (وحدة الملف: '+u.options[u.selectedIndex].text+'، الحجم '+scaleVal()+'%)':'')+
+  '\n• الوزن التقريبي: '+Math.round(o.w*o.q)+' غ'+
+  '\n• وقت الطباعة التقريبي: '+fmtT(o.h*o.q)+
+  '\n• السعر التقريبي: '+money(o.total)+
+  '\n\nرح ارفق الملف هون.';
+ window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
+</script>
+</body>
+</html>
