@@ -158,19 +158,47 @@ details.bd summary{cursor:pointer;width:max-content}
 .bd dt{margin:0}.bd dd{margin:0;direction:rtl;text-align:left;color:var(--text);font-variant-numeric:tabular-nums}
 .note{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 
+/* highlights */
+.hl{padding:36px 0}
+.hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.hl-grid{grid-template-columns:1fr 1fr}}
+.hl-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.hl-item .ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.hl-item .ic svg{width:24px;height:24px}
+.hl-item h3{margin:0 0 2px;font-size:16px}
+.hl-item p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
+@media(max-width:480px){.hl-item{flex-direction:column;gap:8px;padding:14px}.hl-item h3{font-size:15px}.hl-item p{font-size:12.5px}}
+
 /* shop */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.tiles{grid-template-columns:repeat(2,1fr);gap:10px}}
+.tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:right;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 16px 16px;font:inherit;color:var(--text);cursor:pointer;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.tile:hover{transform:translateY(-2px);border-color:var(--accent)}
+.tile .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:6px}
+.tile .ic svg{width:28px;height:28px}
+.tile b{font-size:17px}
+.tile small{font-size:13px;color:var(--muted)}
+.tile .thumbs{display:flex;margin-top:8px;padding-inline-start:6px}
+.tile .thumbs img{flex:none;width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--surface);margin-inline-start:-8px;background:var(--surface-2)}
+.tile .go{position:absolute;top:16px;left:14px;color:var(--muted)}
+.tile .go svg{width:18px;height:18px}
+.shopbar{display:flex;align-items:center;gap:12px;margin:0 0 14px;flex-wrap:wrap}
+.shopbar h3{margin:0;font-size:20px;display:flex;align-items:center;gap:8px}
+.shopbar h3 svg{width:24px;height:24px;color:var(--accent)}
+.back{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:7px 14px 7px 12px;font:inherit;font-size:14px;cursor:pointer}
+.back svg{width:16px;height:16px}
 .cats{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin:0 0 14px;scrollbar-width:thin}
-.cats button{flex:none;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
-.cats button small{color:var(--muted);font-size:12px}
+.cats button{flex:none;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:7px 12px;font:inherit;font-size:13.5px;cursor:pointer;white-space:nowrap}
+.cats button svg{width:16px;height:16px;color:var(--accent)}
 .cats button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.cats button[aria-pressed=true] small{color:inherit;opacity:.8}
+.cats button[aria-pressed=true] svg{color:inherit}
 .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 @media(max-width:480px){.products{grid-template-columns:1fr 1fr;gap:10px}}
 .prod{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.prod .pic{aspect-ratio:1/1;display:grid;place-items:center;font-size:52px;background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 24px,var(--surface-2);border-bottom:1px solid var(--line)}
+.prod .pic{aspect-ratio:1/1;display:grid;place-items:center;color:var(--accent);background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 24px,var(--surface-2);border-bottom:1px solid var(--line)}
+.prod .pic svg{width:30%;height:30%;opacity:.55}
 .prod .pic img{width:100%;height:100%;object-fit:cover}
 .prod .body{padding:12px;display:flex;flex-direction:column;gap:4px;flex:1}
-.prod .cat{font-size:12px;color:var(--accent);font-weight:500}
 .prod h3{margin:0;font-size:15.5px;line-height:1.4}
 .prod .meta{font-size:12.5px;color:var(--muted)}
 .prod .buy{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px}
@@ -180,6 +208,7 @@ details.bd summary{cursor:pointer;width:max-content}
 .prod .cr a{color:inherit}
 @media(max-width:480px){.prod .buy{flex-direction:column;align-items:stretch}.prod .pr{text-align:right}.prod h3{font-size:14.5px}}
 .shop-note{font-size:13px;color:var(--muted);margin:16px 0 0}
+[hidden]{display:none!important}
 
 /* sections */
 section{padding:64px 0}
@@ -249,13 +278,26 @@ footer nav{display:flex;margin:0}
  <symbol id="i-mold" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 7h18v12H3zM3 11h18M8 7V4h8v3M8 15h.01M12 15h.01M16 15h.01"/></symbol>
  <symbol id="i-gift" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 9h18v4H3zM5 13v8h14v-8M12 9v12M12 9S10.5 3.5 7.5 4.5 9 9 12 9Zm0 0s1.5-5.5 4.5-4.5S15 9 12 9Z"/></symbol>
  <symbol id="i-ruler" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3 16.5 13.5-13.5 4.5 4.5L7.5 21 3 16.5Zm4-4 2 2m1-5 2 2m1-5 2 2"/></symbol>
+ <symbol id="c-kitchen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></g></symbol>
+ <symbol id="c-keys" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 17.4A2 2 0 0 0 2 18.8V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.2a2 2 0 0 0 1.4-.6l.8-.8a6.5 6.5 0 1 0-4-4Z"/><circle cx="16.5" cy="7.5" r="1.2"/></g></symbol>
+ <symbol id="c-desk" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5ZM15 5l4 4"/></g></symbol>
+ <symbol id="c-toys" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.39 4.39a1 1 0 0 0 1.68-.47 2.5 2.5 0 1 1 3.01 3.01 1 1 0 0 0-.47 1.68l1.68 1.68a2.41 2.41 0 0 1 0 3.41l-1.68 1.69a1 1 0 0 1-1.68-.47 2.5 2.5 0 1 0-3.01 3.01 1 1 0 0 1 .47 1.68l-1.68 1.68a2.41 2.41 0 0 1-3.41 0l-1.69-1.68a1 1 0 0 0-1.68.47 2.5 2.5 0 1 1-3.01-3.01 1 1 0 0 0 .47-1.68l-1.68-1.68a2.41 2.41 0 0 1 0-3.41l1.68-1.69a1 1 0 0 1 1.68.47 2.5 2.5 0 1 0 3.01-3.01 1 1 0 0 1-.47-1.68l1.68-1.68a2.41 2.41 0 0 1 3.41 0Z"/></g></symbol>
+ <symbol id="c-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2ZM9 22v-8h6v8"/></g></symbol>
+ <symbol id="c-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.2-4.8A2 2 0 0 1 7 6h10a2 2 0 0 1 1.8 1.2L21 12v5h-2M3 12h18M9.5 17h5"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></g></symbol>
+ <symbol id="c-tools" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></g></symbol>
+ <symbol id="c-gifts" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18v4H3zM5 13v8h14v-8M12 9v12M12 9S10.5 3.5 7.5 4.5 9 9 12 9Zm0 0s1.5-5.5 4.5-4.5S15 9 12 9Z"/></g></symbol>
+ <symbol id="i-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></g></symbol>
+ <symbol id="i-wallet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></g></symbol>
+ <symbol id="i-zap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14Z"/></g></symbol>
+ <symbol id="i-fwd" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></g></symbol>
+ <symbol id="i-back" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></g></symbol>
  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
 </svg>
 
 <header><div class="wrap">
  <a class="logo" href="#top" aria-label="كيان ميكر لاب – الرئيسية"><svg class="m" aria-hidden="true"><use href="#logo-mark"/></svg><svg class="w" aria-hidden="true"><use href="#logo-word"/></svg></a>
- <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#shop">المتجر</a><a href="#how">كيف نشتغل</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
+ <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#how">كيف نشتغل</a><a href="#shop">المتجر</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
  <div class="tools">
   <button class="icon-btn" id="theme" type="button" aria-label="تبديل الوضع الليلي"><svg><use href="#i-moon"/></svg></button>
   <a class="btn cta-h" href="#calc"><svg><use href="#i-up"/></svg>ارفع ملفك</a>
@@ -333,14 +375,14 @@ footer nav{display:flex;margin:0}
  </div>
 </div></div>
 
-<section id="shop" class="alt-bg"><div class="wrap">
- <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. اختار القسم واطلب مباشرة عبر واتساب.</p>
- <div class="cats" id="cats" role="toolbar" aria-label="أقسام المتجر"></div>
- <div class="products" id="products"></div>
- <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل، ومنأكدها عالواتساب. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
-</div></section>
+<section class="hl" aria-label="معلومات مهمة"><div class="wrap"><div class="hl-grid">
+ <div class="hl-item"><div class="ic"><svg><use href="#i-truck"/></svg></div><div><h3>توصيل لكل لبنان</h3><p>5$ للطلب كلّه، أو استلام مجاني من المحل.</p></div></div>
+ <div class="hl-item"><div class="ic"><svg><use href="#i-wallet"/></svg></div><div><h3>الدفع عبر Whish Money</h3><p>بتدفع بعد ما نأكدلك السعر عالواتساب.</p></div></div>
+ <div class="hl-item"><div class="ic"><svg><use href="#i-zap"/></svg></div><div><h3>سعر فوري لملفك</h3><p>ارفع ملف STL وشوف السعر لحظتها.</p></div></div>
+ <div class="hl-item"><div class="ic"><svg><use href="#i-ruler"/></svg></div><div><h3>تصميم وهندسة عكسية</h3><p>ما عندك ملف؟ منرسملك القطعة من صورة أو قياس.</p></div></div>
+</div></div></section>
 
-<section id="how"><div class="wrap">
+<section id="how" class="alt-bg"><div class="wrap">
  <h2>كيف نشتغل؟</h2><p class="sub">من الملف للقطعة بإيدك بأربع خطوات بسيطة.</p>
  <ol class="steps">
   <li><h3>ارفع الملف</h3><p>ارفع ملف STL وشوف المعاينة والأبعاد مباشرة.</p></li>
@@ -348,6 +390,17 @@ footer nav{display:flex;margin:0}
   <li><h3>أرسل الطلب</h3><p>زر واتساب بيجهزلك رسالة فيها كل التفاصيل، وأنت بترفق الملف.</p></li>
   <li><h3>استلم قطعتك</h3><p>منراجع الملف، منأكدلك السعر والموعد، ومنوصّلك القطعة لأي منطقة بلبنان.</p></li>
  </ol>
+</div></section>
+
+<section id="shop"><div class="wrap">
+ <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. اختار القسم، وبعدين اطلب مباشرة عبر واتساب.</p>
+ <div class="tiles" id="tiles"></div>
+ <div id="catView" hidden>
+  <div class="shopbar"><button class="back" type="button" id="backCats"><svg><use href="#i-back"/></svg>كل الأقسام</button><h3 id="catTitle"></h3></div>
+  <div class="cats" id="cats" role="toolbar" aria-label="أقسام المتجر"></div>
+  <div class="products" id="products"></div>
+ </div>
+ <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل، ومنأكدها عالواتساب. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
 </div></section>
 
 <section id="services" class="alt-bg"><div class="wrap">
@@ -478,7 +531,7 @@ $('matCards').innerHTML=Object.keys(CFG.mats).map(function(k){var m=CFG.mats[k];
  '<span>القوة</span><i style="--v:'+m.str+'%"></i><span>تحمّل الحرارة</span><i style="--v:'+m.heat+'%"></i><span>المرونة</span><i style="--v:'+m.flex+'%"></i></div></div>'}).join('');
 
 /* ---- shop ---- */
-var CATS={kitchen:['المطبخ','🍽️'],keys:['ميداليات','🔑'],desk:['المكتب','🖊️'],toys:['ألعاب وفيدجت','🧸'],home:['البيت والديكور','🪴'],car:['السيارة','🚗'],tools:['أدوات','🛠️'],gifts:['هدايا','🎁']};
+var CATS={kitchen:'المطبخ',keys:'ميداليات',desk:'المكتب',toys:'ألعاب وفيدجت',home:'البيت والديكور',car:'السيارة',tools:'أدوات',gifts:'هدايا'}; // الأيقونة: c-<المفتاح>
 // g: الوزن بالغرام ، h: وقت الطباعة بالساعات ، img: مسار الصورة (مثلاً assets/products/83628.jpg)
 var PRODUCTS=[
  {id:83628,c:'kitchen',n:'مشبك أكياس',g:12,h:0.77,by:'neoyarus',lic:'CC BY-SA',src:'https://www.printables.com/model/83628-print-in-place-bag-clip',img:'assets/products/83628.jpg'},
@@ -519,26 +572,33 @@ var PRODUCTS=[
 ];
 function priceOf(g,h){var c=(g*CFG.mats.PLA.g+h*CFG.hourly)*CFG.fail*CFG.profit;return Math.max(CFG.round,Math.round(c/CFG.round)*CFG.round)}
 (function(){
- var catBox=$('cats'),box=$('products'),cur='all';
+ var tiles=$('tiles'),view=$('catView'),catBox=$('cats'),box=$('products'),cur=null;
  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return'&#'+c.charCodeAt(0)+';'})}
- function btn(k,label,icon,n){return '<button type="button" data-c="'+k+'" aria-pressed="'+(k===cur)+'">'+(icon?icon+' ':'')+label+' <small>'+n+'</small></button>'}
- function renderCats(){
-  var h=btn('all','الكل','',PRODUCTS.length);
-  Object.keys(CATS).forEach(function(k){var n=PRODUCTS.filter(function(p){return p.c===k}).length;if(n)h+=btn(k,CATS[k][0],CATS[k][1],n)});
-  catBox.innerHTML=h}
- function render(){
-  box.innerHTML=PRODUCTS.filter(function(p){return cur==='all'||p.c===cur}).sort(function(a,b){return (b.img?1:0)-(a.img?1:0)}).map(function(p){
-   var cat=CATS[p.c]||['',''];
-   return '<article class="prod"><div class="pic">'+(p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.n)+'" loading="lazy">':'<span aria-hidden="true">'+cat[1]+'</span>')+'</div>'+
-   '<div class="body"><span class="cat">'+cat[0]+'</span><h3>'+esc(p.n)+'</h3><span class="meta">≈ '+Math.round(p.g)+' غ · '+fmtT(p.h)+'</span>'+
+ function ic(k){return '<svg aria-hidden="true"><use href="#c-'+k+'"/></svg>'}
+ function inCat(k){return PRODUCTS.filter(function(p){return p.c===k}).sort(function(a,b){return (b.img?1:0)-(a.img?1:0)})}
+ var keys=Object.keys(CATS).filter(function(k){return inCat(k).length});
+ tiles.innerHTML=keys.map(function(k){
+  var L=inCat(k),min=Math.min.apply(null,L.map(function(p){return priceOf(p.g,p.h)}));
+  var th=L.filter(function(p){return p.img}).slice(0,3).map(function(p){return '<img src="'+esc(p.img)+'" alt="" loading="lazy">'}).join('');
+  return '<button class="tile" type="button" data-c="'+k+'"><span class="ic">'+ic(k)+'</span><b>'+CATS[k]+'</b><small>'+L.length+' منتجات · من <bdi dir="ltr">'+money(min)+'</bdi></small>'+(th?'<span class="thumbs">'+th+'</span>':'')+'<span class="go"><svg><use href="#i-fwd"/></svg></span></button>'}).join('');
+ function open(k,scroll){
+  cur=k;tiles.hidden=true;view.hidden=false;
+  $('catTitle').innerHTML=ic(k)+CATS[k];
+  catBox.innerHTML=keys.map(function(c){return '<button type="button" data-c="'+c+'" aria-pressed="'+(c===k)+'">'+ic(c)+CATS[c]+'</button>'}).join('');
+  box.innerHTML=inCat(k).map(function(p){
+   return '<article class="prod"><div class="pic">'+(p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.n)+'" loading="lazy">':ic(p.c))+'</div>'+
+   '<div class="body"><h3>'+esc(p.n)+'</h3><span class="meta">≈ '+Math.round(p.g)+' غ · '+fmtT(p.h)+'</span>'+
    '<div class="buy"><span class="pr">'+money(priceOf(p.g,p.h))+'</span><button class="btn wa" type="button" data-id="'+p.id+'"><svg><use href="#i-wa"/></svg>اطلب</button></div>'+
-   '<span class="cr">تصميم: <a href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.by)+'</a> · '+p.lic+'</span></div></article>'}).join('')}
- catBox.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.c;renderCats();render()});
+   '<span class="cr">تصميم: <a href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.by)+'</a> · '+p.lic+'</span></div></article>'}).join('');
+  if(scroll)$('shop').scrollIntoView({behavior:'smooth'})}
+ function close(){cur=null;view.hidden=true;tiles.hidden=false;$('shop').scrollIntoView({behavior:'smooth'})}
+ tiles.addEventListener('click',function(e){var b=e.target.closest('.tile');if(b)open(b.dataset.c,true)});
+ catBox.addEventListener('click',function(e){var b=e.target.closest('button');if(b)open(b.dataset.c,false)});
+ $('backCats').addEventListener('click',close);
  box.addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(!b)return;
   var p=PRODUCTS.filter(function(x){return x.id==b.dataset.id})[0];if(!p)return;
   var msg='مرحباً كيان ميكر لاب، بدي اطلب من المتجر:\n• القطعة: '+p.n+' (#'+p.id+')\n• السعر التقريبي: '+money(priceOf(p.g,p.h))+'\n• الكمية: 1\n• اللون: \n• الاستلام: توصيل / من المحل\n• الدفع: Whish Money';
   window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
- renderCats();render();
 })();
 
 /* ---- STL parsing ---- */
