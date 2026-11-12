@@ -1,0 +1,201 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:PA;font-weight:700;src:url(fs/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-arabic-700-normal.woff2);unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+@font-face{font-family:PA;font-weight:500;src:url(fs/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-arabic-500-normal.woff2);unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+@font-face{font-family:PA;font-weight:700;src:url(fs/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:PA;font-weight:500;src:url(fs/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:PS;font-weight:700;src:url(fs/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2)}
+@font-face{font-family:PM;font-weight:400;src:url(fs/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2)}
+@font-face{font-family:PM;font-weight:700;src:url(fs/ibm-plex-mono/files/ibm-plex-mono-latin-700-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111a21}
+#stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden;
+ background:radial-gradient(ellipse 760px 1150px at 540px 960px,#222e36 0%,#202c35 35%,#1a252d 70%,#111a21 100%)}
+#grid{position:absolute;left:-400px;top:-400px;width:1880px;height:2720px;transform-origin:940px 1360px}
+#rings{position:absolute;left:0;top:0}
+.hud{position:absolute;font:400 22px PM;color:#5d686e;letter-spacing:0;top:197px;line-height:28px}
+.br{position:absolute;width:40px;height:40px;border:0 solid #465056}
+.scene{position:absolute;inset:0}
+.hl{position:absolute;left:0;width:1080px;text-align:center;direction:rtl;font-family:PA;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:0}
+.hl .ln{display:block}
+.w{display:inline-block;will-change:transform}
+.w.a{color:#00c8ef;text-shadow:0 0 26px rgba(0,200,239,.28)}
+.panel{position:absolute;left:98px;top:640px;width:884px;height:1050px;border-radius:32px;background:#25313a;border:2px solid rgba(0,200,239,.45);overflow:hidden}
+.panel .foot{position:absolute;left:0;top:0;width:884px;height:1052px}
+.panel .foot img{position:absolute;left:0;top:0;width:884px;height:1052px;display:block}
+.cursor{position:absolute;width:60px;height:60px;left:0;top:0;pointer-events:none}
+.ring{position:absolute;border:3px solid #00c8ef;border-radius:50%;box-shadow:0 0 14px rgba(0,200,239,.5)}
+#wipe{position:absolute;inset:0;pointer-events:none}
+/* outro */
+.o{position:absolute}
+#card{left:98px;top:758px;width:884px;height:224px;border-radius:32px;background:#25313a;border:2px solid rgba(0,200,239,.45)}
+#digits{position:absolute;left:172px;top:802px;font:700 105px/1.3 PS;color:#fff;white-space:pre;direction:ltr}
+#digits span{display:inline-block;position:relative}
+#ph{position:absolute;left:172px;top:802px;font:700 105px/1.3 PS;color:#55626a;white-space:pre;direction:ltr}
+#ph span{display:inline-block}
+#call{left:804px;top:804px;width:132px;height:132px;border-radius:50%;background:#00c8ef}
+#kayan{left:0;width:1080px;top:1318px;text-align:center;font:700 80px/1.3 PS;color:#fff;letter-spacing:.235em;text-indent:.235em}
+#maker{left:0;width:1080px;top:1419px;text-align:center;font:400 31px/1.3 PM;color:#00c8ef;letter-spacing:.39em;text-indent:.39em;white-space:pre}
+#tag{left:0;width:1080px;top:1478px;text-align:center;font:400 22px/1.3 PM;color:#a4b1b9;white-space:pre}
+</style></head><body><div id="stage">
+<svg id="grid" width="1880" height="2720"><defs>
+ <pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/></pattern>
+ <pattern id="c" width="300" height="300" patternUnits="userSpaceOnUse"><path d="M-8 0H8M0 -8V8M292 0H308M300 -8V8M-8 300H8M0 292V308M292 300H308M300 292V308" stroke="#465056" stroke-width="1.5"/></pattern></defs>
+ <rect width="1880" height="2720" fill="url(#g)"/><rect width="1880" height="2720" fill="url(#c)"/></svg>
+<svg id="rings" width="1080" height="1920"><g fill="none" stroke="#ffffff" stroke-opacity=".018" stroke-width="2"><circle cx="540" cy="960" r="160"/><circle cx="540" cy="960" r="300"/><circle cx="540" cy="960" r="440"/><circle cx="540" cy="960" r="580"/><circle cx="540" cy="960" r="720"/></g></svg>
+<div id="vig" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,21,.45) 0%,rgba(10,16,21,0) 22%,rgba(10,16,21,0) 76%,rgba(10,16,21,.5) 100%)"></div>
+<div id="scenes"></div>
+<svg id="wipe" width="1080" height="1920"></svg>
+<div class="br" style="left:69px;top:179px;border-left-width:2px;border-top-width:2px"></div>
+<div class="br" style="left:971px;top:179px;border-right-width:2px;border-top-width:2px"></div>
+<div class="br" style="left:69px;top:1681px;border-left-width:2px;border-bottom-width:2px"></div>
+<div class="br" style="left:971px;top:1681px;border-right-width:2px;border-bottom-width:2px"></div>
+<div class="hud" style="left:93px">KAYAN MAKER LAB</div><div class="hud" id="cnt" style="right:93px">01 / 05</div>
+</div>
+<script>
+const META={"vw": 390, "vh": 464, "events": [{"scene": 2, "frame": 96, "x": 330, "y": 430, "type": "start"}, {"scene": 2, "frame": 146, "x": 205, "y": 256, "type": "move"}, {"scene": 2, "frame": 150, "x": 205, "y": 256, "type": "click"}, {"scene": 2, "frame": 172, "x": 235, "y": 241, "type": "move"}, {"scene": 2, "frame": 174, "x": 235, "y": 241, "type": "down"}, {"scene": 2, "frame": 176, "x": 234, "y": 241, "type": "drag"}, {"scene": 2, "frame": 180, "x": 228, "y": 244, "type": "drag"}, {"scene": 2, "frame": 184, "x": 212, "y": 250, "type": "drag"}, {"scene": 2, "frame": 188, "x": 180, "y": 255, "type": "drag"}, {"scene": 2, "frame": 192, "x": 148, "y": 250, "type": "drag"}, {"scene": 2, "frame": 196, "x": 132, "y": 244, "type": "drag"}, {"scene": 2, "frame": 200, "x": 126, "y": 241, "type": "drag"}, {"scene": 2, "frame": 204, "x": 125, "y": 241, "type": "drag"}, {"scene": 2, "frame": 205, "x": 125, "y": 241, "type": "up"}, {"scene": 3, "frame": 214, "x": 60, "y": 420, "type": "start"}, {"scene": 3, "frame": 230, "x": 279, "y": 192, "type": "move"}, {"scene": 3, "frame": 232, "x": 279, "y": 192, "type": "click"}, {"scene": 3, "frame": 274, "x": 115, "y": 176, "type": "move"}, {"scene": 3, "frame": 276, "x": 115, "y": 176, "type": "click"}, {"scene": 3, "frame": 290, "x": 341, "y": 262, "type": "move"}, {"scene": 3, "frame": 292, "x": 341, "y": 262, "type": "click"}, {"scene": 3, "frame": 306, "x": 173, "y": 383, "type": "move"}, {"scene": 3, "frame": 308, "x": 173, "y": 383, "type": "click"}, {"scene": 3, "frame": 316, "x": 173, "y": 383, "type": "hide"}, {"scene": 4, "frame": 404, "x": 70, "y": 120, "type": "start"}, {"scene": 4, "frame": 428, "x": 165, "y": 325, "type": "move"}, {"scene": 4, "frame": 432, "x": 165, "y": 325, "type": "click"}], "log": ["fname=vase.stl has=true", "matY 890.421875 qualY 1073.890625 priceY 1594.40625", "mat=PETG price=$15", "qual=f price=$17", "color=\u0623\u0628\u064a\u0636", "qty=2 price=$29"], "cv": {"x": 35, "y": 111.625, "w": 320, "h": 239, "cx": 195, "cy": 231.125}, "price": {"x": 33, "y": 210.40625, "w": 64.84375, "h": 61.1875, "cx": 65.421875, "cy": 241}, "priceRow": {"x": 33, "y": 195.40625, "w": 324, "h": 76.1875, "cx": 195, "cy": 233.5}, "priceRow4": {"x": 33, "y": 195.40625, "w": 324, "h": 76.1875, "cx": 195, "cy": 233.5}, "send": {"x": 33, "y": 299.53125, "w": 324, "h": 43.5, "cx": 195, "cy": 321.28125}, "priceRow4b": {"x": 33, "y": 180.40625, "w": 324, "h": 76.1875, "cx": 195, "cy": 218.5}, "finalPrice": "$29", "disabled": false};
+const TOTAL=600, SC=884/390;
+const SCN=[{s:0,e:90},{s:90,e:210},{s:210,e:360},{s:360,e:480},{s:480,e:600}];
+const W=(t,a)=>({t,a:!!a});
+const HL=[
+ {sc:0,s:1,e:40,size:110,lines:[[W('بدك'),W('تطبع'),W('تصميم',1),W('3D؟',1)]]},
+ {sc:0,s:47,e:999,size:100,lines:[[W('صار'),W('فيك'),W('تعرف'),W('سعره')],[W('قبل',1),W('ما',1),W('تطلب',1)]]},
+ {sc:1,s:93,e:142,size:120,lines:[[W('فوت'),W('على'),W('الموقع',1)]]},
+ {sc:1,s:149,e:999,size:110,lines:[[W('وارفع'),W('ملف'),W('الـ STL',1)]]},
+ {sc:2,s:213,e:292,size:100,lines:[[W('اختار'),W('الخامة،'),W('اللون،')],[W('الجودة',1),W('والكمية',1)]]},
+ {sc:2,s:299,e:999,size:98,lines:[[W('وشوف'),W('المعاينة'),W('والسعر')],[W('فوراً!',1)]]},
+ {sc:3,s:363,e:396,size:130,lines:[[W('عجبك'),W('السعر؟',1)]]},
+ {sc:3,s:403,e:444,size:120,lines:[[W('اطلب'),W('عبر'),W('واتساب',1)]]},
+ {sc:3,s:451,e:999,size:100,lines:[[W('ومنتواصل'),W('معك')],[W('لتأكيد',1),W('التفاصيل',1)]]},
+];
+const RISE=[58,50,41,33,24,17,10,5,1,-1,-3,-3,-3,-3,-2,-2,-1,0];
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eio=t=>{t=clamp(t);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+const eo=t=>1-Math.pow(1-clamp(t),3);
+const lerp=(a,b,t)=>a+(b-a)*t;
+const $=id=>document.getElementById(id);
+const scenes=$('scenes');
+// ---------- build scene layers
+const L=[];
+for(let i=0;i<5;i++){const d=document.createElement('div');d.className='scene';d.style.zIndex=i;scenes.appendChild(d);L.push(d);
+ if(i<4){d.innerHTML=`<div class="panel"><div class="foot"><img></div></div><div class="rings"></div><svg class="cursor" viewBox="0 0 60 60"><path d="M8 4 L8 46 L19 36 L27 54 L35 50 L27 33 L42 33 Z" fill="#fff" stroke="#10181d" stroke-width="3.5" stroke-linejoin="round"/></svg>`;}
+}
+const hlEls=HL.map(h=>{const d=document.createElement('div');d.className='hl';d.style.fontSize=h.size+'px';d.style.lineHeight=(h.size*1.2)+'px';
+ const hgt=h.lines.length*h.size*1.2; d.style.top=(432-hgt/2)+'px';
+ let k=0;h.lines.forEach(ln=>{const l=document.createElement('span');l.className='ln';ln.forEach((w,j)=>{const s=document.createElement('span');s.className='w'+(w.a?' a':'');s.textContent=w.t;s.dataset.k=k++;l.appendChild(s);if(j<ln.length-1)l.appendChild(document.createTextNode(' '));});d.appendChild(l);});
+ L[h.sc].appendChild(d);return d;});
+// ---------- outro
+L[4].innerHTML=`
+<div class="hl" id="oh" style="font-size:156px;line-height:187px;top:349px"><span class="ln"><span class="w" data-k="0">ما</span> <span class="w a" data-k="1">تعقّدها</span></span></div>
+<div class="hl" id="os" style="font-size:62px;font-weight:500;line-height:80px;top:550px"><span class="ln"><span class="w" data-k="0">اطلب</span> <span class="w a" data-k="1">أونلاين</span></span></div>
+<div class="o" id="cardwrap" style="left:0;top:0;width:1080px;height:1920px"><div class="o" id="card"></div>
+ <div id="ph"></div><div id="digits"></div>
+ <div class="o" id="call"><svg width="132" height="132" viewBox="0 0 132 132"><path d="M46 84 C50 66 62 54 84 50" fill="none" stroke="#00324d" stroke-width="13" stroke-linecap="round"/><circle cx="46" cy="85" r="8.5" fill="#00324d"/><circle cx="85" cy="50" r="8.5" fill="#00324d"/></svg></div></div>
+<svg class="o" id="logo" style="left:436px;top:1107px;filter:drop-shadow(0 0 7px rgba(0,200,239,.55))" width="208" height="186" viewBox="436 1107 208 186">
+ <path id="face" d="M582 1129 L621 1199 L582 1270 L541 1199 Z" fill="#2a3d47" opacity="0"/>
+ <g id="layers" stroke="#00c8ef" stroke-width="1.6" opacity="0"><path d="M487 1147 H571"/><path d="M476 1165 H561"/><path d="M466 1183 H551"/></g>
+ <path id="hex" d="M458 1199 L499 1129 L582 1129 L621 1199 L582 1270 L499 1270 Z" fill="none" stroke="#00c8ef" stroke-width="4.5" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+ <path id="inner" d="M458 1199 L541 1199 L582 1129 M541 1199 L582 1270" fill="none" stroke="#00c8ef" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg>
+<div class="o" id="kayan">KAYAN</div><div class="o" id="maker">MAKER LAB</div><div class="o" id="tag">3D PRINTING  ·  CNC  ·  LASER  ·  PROTOTYPING</div>`;
+const NUM='81 424 535';
+[...NUM].forEach(ch=>{const a=document.createElement('span');a.textContent=ch;$('digits').appendChild(a);const b=document.createElement('span');b.textContent=ch===' '?' ':'_';$('ph').appendChild(b);});
+// placeholder underscore must occupy the digit's width
+requestAnimationFrame(()=>{});
+const O0=480; // outro start (wipe middle)
+const DIG=[521,526,531,536,541,546,551,556];
+const DRISE=[30,26,22,16,10,5,1,-2,-3,-3,-3,-2,-2,-1,-1,0];
+
+function headline(el,h,f,stag=2){
+ const ws=el.querySelectorAll('.w');
+ ws.forEach(w=>{const k=+w.dataset.k; const t=f-(h.s+k*stag); let op=0,dy=0;
+  if(t>=0){op=clamp((t+0.3)/6); dy=RISE[Math.min(t,RISE.length-1)];}
+  const x=f-h.e; if(x>=0){const o=[.95,.78,.43,.08,0],d=[-2,-7,-19,-26,-30];const i=Math.min(x,4);op*=o[i];dy=d[i];}
+  w.style.opacity=op;w.style.transform=`translateY(${dy}px)`;});
+}
+// zoom per scene: returns {z, fx, fy} (focus in site css px)
+function zoom(sc,f){
+ if(sc===0) return {z:lerp(1,1.05,eio((f-10)/80)),fx:195,fy:0};
+ if(sc===1) return {z:lerp(1,1.17,eio((f-157)/18)),fx:195,fy:430};
+ const pr=META.priceRow;
+ if(sc===2) return {z:lerp(1,1.17,eio((f-337)/20)),fx:195,fy:430};
+ if(sc===3){ if(f<410){return {z:lerp(1.17,1,eio((f-384)/22)),fx:195,fy:430};}
+   return {z:lerp(1,1.15,eio((f-438)/26)),fx:195,fy:464}; }
+}
+function toPanel(pt,zm){ // site css px -> stage px
+ const px=pt.x*SC,py=pt.y*SC,ox=zm.fx*SC,oy=zm.fy*SC; return {x:98+ox+(px-ox)*zm.z,y:640+oy+(py-oy)*zm.z};
+}
+function cursorAt(sc,f){
+ const ev=META.events.filter(e=>e.scene===sc+1).sort((a,b)=>a.frame-b.frame); if(!ev.length) return null;
+ if(f<ev[0].frame) return null;
+ let op=clamp((f-ev[0].frame)/5);
+ const hide=ev.find(e=>e.type==='hide'); if(hide&&f>=hide.frame) op*=clamp(1-(f-hide.frame)/5);
+ const pts=ev.filter(e=>e.type!=='hide');
+ let a=pts[0],b=pts[0];
+ for(let i=0;i<pts.length-1;i++){ if(f>=pts[i].frame){a=pts[i];b=pts[i+1];} }
+ if(f>=pts[pts.length-1].frame){a=b=pts[pts.length-1];}
+ let x,y;
+ if(a===b||b.frame===a.frame){x=b.x;y=b.y;}
+ else{ const lin=(b.type==='drag'||b.type==='up'); const t0=clamp((f-a.frame)/(b.frame-a.frame)); const t=lin?t0:eio(t0);
+  x=lerp(a.x,b.x,t);y=lerp(a.y,b.y,t);
+  if(!lin){const dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy)||1;const bow=Math.sin(Math.PI*t)*Math.min(26,len*.16);x+=-dy/len*bow;y+=dx/len*bow;} }
+ return {x,y,op};
+}
+function wipeX(i){return [1076,960,721,318,-86.5,-324.5,-441.5][i];}
+const TAN=Math.tan(13.4*Math.PI/180);
+const imgCache={};
+function setImg(img,src){ if(img.dataset.src===src) return Promise.resolve(); img.dataset.src=src; img.src=src; return img.decode().catch(()=>{}); }
+
+window.render=async function(f){
+ // background drift (slow wandering path, <=0.5px/frame)
+ const gx=40*Math.sin(f*0.0125)+18*Math.sin(f*0.006+1), gy=-0.22*f+14*Math.sin(f*0.01);
+ const os=f>=O0?lerp(1,1.04,eo((f-O0)/120)):1;
+ $('grid').style.transform=`translate(${((gx%300)+300)%300-300}px,${((gy%300)+300)%300-300}px) scale(${os})`;
+ // which scenes visible + wipe
+ let cur=0; for(let i=0;i<5;i++) if(f>=SCN[i].s) cur=i;
+ let wipe=null; for(let i=1;i<5;i++){const m=SCN[i].s; if(f>=m-3&&f<=m+3) wipe={to:i,i:f-(m-3)};}
+ const jobs=[];
+ $('wipe').innerHTML='';
+ L.forEach((d,i)=>{d.style.display='none';d.style.clipPath='none';});
+ const show=[]; if(wipe){show.push(wipe.to-1,wipe.to);} else show.push(cur);
+ $('cnt').textContent=String(cur+1).padStart(2,'0')+' / 05';
+ if(wipe){const xb=wipeX(wipe.i); const xt=xb+1895*TAN, xbb=xb-25*TAN; // x at y=0 and y=1920
+  L[wipe.to].style.clipPath=`polygon(${xt}px 0px,1600px 0px,1600px 1920px,${xbb}px 1920px)`;
+  L[wipe.to-1].style.clipPath=`polygon(-600px 0px,${xt}px 0px,${xbb}px 1920px,-600px 1920px)`;
+  $('wipe').innerHTML=`<g style="filter:drop-shadow(0 0 8px rgba(0,200,239,.8))"><line x1="${xt}" y1="0" x2="${xbb}" y2="1920" stroke="#00c8ef" stroke-width="4"/></g><line x1="${xt+38}" y1="0" x2="${xbb+38}" y2="1920" stroke="#00c8ef" stroke-opacity=".45" stroke-width="1"/>`;
+  $('cnt').textContent=String((wipe.i>=3?wipe.to:wipe.to-1)+1).padStart(2,'0')+' / 05';
+ }
+ for(const i of show){ const d=L[i]; d.style.display='block';
+  if(i<4){
+   const sc=SCN[i]; const a=Math.max(0,sc.s-4), b=sc.e+4; const ff=clamp(f,a,b);
+   const img=d.querySelector('img'); jobs.push(setImg(img,`site/s${i+1}_f${String(ff).padStart(4,'0')}.jpg`));
+   // panel entrance: only the first scene's panel rises in; later scenes keep the frame and get revealed by the wipe
+   const panel=d.querySelector('.panel'); let py=0,pop=1;
+   const t0=(i===0?0:sc.s-3); const t=(f-t0)/13; py=100*(1-eo(t)); pop=clamp((f-t0)/8);
+   panel.style.transform=`translateY(${py}px)`; panel.style.opacity=pop;
+   const zm=zoom(i,f); const foot=d.querySelector('.foot'); foot.style.transformOrigin=`${zm.fx*SC}px ${zm.fy*SC}px`; foot.style.transform=`scale(${zm.z})`;
+   // cursor + ripples
+   const c=d.querySelector('.cursor'), r=d.querySelector('.rings'); r.innerHTML='';
+   const cp=cursorAt(i,f);
+   if(cp){const p=toPanel(cp,zm); const inside=p.y<1690+30; c.style.opacity=cp.op*(inside?1:0); c.style.transform=`translate(${p.x-8}px,${p.y-4+py}px)`;} else c.style.opacity=0;
+   META.events.filter(e=>e.scene===i+1&&e.type==='click').forEach(e=>{const t=f-e.frame; if(t<0||t>18)return; const p=toPanel(e,zm);
+     [0,5].forEach(dl=>{const tt=t-dl; if(tt<0||tt>14)return; const rad=14+eo(tt/14)*86; const el=document.createElement('div'); el.className='ring'; el.style.cssText=`left:${p.x-rad}px;top:${p.y-rad+py}px;width:${rad*2}px;height:${rad*2}px;opacity:${(1-tt/14)*.95}`; r.appendChild(el);});});
+  }
+ }
+ HL.forEach((h,k)=>headline(hlEls[k],h,f));
+ // ---------- outro
+ if(show.includes(4)){
+  headline($('oh'),{s:O0+3,e:9999},f); headline($('os'),{s:O0+8,e:9999},f);
+  const t=f-O0;
+  $('hex').style.strokeDashoffset=100*(1-eio((t-10)/11)); $('inner').style.strokeDashoffset=100*(1-eio((t-18)/6));
+  $('face').style.opacity=clamp((t-21)/5); $('layers').style.opacity=clamp((t-22)/5);
+  const ko=clamp((t-18)/10); $('kayan').style.opacity=ko; $('kayan').style.color=`rgb(${lerp(140,255,ko)},${lerp(150,255,ko)},${lerp(156,255,ko)})`;
+  const ct=(t-21)/12; $('cardwrap').style.opacity=clamp((t-21)/8); $('cardwrap').style.transform=`translateY(${60*(1-eo(ct))}px)`;
+  $('maker').style.opacity=clamp((t-25)/7); $('tag').style.opacity=clamp((t-32)/9);
+  const ds=[...$('digits').children].filter(s=>s.textContent!==' '), ps=[...$('ph').children].filter(s=>s.textContent!==' ');
+  ds.forEach((s,k)=>{const tt=f-DIG[k]; if(tt<0){s.style.opacity=0;ps[k].style.opacity=1;return;} ps[k].style.opacity=0; s.style.opacity=1; s.style.top=DRISE[Math.min(tt,DRISE.length-1)]+'px'; s.style.color=tt>=15?'#fff':'#00c8ef';});
+ }
+ await Promise.all(jobs); await document.fonts.ready;
+};
+// make placeholder slots as wide as the digits
+window.prep=async function(){ if(location.hash==='#ref'){const ws=document.querySelectorAll('#oh .w');ws[0].textContent='جرّبها';ws[1].textContent='هلأ';const o=document.querySelector('#os .ln');o.innerHTML='<span class="w" data-k="0">وتواصل</span> <span class="w" data-k="1">معنا</span> <span class="w" data-k="2">على</span> <span class="w a" data-k="3">الرقم</span>';}await document.fonts.load('700 105px PS');await document.fonts.load('700 100px PA','بدك 3D');await document.fonts.load('500 62px PA','اطلب');await document.fonts.load('400 22px PM');await document.fonts.load('700 22px PM');await document.fonts.ready;
+ const ds=[...$('digits').children],ps=[...$('ph').children]; ds.forEach((s,k)=>{ps[k].style.width=s.getBoundingClientRect().width+'px';ps[k].style.textAlign='center';});};
+</script></body></html>
