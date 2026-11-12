@@ -16,8 +16,9 @@ Then:
    and the **outro** (section 8), which must be reproduced as specified.
 2. Do not invent values. If the guide marks something **NOT OBSERVED** (section 9) or does
    not cover it, ask the user, or derive it from the nearest observed pattern and say so.
-3. Look at the stills in `docs/video/reference/frames/` and compare your rendered frames
-   against them before delivering. Check Arabic shaping on a real rendered frame.
+3. Look at the stills in `docs/video/reference/frames/` (the master videos themselves are
+   in `docs/video/reference/source/`) and compare your rendered frames against them before
+   delivering. Check Arabic shaping on a real rendered frame.
 4. Run the pre-flight checklist (section 0 of the guide) and report the result.
 5. For the evidence behind any rule, or exact per-frame timings, see
    [`docs/video/REFERENCE_ANALYSIS.md`](docs/video/REFERENCE_ANALYSIS.md).

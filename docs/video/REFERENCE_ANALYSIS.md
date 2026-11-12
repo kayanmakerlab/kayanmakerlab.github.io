@@ -8,8 +8,10 @@ Analysed on 2026-11-12.
 ## 1. Source material
 
 Two files were supplied under the same name (`VID_20261108_205257_179__.mp4`). They are
-two different excerpts of one video. The original files are **not** stored in the
-repository (33 MB); stills and contact sheets are in [`reference/`](reference/).
+two different excerpts of one video. The original files are stored unmodified in
+[`reference/source/`](reference/source/) as `master-main-scenes-03-08.mp4` (clip A) and
+`master-outro-scene-11.mp4` (clip B); stills and contact sheets are in
+[`reference/`](reference/).
 
 | | Clip A (main) | Clip B (outro) |
 |---|---|---|
