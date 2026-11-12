@@ -10,6 +10,13 @@ KAYAN MAKER LAB, read [`docs/video/STYLE_GUIDE.md`](docs/video/STYLE_GUIDE.md) i
 Do this every time, even for a small change. It is the binding style, reverse-engineered
 from the master reference video.
 
+**Use the project skills — do not rebuild the pipeline by hand:**
+
+- `kayan-video` (`.claude/skills/kayan-video/`) makes every video: storyboard JSON → real
+  website capture → render → automatic checks. Its engine already implements the guide.
+- `kayan-video-reference` (`.claude/skills/kayan-video-reference/`) analyses a new master
+  reference and updates the guide and the engine.
+
 Then:
 
 1. Follow the guide exactly. The highest priorities are **Arabic typography** (section 4.2)
@@ -33,8 +40,8 @@ Quick reminders (the guide is the authority):
   never letter by letter.
 - Scene changes: the diagonal cyan wipe only, placed on a voice-over pause.
 
-If the user supplies a new master reference, re-analyse it and update the guide rather than
-working from memory.
+If the user supplies a new master reference, re-analyse it with `kayan-video-reference` and
+update the guide rather than working from memory.
 
 ## Website
 

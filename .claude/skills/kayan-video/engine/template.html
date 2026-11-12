@@ -1,0 +1,184 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* KAYAN MAKER LAB video engine — implements docs/video/STYLE_GUIDE.md. Values here are measured; do not "tune" them. */
+@font-face{font-family:PA;font-weight:700;src:url(__FONTS__/ibm-plex-sans-arabic-arabic-700-normal.woff2);unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+@font-face{font-family:PA;font-weight:500;src:url(__FONTS__/ibm-plex-sans-arabic-arabic-500-normal.woff2);unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+@font-face{font-family:PA;font-weight:700;src:url(__FONTS__/ibm-plex-sans-latin-700-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:PA;font-weight:500;src:url(__FONTS__/ibm-plex-sans-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:PS;font-weight:700;src:url(__FONTS__/ibm-plex-sans-latin-700-normal.woff2)}
+@font-face{font-family:PM;font-weight:400;src:url(__FONTS__/ibm-plex-mono-latin-400-normal.woff2)}
+@font-face{font-family:PM;font-weight:700;src:url(__FONTS__/ibm-plex-mono-latin-700-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111a21}
+#stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse 760px 1150px at 540px 960px,#222e36 0%,#202c35 35%,#1a252d 70%,#111a21 100%)}
+#grid{position:absolute;left:-400px;top:-400px;width:1880px;height:2720px;transform-origin:940px 1360px}
+.hud{position:absolute;font:400 22px PM;color:#5d686e;top:197px;line-height:28px}
+.br{position:absolute;width:40px;height:40px;border:0 solid #465056}
+.scene{position:absolute;inset:0;display:none}
+.hl{position:absolute;left:0;width:1080px;text-align:center;direction:rtl;font-family:PA;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:0}
+.hl .ln{display:block}
+.w{display:inline-block}
+.w.a{color:#00c8ef;text-shadow:0 0 26px rgba(0,200,239,.28)}
+.panel{position:absolute;left:98px;top:640px;width:884px;height:1050px;border-radius:32px;background:#25313a;border:2px solid rgba(0,200,239,.45);overflow:hidden}
+.foot{position:absolute;left:0;top:0;width:884px;height:1052px}
+.foot img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.foot img.cover{object-fit:cover}
+.cursor{position:absolute;width:60px;height:60px;left:0;top:0;opacity:0}
+.ring{position:absolute;border:3px solid #00c8ef;border-radius:50%;box-shadow:0 0 14px rgba(0,200,239,.5)}
+#wipe{position:absolute;inset:0}
+.o{position:absolute}
+#card{left:98px;top:758px;width:884px;height:224px;border-radius:32px;background:#25313a;border:2px solid rgba(0,200,239,.45)}
+#digits,#ph{position:absolute;left:172px;top:802px;font:700 105px/1.3 PS;white-space:pre;direction:ltr}
+#digits{color:#fff}#ph{color:#55626a}
+#digits span,#ph span{display:inline-block;position:relative}
+#call{left:804px;top:804px;width:132px;height:132px;border-radius:50%;background:#00c8ef}
+#tag{left:0;width:1080px;top:1478px;text-align:center;font:400 22px/1.3 PM;color:#a4b1b9;white-space:pre}
+</style></head><body><div id="stage">
+<svg id="grid" width="1880" height="2720"><defs>
+ <pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#fff" stroke-opacity=".05" stroke-width="1"/></pattern>
+ <pattern id="c" width="300" height="300" patternUnits="userSpaceOnUse"><path d="M-8 0H8M0 -8V8M292 0H308M300 -8V8M-8 300H8M0 292V308M292 300H308M300 292V308" stroke="#465056" stroke-width="1.5"/></pattern></defs>
+ <rect width="1880" height="2720" fill="url(#g)"/><rect width="1880" height="2720" fill="url(#c)"/></svg>
+<svg style="position:absolute;left:0;top:0" width="1080" height="1920"><g fill="none" stroke="#fff" stroke-opacity=".018" stroke-width="2"><circle cx="540" cy="960" r="160"/><circle cx="540" cy="960" r="300"/><circle cx="540" cy="960" r="440"/><circle cx="540" cy="960" r="580"/><circle cx="540" cy="960" r="720"/></g></svg>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,21,.45) 0%,rgba(10,16,21,0) 22%,rgba(10,16,21,0) 76%,rgba(10,16,21,.5) 100%)"></div>
+<div id="scenes"></div>
+<svg id="wipe" width="1080" height="1920"></svg>
+<div class="br" style="left:69px;top:179px;border-left-width:2px;border-top-width:2px"></div>
+<div class="br" style="left:971px;top:179px;border-right-width:2px;border-top-width:2px"></div>
+<div class="br" style="left:69px;top:1681px;border-left-width:2px;border-bottom-width:2px"></div>
+<div class="br" style="left:971px;top:1681px;border-right-width:2px;border-bottom-width:2px"></div>
+<div class="hud" style="left:93px">KAYAN MAKER LAB</div><div class="hud" id="cnt" style="right:93px"></div>
+</div>
+<script>
+const SB=__SB__, META=__META__;
+const LOGO_MARK=__LOGO_MARK__, LOGO_WORD=__LOGO_WORD__;
+const TOTAL=SB.frames, VW=(SB.capture&&SB.capture.viewport||[390,464])[0], SC=884/VW;
+const N=SB.scenes.length;
+SB.scenes.forEach((s,i)=>{s.end=i<N-1?SB.scenes[i+1].start:TOTAL;});
+const RISE=[58,50,41,33,24,17,10,5,1,-1,-3,-3,-3,-3,-2,-2,-1,0];          // guide 5.2
+const EXO=[.95,.78,.43,.08,0], EXY=[-2,-7,-19,-26,-30];                    // guide 5.3
+const DRISE=[30,26,22,16,10,5,1,-2,-3,-3,-3,-2,-2,-1,-1,0];               // guide 8.2
+const WIPE=[1076,960,721,318,-86.5,-324.5,-441.5];                         // guide 5.6 (x at bottom edge)
+const TAN=Math.tan(13.4*Math.PI/180);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eio=t=>{t=clamp(t);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+const eo=t=>1-Math.pow(1-clamp(t),3);
+const lerp=(a,b,t)=>a+(b-a)*t;
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+const CURSOR='<svg class="cursor" viewBox="0 0 60 60"><path d="M8 4 L8 46 L19 36 L27 54 L35 50 L27 33 L42 33 Z" fill="#fff" stroke="#10181d" stroke-width="3.5" stroke-linejoin="round"/></svg>';
+
+// "*word" = accent. Size table from guide 4.2 rule 6.
+function autoSize(lines){ if(lines.length>1) return 100; const n=lines[0].length;
+ if(n>=4) return 110; if(n===3) return 120; if(n===2) return lines[0].join('').replace(/\*/g,'').length<=7?140:130; return 150; }
+function buildHL(parent,h,cls){ const d=document.createElement('div'); d.className='hl'+(cls?' '+cls:'');
+ const size=h.size||autoSize(h.lines); d.style.fontSize=size+'px'; d.style.lineHeight=(size*1.2)+'px';
+ if(h.weight) d.style.fontWeight=h.weight;
+ const top=h.top!=null?h.top:((h.y||432)-h.lines.length*size*1.2/2); d.style.top=top+'px'; if(h.top==null){d.dataset.y=h.y||432;d.dataset.n=h.lines.length;}
+ let k=0; h.lines.forEach(ln=>{const l=document.createElement('span');l.className='ln';
+  ln.forEach((w,j)=>{const s=document.createElement('span');const a=w.startsWith('*');s.className='w'+(a?' a':'');s.textContent=a?w.slice(1):w;s.dataset.k=k++;l.appendChild(s);if(j<ln.length-1)l.appendChild(document.createTextNode(' '));});
+  d.appendChild(l);});
+ parent.appendChild(d); return d; }
+function animHL(el,s,e,f){ el.querySelectorAll('.w').forEach(w=>{const t=f-(s+2*w.dataset.k); let op=0,dy=0;
+  if(t>=0){op=clamp((t+.3)/6);dy=RISE[Math.min(t,RISE.length-1)];}
+  const x=f-e; if(x>=0){const i=Math.min(x,4);op*=EXO[i];dy=EXY[i];}
+  w.style.opacity=op; w.style.transform=`translateY(${dy}px)`;}); }
+
+// ---------- build scenes
+const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className='scene';d.style.zIndex=i;$('scenes').appendChild(d);
+ if(s.type==='site'||s.type==='image'){ d.innerHTML=`<div class="panel"><div class="foot"><img${s.type==='image'?' class="cover"':''}></div></div><div class="rings"></div>`+CURSOR;
+  if(s.type==='image') d.querySelector('img').src=s.src; }
+ s.hl=(s.headlines||[]).map(h=>({h,el:buildHL(d,h)}));
+ return d;});
+
+// ---------- outro (guide section 8)
+const OI=SB.scenes.findIndex(s=>s.type==='outro'); const OS=SB.scenes[OI];
+if(OS){ const d=L[OI];
+ d.insertAdjacentHTML('beforeend',`<div class="o" id="cardwrap" style="left:0;top:0;width:1080px;height:1920px"><div class="o" id="card"></div><div id="ph"></div><div id="digits"></div>
+ <div class="o" id="call"><svg width="132" height="132" viewBox="0 0 132 132"><path d="M46 84 C50 66 62 54 84 50" fill="none" stroke="#00324d" stroke-width="13" stroke-linecap="round"/><circle cx="46" cy="85" r="8.5" fill="#00324d"/><circle cx="85" cy="50" r="8.5" fill="#00324d"/></svg></div></div>
+ <svg class="o" style="left:465px;top:1122px;color:#fff;overflow:visible" width="150" height="150" viewBox="${LOGO_MARK.viewBox}">
+  <g id="lmFill" opacity="0">${LOGO_MARK.body.replace(/class="lb"/g,'fill="#00c8ef"')}</g>
+  <path id="lmLine" d="${LOGO_MARK.outline}" fill="none" stroke="#00c8ef" stroke-width="5" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="filter:drop-shadow(0 0 6px rgba(0,200,239,.6))"/></svg>
+ <svg class="o" style="left:375px;top:1302px;overflow:visible" width="330" height="106" viewBox="${LOGO_WORD.viewBox}">
+  <g id="lwMain" fill="#fff">${LOGO_WORD.main}</g><g id="lwSub" fill="#00c8ef" opacity="0">${LOGO_WORD.sub}</g></svg>
+ <div class="o" id="tag">${OS.tagline||'3D PRINTING  ·  CNC  ·  LASER  ·  PROTOTYPING'}</div>`);
+ OS.oh=buildHL(d,{lines:[OS.headline],size:156,top:349});
+ OS.os=buildHL(d,{lines:[OS.sub],size:62,top:550,weight:500}); OS.os.style.lineHeight='80px';
+ const num=OS.phone||'81 424 535';
+ [...num].forEach(ch=>{const a=document.createElement('span');a.textContent=ch;$('digits').appendChild(a);const b=document.createElement('span');b.textContent=ch===' '?' ':'_';$('ph').appendChild(b);});
+ const nd=num.replace(/\s/g,'').length;
+ OS.dig=(OS.digits||Array.from({length:nd},(_,k)=>41+5*k)).map(x=>OS.start+x);
+}
+
+// ---------- helpers
+function zoomAt(s,f){ const k=s.zoom||[[s.start,1,VW/2,0]]; if(f<=k[0][0]) return {z:k[0][1],fx:k[0][2],fy:k[0][3]};
+ for(let i=0;i<k.length-1;i++){const a=k[i],b=k[i+1]; if(f<b[0]){const t=eio((f-a[0])/(b[0]-a[0]));return {z:lerp(a[1],b[1],t),fx:lerp(a[2],b[2],t),fy:lerp(a[3],b[3],t)};}}
+ const z=k[k.length-1]; return {z:z[1],fx:z[2],fy:z[3]}; }
+function toStage(pt,zm){const px=pt.x*SC,py=pt.y*SC,ox=zm.fx*SC,oy=zm.fy*SC;return {x:98+ox+(px-ox)*zm.z,y:640+oy+(py-oy)*zm.z};}
+function cursorAt(ev,f){ if(!ev.length||f<ev[0].frame) return null;
+ let op=clamp((f-ev[0].frame)/5); const hide=ev.find(e=>e.type==='hide'); if(hide&&f>=hide.frame) op*=clamp(1-(f-hide.frame)/5);
+ const pts=ev.filter(e=>e.type!=='hide'); let a=pts[0],b=pts[0];
+ for(let i=0;i<pts.length-1;i++) if(f>=pts[i].frame){a=pts[i];b=pts[i+1];}
+ if(f>=pts[pts.length-1].frame) a=b=pts[pts.length-1];
+ if(a===b||b.frame===a.frame) return {x:b.x,y:b.y,op};
+ const lin=(b.type==='drag'||b.type==='up'), t0=clamp((f-a.frame)/(b.frame-a.frame)), t=lin?t0:eio(t0);
+ let x=lerp(a.x,b.x,t),y=lerp(a.y,b.y,t);
+ if(!lin){const dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy)||1,bow=Math.sin(Math.PI*t)*Math.min(26,len*.16);x+=-dy/len*bow;y+=dx/len*bow;}
+ return {x,y,op}; }
+function setImg(img,src){ if(img.dataset.src===src) return Promise.resolve(); img.dataset.src=src; img.src=src; return img.decode().catch(()=>{}); }
+
+window.render=async function(f){
+ const gx=40*Math.sin(f*.0125)+18*Math.sin(f*.006+1), gy=-.22*f+14*Math.sin(f*.01);   // grid drift <=0.5px/frame
+ const os=OS&&f>=OS.start?lerp(1,1.04,eo((f-OS.start)/120)):1;                         // outro push-in
+ $('grid').style.transform=`translate(${((gx%300)+300)%300-300}px,${((gy%300)+300)%300-300}px) scale(${os})`;
+ let cur=0; SB.scenes.forEach((s,i)=>{if(f>=s.start)cur=i;});
+ let wipe=null; for(let i=1;i<N;i++){const m=SB.scenes[i].start; if(f>=m-3&&f<=m+3) wipe={to:i,i:f-(m-3)};}
+ L.forEach(d=>{d.style.display='none';d.style.clipPath='none';}); $('wipe').innerHTML='';
+ const show=wipe?[wipe.to-1,wipe.to]:[cur];
+ $('cnt').textContent=pad((wipe?(wipe.i>=3?wipe.to:wipe.to-1):cur)+1)+' / '+pad(N);
+ if(wipe){const xb=WIPE[wipe.i], xt=xb+1895*TAN, xbb=xb-25*TAN;
+  L[wipe.to].style.clipPath=`polygon(${xt}px 0px,1600px 0px,1600px 1920px,${xbb}px 1920px)`;
+  L[wipe.to-1].style.clipPath=`polygon(-600px 0px,${xt}px 0px,${xbb}px 1920px,-600px 1920px)`;
+  $('wipe').innerHTML=`<g style="filter:drop-shadow(0 0 8px rgba(0,200,239,.8))"><line x1="${xt}" y1="0" x2="${xbb}" y2="1920" stroke="#00c8ef" stroke-width="4"/></g><line x1="${xt+38}" y1="0" x2="${xbb+38}" y2="1920" stroke="#00c8ef" stroke-opacity=".45" stroke-width="1"/>`; }
+ const jobs=[];
+ for(const i of show){ const s=SB.scenes[i], d=L[i]; d.style.display='block';
+  if(s.type==='site'||s.type==='image'){
+   const t0=s.panelIn!=null?s.panelIn:(i===0?s.start:s.start-3);                       // card entrance guide 5.4
+   const py=100*(1-eo((f-t0)/13)); const panel=d.querySelector('.panel'); panel.style.transform=`translateY(${py}px)`; panel.style.opacity=clamp((f-t0)/8);
+   const zm=zoomAt(s,f); const foot=d.querySelector('.foot'); foot.style.transformOrigin=`${zm.fx*SC}px ${zm.fy*SC}px`; foot.style.transform=`scale(${zm.z})`;
+   if(s.type==='site'){ const sh=META.shots[s.shot]; const ff=clamp(f,sh.from,sh.to);
+    jobs.push(setImg(d.querySelector('img'),`site/${s.shot}_f${String(ff).padStart(4,'0')}.jpg`));
+    const ev=META.events.filter(e=>e.shot===s.shot).sort((a,b)=>a.frame-b.frame);
+    const c=d.querySelector('.cursor'), r=d.querySelector('.rings'); r.innerHTML='';
+    const cp=cursorAt(ev,f);
+    if(cp){const p=toStage(cp,zm); c.style.opacity=cp.op*(p.y<1720?1:0); c.style.transform=`translate(${p.x-8}px,${p.y-4+py}px)`;} else c.style.opacity=0;
+    ev.filter(e=>e.type==='click').forEach(e=>{const t=f-e.frame; if(t<0||t>18)return; const p=toStage(e,zm);
+     [0,5].forEach(dl=>{const tt=t-dl; if(tt<0||tt>14)return; const rad=14+eo(tt/14)*86; const el=document.createElement('div'); el.className='ring';
+      el.style.cssText=`left:${p.x-rad}px;top:${p.y-rad+py}px;width:${rad*2}px;height:${rad*2}px;opacity:${(1-tt/14)*.95}`; r.appendChild(el);});}); }
+  }
+  s.hl.forEach(({h,el})=>animHL(el,h.start,h.end!=null?h.end:9999,f));
+  if(s===OS){ const t=f-OS.start;
+   animHL(OS.oh,OS.start+3,9999,f); animHL(OS.os,OS.start+8,9999,f);
+   $('lmLine').style.strokeDashoffset=100*(1-eio((t-10)/11)); $('lmLine').style.opacity=1-clamp((t-22)/6);
+   $('lmFill').style.opacity=clamp((t-18)/8);
+   const ko=clamp((t-18)/10); $('lwMain').style.opacity=ko; $('lwMain').setAttribute('fill',`rgb(${lerp(140,255,ko)},${lerp(150,255,ko)},${lerp(156,255,ko)})`);
+   $('cardwrap').style.opacity=clamp((t-21)/8); $('cardwrap').style.transform=`translateY(${60*(1-eo((t-21)/12))}px)`;
+   $('lwSub').style.opacity=clamp((t-25)/7); $('tag').style.opacity=clamp((t-32)/9);
+   const ds=[...$('digits').children].filter(x=>x.textContent!==' '), ps=[...$('ph').children].filter(x=>x.textContent!==' ');
+   ds.forEach((x,k)=>{const tt=f-OS.dig[k]; if(tt<0){x.style.opacity=0;ps[k].style.opacity=1;return;} ps[k].style.opacity=0; x.style.opacity=1;
+    x.style.top=DRISE[Math.min(tt,DRISE.length-1)]+'px'; x.style.color=tt>=15?'#fff':'#00c8ef';}); }
+ }
+ await Promise.all(jobs); await document.fonts.ready;
+};
+
+window.prep=async function(){
+ await Promise.all(['700 100px PA','500 62px PA','700 105px PS','400 22px PM','700 22px PM'].map(x=>document.fonts.load(x,'بدك 3D')));
+ await document.fonts.ready;
+ const warn=[]; L.forEach(d=>d.style.display='block');
+ // keep every headline inside the safe area (x 69–1010): shrink if a line is too wide
+ document.querySelectorAll('.hl').forEach(h=>{ h.querySelectorAll('.w').forEach(w=>w.style.opacity=1);
+  const wmax=Math.max(...[...h.querySelectorAll('.ln')].map(l=>{const ws=[...l.querySelectorAll('.w')];const r=ws.map(w=>w.getBoundingClientRect());return Math.max(...r.map(x=>x.right))-Math.min(...r.map(x=>x.left));}));
+  if(wmax>930){const fs=parseFloat(h.style.fontSize), n=Math.floor(fs*930/wmax); h.style.fontSize=n+'px'; h.style.lineHeight=(n*1.2)+'px'; if(h.dataset.y) h.style.top=(h.dataset.y-h.dataset.n*n*1.2/2)+'px'; warn.push(`headline "${h.textContent.trim()}" shrunk ${fs}→${n}px to fit`);} });
+ document.querySelectorAll('.w').forEach(w=>w.style.opacity=0); L.forEach(d=>d.style.display='none');
+ if(OS){const ds=[...$('digits').children],ps=[...$('ph').children]; ds.forEach((x,k)=>{ps[k].style.width=x.getBoundingClientRect().width+'px';ps[k].style.textAlign='center';});}
+ return warn;
+};
+</script></body></html>

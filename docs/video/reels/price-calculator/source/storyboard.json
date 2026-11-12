@@ -1,0 +1,73 @@
+{
+ "slug": "kayan-reel-price-calculator",
+ "frames": 600,
+ "audio": null,
+ "capture": {
+  "url": "local",
+  "viewport": [390, 464],
+  "scale": 4,
+  "theme": "dark",
+  "shots": [
+   {"id": "s1", "from": 0, "to": 94, "actions": [
+     {"type": "scroll", "from": 30, "to": 85, "y": 150}
+   ]},
+   {"id": "s2", "from": 86, "to": 214, "actions": [
+     {"type": "scroll", "from": 86, "to": 86, "target": "#view", "offset": 250},
+     {"type": "scroll", "from": 94, "to": 116, "target": "#view", "offset": 110},
+     {"type": "cursor", "at": 96, "x": 330, "y": 430},
+     {"type": "click", "at": 150, "target": "#view", "dx": 10, "dy": 25, "travel": 46, "real": false},
+     {"type": "upload", "at": 153, "input": "#file", "file": "vase.stl", "ms": 900, "log": "#fname"},
+     {"type": "drag", "at": 174, "to": 205, "target": "#cv", "dx": 40, "dy": 10, "by": [-110, 0, 14]}
+   ]},
+   {"id": "s3", "from": 206, "to": 364, "actions": [
+     {"type": "scroll", "from": 206, "to": 206, "target": "#mat", "offset": 170},
+     {"type": "scroll", "from": 244, "to": 260, "target": "#qual", "offset": 150},
+     {"type": "scroll", "from": 318, "to": 336, "target": "#sP", "offset": 210},
+     {"type": "cursor", "at": 214, "x": 60, "y": 420},
+     {"type": "click", "at": 232, "target": "#mat", "real": false},
+     {"type": "select", "at": 235, "target": "#mat", "value": "PETG", "log": "#sP"},
+     {"type": "click", "at": 276, "target": "#qual label:nth-of-type(2)", "log": "#sP"},
+     {"type": "click", "at": 292, "target": "#colors label:nth-of-type(1)", "log": "#cname"},
+     {"type": "click", "at": 308, "target": ".stepper button[data-d=\"1\"]", "log": "#sP"},
+     {"type": "hide", "at": 316},
+     {"type": "record", "at": 340, "name": "price", "target": "#sP"}
+   ]},
+   {"id": "s4", "from": 356, "to": 484, "actions": [
+     {"type": "scroll", "from": 388, "to": 408, "target": "#send", "offset": 300},
+     {"type": "cursor", "at": 404, "x": 70, "y": 120},
+     {"type": "press", "at": 432, "target": "#send", "dx": -30, "dy": 4, "travel": 24},
+     {"type": "record", "at": 434, "name": "final_price", "target": "#sP"}
+   ]}
+  ]
+ },
+ "scenes": [
+  {"start": 0, "type": "site", "shot": "s1",
+   "zoom": [[10, 1, 195, 0], [90, 1.05, 195, 0]],
+   "headlines": [
+    {"start": 1, "end": 40, "size": 110, "lines": [["بدك", "تطبع", "*تصميم", "*3D؟"]]},
+    {"start": 47, "size": 100, "lines": [["صار", "فيك", "تعرف", "سعره"], ["*قبل", "*ما", "*تطلب"]]}
+   ]},
+  {"start": 90, "type": "site", "shot": "s2",
+   "zoom": [[157, 1, 195, 430], [175, 1.17, 195, 430]],
+   "headlines": [
+    {"start": 93, "end": 142, "size": 120, "lines": [["فوت", "على", "*الموقع"]]},
+    {"start": 149, "size": 110, "lines": [["وارفع", "ملف", "*الـ STL"]]}
+   ]},
+  {"start": 210, "type": "site", "shot": "s3",
+   "zoom": [[337, 1, 195, 430], [357, 1.17, 195, 430]],
+   "headlines": [
+    {"start": 213, "end": 292, "size": 100, "lines": [["اختار", "الخامة،", "اللون،"], ["*الجودة", "*والكمية"]]},
+    {"start": 299, "size": 98, "lines": [["وشوف", "المعاينة", "والسعر"], ["*فوراً!"]]}
+   ]},
+  {"start": 360, "type": "site", "shot": "s4",
+   "zoom": [[384, 1.17, 195, 430], [406, 1, 195, 430], [438, 1, 195, 464], [464, 1.15, 195, 464]],
+   "headlines": [
+    {"start": 363, "end": 396, "size": 130, "lines": [["عجبك", "*السعر؟"]]},
+    {"start": 403, "end": 444, "size": 120, "lines": [["اطلب", "عبر", "*واتساب"]]},
+    {"start": 451, "size": 100, "lines": [["ومنتواصل", "معك"], ["*لتأكيد", "*التفاصيل"]]}
+   ]},
+  {"start": 480, "type": "outro",
+   "headline": ["ما", "*تعقّدها"], "sub": ["اطلب", "*أونلاين"],
+   "phone": "81 424 535", "digits": [41, 46, 51, 56, 61, 66, 71, 76]}
+ ]
+}
