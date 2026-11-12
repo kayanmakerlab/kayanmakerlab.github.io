@@ -67,9 +67,13 @@ Rules:
   ≈ 20–30 px, very low opacity). White text has **no** glow and no drop shadow.
 - A struck-through word dims to ≈ 60 % with a slight blue tint (`≈ #9FC4EA`).
 
-> Note: the website uses `#74D1E3` as its brand cyan and a "K" mark as its logo. The video
-> uses the more saturated `#00C8EF` and the hexagonal cube mark. **For video, this guide
-> wins.**
+> Note: the website uses `#74D1E3` as its brand cyan. The video uses the more saturated
+> `#00C8EF`. **For video, this guide wins on colour.**
+>
+> **Logo (owner decision, 2026-11-12):** videos use the **website's logo** — the "K" mark and
+> the `Kayan / Maker Lab` wordmark, taken from the `logo-mark` and `logo-word` symbols in
+> `index.html` — not the hexagonal cube mark of the original reference video. Shapes are
+> used unchanged; the cyan parts are drawn in the video accent.
 
 ---
 
@@ -274,7 +278,8 @@ Do not add music or sound effects unless the user asks for them.
 ## 8. Outro (mandatory, reproduce exactly)
 
 The outro is the last scene; the counter reads `TT / TT` (reference: `11 / 11`).
-Still: `reference/frames/outro-f140-final-hold.jpg`.
+Stills: `reference/frames/outro-f140-final-hold.jpg` (original reference, hexagon logo) and
+`reference/frames/outro-website-logo-lockup.jpg` (current lock-up with the website logo).
 
 ### 8.1 Final layout (top to bottom, everything centred on x = 540)
 
@@ -285,9 +290,8 @@ Still: `reference/frames/outro-f140-final-hold.jpg`.
 | Phone card | x 98–981, y 758–981 (884 × 224) | `panel` fill, 2 px `panel-border`, radius ≈ 32 px |
 | Phone number `81 424 535` | ink x 176–723, y 835–909, left-aligned inside the card | Plex Sans Bold **≈ 105 px**, white, grouped 2-3-3 |
 | Call button | circle Ø 132, centre (870, 870), at the right of the card | accent fill, dark handset glyph |
-| Logo mark | bbox x 456–623, y 1127–1272 | hexagonal cube, accent stroke ≈ 4 px with glow; right face filled lighter; top-left face has 3 horizontal "layer" lines |
-| Wordmark `KAYAN` | ink x 377–702, y 1344–1399 | Plex Sans Bold ≈ 80 px, white, letter-spacing ≈ 0.2 em |
-| `MAKER LAB` | ink x 408–672, y 1429–1450 | Plex Mono ≈ 30 px, accent, letter-spacing ≈ 0.55 em |
+| Logo mark | 150 × 150 at x 465–615, y 1122–1272 | **website "K" mark** (`logo-mark` symbol): white tile, accent K |
+| Wordmark | 330 × 106 at x 375–705, y 1302–1408 | **website wordmark** (`logo-word` symbol): `Kayan` white, `Maker Lab` accent |
 | Tagline `3D PRINTING · CNC · LASER · PROTOTYPING` | ink x 244–834, y 1486–1500 | Plex Mono ≈ 22 px, `text-muted` |
 
 Before a digit is typed, its slot shows a dim underscore placeholder (`__ ___ ___`).
@@ -297,10 +301,10 @@ Before a digit is typed, its slot shows a dim underscore placeholder (`__ ___ __
 | Time | Event |
 |---|---|
 | before 0.00 | Headline and sub-line are already settled (their entrance is **NOT OBSERVED** — use the standard headline entrance, section 5.2) |
-| 0.10 – 0.47 s | Logo hexagon outline **draws on**, starting from its left side; inner edges, face fill and layer lines follow by ≈ 0.63 s |
-| 0.37 – 0.70 s | `KAYAN` fades in (grey → white) |
+| 0.10 – 0.47 s | Logo mark outline **draws on** in accent; the white tile and the K fade in by ≈ 0.63 s and the outline fades away |
+| 0.37 – 0.70 s | `Kayan` wordmark fades in (grey → white) |
 | 0.47 – 0.83 s | Phone card rises and fades in with empty placeholders and the call button |
-| 0.60 – 0.83 s | `MAKER LAB` fades in |
+| 0.60 – 0.83 s | `Maker Lab` part of the wordmark fades in |
 | 0.83 – 1.13 s | Tagline fades in |
 | 1.13 s | Digit `8` |
 | 1.47 s | Digit `1` |
