@@ -1,26 +1,22 @@
-# Reel: official launch (30 s, 1080×1920, 30 fps) — silent, voice-over pending
+# Reel: trial launch (30 s, 1080×1920, 30 fps) — silent, voice-over pending
 
 Built with the `kayan-video` skill from `source/storyboard.json` (image `src` paths point to
-`assets/products/`; make them absolute in the work dir before re-rendering).
-
-## Script (edited from the owner's draft, following the master's arc — guide 6.1)
+`assets/products/`; make them absolute in the work dir before re-rendering; `vase.stl` is the
+test model uploaded in the site scene).
 
 | # | Time | On screen | Picture | Suggested voice-over |
 |---|---|---|---|---|
-| 1 | 0–4 s | في شي **ببالك؟** → أو قطعة / **مش لاقيها؟** | product photo (drill guide) in the card | «في شي ببالك؟ أو قطعة مش لاقيها بالسوق؟» |
-| 2 | 4–7 s | مع كيان ميكر لاب → **حوّلها** لواقع | brand intro, website logo | «هلّق صار فيك تحوّلها لواقع مع كيان ميكر لاب!» |
-| 3 | 7–10.7 s | طباعة **3D** / حسب **طلبك** → مجسّمات **وديكورات** | dinosaur print | «طباعة ثلاثية الأبعاد حسب طلبك، مجسّمات وديكورات،» |
-| 4 | 10.7–14.3 s | نماذج **أولية** → وقطع **هندسية** | wrench print | «نماذج أولية وقطع هندسية،» |
-| 5 | 14.3–17 s | **وهدايا** / لكل مناسبة | heart box | «وهدايا لكل مناسبة.» |
-| 6 | 17–22 s | موقعنا **صار جاهز!** → تصفّح **خدماتنا** → واطلب **بسهولة** | real site: hero → خدماتنا → المتجر → المطبخ | «وموقعنا صار جاهز! تصفّح خدماتنا واطلب بكل سهولة.» |
-| 7 | 22–24 s | فكرتك بتبدأ **معنا** → LET'S MAKE / IT **REAL!** | text beat | «فكرتك بتبدأ معنا… Let's make it real!» |
-| 8 | 24–30 s | **بلّشنا** رسمياً! / وفتحنا استقبال **الطلبات** | outro, 81 424 535 | «بلّشنا رسمياً، وفتحنا استقبال الطلبات. ٨١ ٤٢٤ ٥٣٥» |
+| 1 | 0–3.3 s | في شي **ببالك؟** → أو قطعة / **مش لاقيها؟** | product photo (drill guide) | «في شي ببالك؟ أو قطعة مش لاقيها بالسوق؟» |
+| 2 | 3.3–5.8 s | مع كيان ميكر لاب → **حوّلها** لواقع | brand intro, website logo | «مع كيان ميكر لاب، حوّلها لواقع!» |
+| 3 | 5.8–8.8 s | طباعة **3D** / حسب **طلبك** → مجسّمات ونماذج / **وهدايا** | dinosaur print | «طباعة ثلاثية الأبعاد حسب طلبك: مجسّمات، نماذج وهدايا.» |
+| 4 | 8.8–11.5 s | هيدا **انطلاقنا** / **التجريبي** → لنقدّملكن / **أفضل خدمة** | text beat | «هيدا انطلاقنا التجريبي، لنقدّملكن أفضل خدمة.» |
+| 5 | 11.5–16.5 s | ارفع ملف **STL** → وشوف **سعر تقريبي** / قبل ما تطلب | real site: upload, 3D preview, price `$14` | «على موقعنا، ارفع ملف الـ STL وشوف سعر تقريبي قبل ما تطلب،» |
+| 6 | 16.5–20 s | وقطع **جاهزة** / بالمتجر → والطلب عبر / **واتساب** | real site: shop → المطبخ, products with WhatsApp buttons | «في قطع جاهزة بالمتجر، والطلب عبر واتساب.» |
+| 7 | 20–24 s | توصيل لكل **لبنان** → والدفع عبر / **Whish Money** | real site: hero chips (delivery, Whish Money) | «توصيل لكل لبنان، والدفع عبر Whish Money.» |
+| 8 | 24–30 s | جرّبونا **هلأ** / وفتحنا استقبال **الطلبات** | outro, 81 424 535 | «جرّبونا هلأ، فتحنا استقبال الطلبات! ٨١ ٤٢٤ ٥٣٥» |
 
-All services named are on the site's «خدماتنا» section (printing from your file, missing parts /
-reverse engineering, molds-models-prototypes, gifts). Product photos are the shop's own
-photos (`assets/products/`); website footage is real (this repo's `index.html`, served locally).
+Every claim is shown on the site (services section, approximate price label, shop, WhatsApp
+order, delivery and Whish Money chips). Website footage is real (this repo's `index.html`).
 
-Deviations / not observed in the master: no voice yet, so wipes are not on voice pauses and
-digits are every 8 frames; bright product photos are shown inside the card (not as full-bleed
-photo scenes) because the master's full-bleed pictures are dark; Latin slogan headline
-(left-to-right) is new; slight zooms on footage and photos.
+Deviations / not observed in the master: no voice yet (wipes not on pauses, digits every 8
+frames); bright product photos inside the card rather than full-bleed; slight zooms.
