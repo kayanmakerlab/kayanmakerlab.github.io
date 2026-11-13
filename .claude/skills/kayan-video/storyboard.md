@@ -39,7 +39,7 @@ The HUD counter shows `NN / TT` with TT = number of scenes.
   "sub": ["اطلب", "*أونلاين"],             // 62 px Medium
   "phone": "81 424 535",                   // default
   "digits": [41,46,51,56,61,66,71,76],     // frame offsets from outro start, one per digit (default 41 + 5k)
-  "tagline": "3D PRINTING  ·  CNC  ·  LASER  ·  PROTOTYPING" }  // default
+  "tagline": "3D PRINTING  ·  PROTOTYPING" }  // default (owner decision: only services offered)
 ```
 
 Zoom: keep scale ≤ 1.2 so text stays sharp (footage is captured at 4×). Focus Y around the

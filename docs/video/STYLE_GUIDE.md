@@ -292,7 +292,7 @@ Stills: `reference/frames/outro-f140-final-hold.jpg` (original reference, hexago
 | Call button | circle Ø 132, centre (870, 870), at the right of the card | accent fill, dark handset glyph |
 | Logo mark | 150 × 150 at x 465–615, y 1122–1272 | **website "K" mark** (`logo-mark` symbol): white tile, accent K |
 | Wordmark | 330 × 106 at x 375–705, y 1302–1408 | **website wordmark** (`logo-word` symbol): `Kayan` white, `Maker Lab` accent |
-| Tagline `3D PRINTING · CNC · LASER · PROTOTYPING` | ink x 244–834, y 1486–1500 | Plex Mono ≈ 22 px, `text-muted` |
+| Tagline `3D PRINTING · PROTOTYPING` | centred on x 540, y 1486–1500 | Plex Mono ≈ 22 px, `text-muted`. **Owner decision (2026-11-13):** CNC and LASER removed — list only services KAYAN offers (reference showed `3D PRINTING · CNC · LASER · PROTOTYPING`) |
 
 Before a digit is typed, its slot shows a dim underscore placeholder (`__ ___ ___`).
 

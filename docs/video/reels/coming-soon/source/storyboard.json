@@ -3,55 +3,310 @@
  "frames": 580,
  "audio": null,
  "capture": {
-  "url": "local", "viewport": [390, 464], "scale": 4, "theme": "dark",
+  "url": "local",
+  "viewport": [
+   390,
+   464
+  ],
+  "scale": 4,
+  "theme": "dark",
   "shots": [
-   {"id": "s1", "from": 68, "to": 190, "actions": [
-     {"type": "scroll", "from": 68, "to": 68, "y": 0},
-     {"type": "scroll", "from": 120, "to": 175, "y": 140}
-   ]},
-   {"id": "s2", "from": 182, "to": 328, "actions": [
-     {"type": "scroll", "from": 182, "to": 182, "target": "#view", "offset": 250},
-     {"type": "scroll", "from": 190, "to": 210, "target": "#view", "offset": 110},
-     {"type": "cursor", "at": 196, "x": 330, "y": 430},
-     {"type": "click", "at": 228, "target": "#view", "dx": 10, "dy": 25, "travel": 26, "real": false},
-     {"type": "upload", "at": 231, "input": "#file", "file": "vase.stl", "ms": 900, "log": "#fname"},
-     {"type": "hide", "at": 250},
-     {"type": "scroll", "from": 268, "to": 290, "target": "#sP", "offset": 210},
-     {"type": "record", "at": 300, "name": "price", "target": "#sP"}
-   ]},
-   {"id": "s3", "from": 320, "to": 442, "actions": [
-     {"type": "scroll", "from": 320, "to": 320, "target": "#shop", "offset": 40},
-     {"type": "cursor", "at": 334, "x": 60, "y": 420},
-     {"type": "click", "at": 372, "target": "button.tile[data-c=\"kitchen\"]", "travel": 30, "log": "#catTitle"},
-     {"type": "wait", "at": 373, "ms": 600},
-     {"type": "hide", "at": 380},
-     {"type": "scroll", "from": 384, "to": 404, "target": "#catView", "offset": 40}
-   ]}
+   {
+    "id": "s1",
+    "from": 68,
+    "to": 190,
+    "actions": [
+     {
+      "type": "scroll",
+      "from": 68,
+      "to": 68,
+      "y": 0
+     },
+     {
+      "type": "scroll",
+      "from": 120,
+      "to": 175,
+      "y": 140
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "from": 182,
+    "to": 328,
+    "actions": [
+     {
+      "type": "scroll",
+      "from": 182,
+      "to": 182,
+      "target": "#view",
+      "offset": 250
+     },
+     {
+      "type": "scroll",
+      "from": 190,
+      "to": 210,
+      "target": "#view",
+      "offset": 110
+     },
+     {
+      "type": "cursor",
+      "at": 196,
+      "x": 330,
+      "y": 430
+     },
+     {
+      "type": "click",
+      "at": 228,
+      "target": "#view",
+      "dx": 10,
+      "dy": 25,
+      "travel": 26,
+      "real": false
+     },
+     {
+      "type": "upload",
+      "at": 231,
+      "input": "#file",
+      "file": "vase.stl",
+      "ms": 900,
+      "log": "#fname"
+     },
+     {
+      "type": "hide",
+      "at": 250
+     },
+     {
+      "type": "scroll",
+      "from": 268,
+      "to": 290,
+      "target": "#sP",
+      "offset": 210
+     },
+     {
+      "type": "record",
+      "at": 300,
+      "name": "price",
+      "target": "#sP"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "from": 320,
+    "to": 442,
+    "actions": [
+     {
+      "type": "scroll",
+      "from": 320,
+      "to": 320,
+      "target": "#shop",
+      "offset": 40
+     },
+     {
+      "type": "cursor",
+      "at": 334,
+      "x": 60,
+      "y": 420
+     },
+     {
+      "type": "click",
+      "at": 372,
+      "target": "button.tile[data-c=\"kitchen\"]",
+      "travel": 30,
+      "log": "#catTitle"
+     },
+     {
+      "type": "wait",
+      "at": 373,
+      "ms": 600
+     },
+     {
+      "type": "hide",
+      "at": 380
+     },
+     {
+      "type": "scroll",
+      "from": 384,
+      "to": 404,
+      "target": "#catView",
+      "offset": 40
+     }
+    ]
+   }
   ]
  },
  "scenes": [
-  {"start": 0, "type": "text",
-   "headlines": [{"start": 3, "lines": [["شي", "جديد"], ["*عم", "*يتحضّر…"]]}]},
-  {"start": 72, "type": "site", "shot": "s1",
-   "zoom": [[75, 1, 195, 0], [186, 1.05, 195, 0]],
+  {
+   "start": 0,
+   "type": "text",
    "headlines": [
-    {"start": 75, "end": 125, "lines": [["طباعة", "*3D"], ["حسب", "*الطلب"]]},
-    {"start": 132, "lines": [["من", "فكرتك"], ["*لإيدك"]]}
-   ]},
-  {"start": 186, "type": "site", "shot": "s2",
-   "zoom": [[240, 1, 195, 430], [258, 1.12, 195, 430]],
+    {
+     "start": 3,
+     "lines": [
+      [
+       "شي",
+       "جديد"
+      ],
+      [
+       "*عم",
+       "*يتحضّر…"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 72,
+   "type": "site",
+   "shot": "s1",
+   "zoom": [
+    [
+     75,
+     1,
+     195,
+     0
+    ],
+    [
+     186,
+     1.05,
+     195,
+     0
+    ]
+   ],
    "headlines": [
-    {"start": 189, "end": 255, "lines": [["ارفع", "ملف", "*STL"]]},
-    {"start": 262, "lines": [["وشوف", "*سعره", "*فوراً"]]}
-   ]},
-  {"start": 324, "type": "site", "shot": "s3",
-   "zoom": [[324, 1, 195, 232], [438, 1.04, 195, 232]],
+    {
+     "start": 75,
+     "end": 125,
+     "lines": [
+      [
+       "طباعة",
+       "*3D"
+      ],
+      [
+       "حسب",
+       "*الطلب"
+      ]
+     ]
+    },
+    {
+     "start": 132,
+     "lines": [
+      [
+       "توصيل",
+       "لكل",
+       "*لبنان"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 186,
+   "type": "site",
+   "shot": "s2",
+   "zoom": [
+    [
+     240,
+     1,
+     195,
+     430
+    ],
+    [
+     258,
+     1.12,
+     195,
+     430
+    ]
+   ],
    "headlines": [
-    {"start": 327, "end": 382, "lines": [["وقطع", "*جاهزة"], ["بالمتجر"]]},
-    {"start": 389, "lines": [["*لكل", "*بيت"]]}
-   ]},
-  {"start": 438, "type": "outro",
-   "headline": ["الانطلاقة", "*قريباً"], "sub": ["خلّيك", "على", "*تواصل"],
-   "phone": "81 424 535"}
+    {
+     "start": 189,
+     "end": 255,
+     "lines": [
+      [
+       "ارفع",
+       "ملف",
+       "*STL"
+      ]
+     ]
+    },
+    {
+     "start": 262,
+     "lines": [
+      [
+       "وشوف",
+       "*سعر",
+       "*تقريبي"
+      ],
+      [
+       "قبل",
+       "ما",
+       "تطلب"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 324,
+   "type": "site",
+   "shot": "s3",
+   "zoom": [
+    [
+     324,
+     1,
+     195,
+     232
+    ],
+    [
+     438,
+     1.04,
+     195,
+     232
+    ]
+   ],
+   "headlines": [
+    {
+     "start": 327,
+     "end": 382,
+     "lines": [
+      [
+       "وقطع",
+       "*جاهزة"
+      ],
+      [
+       "بالمتجر"
+      ]
+     ]
+    },
+    {
+     "start": 389,
+     "lines": [
+      [
+       "والطلب",
+       "عبر"
+      ],
+      [
+       "*واتساب"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 438,
+   "type": "outro",
+   "headline": [
+    "الانطلاقة",
+    "*قريباً"
+   ],
+   "sub": [
+    "خلّيك",
+    "على",
+    "*تواصل"
+   ],
+   "phone": "81 424 535"
+  }
  ]
 }
