@@ -7,7 +7,7 @@ Built with the `kayan-video` skill from `source/storyboard.json` (image `src` pa
 
 | # | Time | On screen | Picture | Suggested voice-over |
 |---|---|---|---|---|
-| 1 | 0–4 s | عندك **فكرة؟** → أو قطعة / **مش لاقيها؟** | product photo (drill guide) in the card | «عندك فكرة؟ أو قطعة مش لاقيها بالسوق؟» |
+| 1 | 0–4 s | في شي **ببالك؟** → أو قطعة / **مش لاقيها؟** | product photo (drill guide) in the card | «في شي ببالك؟ أو قطعة مش لاقيها بالسوق؟» |
 | 2 | 4–7 s | مع كيان ميكر لاب → **حوّلها** لواقع | brand intro, website logo | «هلّق صار فيك تحوّلها لواقع مع كيان ميكر لاب!» |
 | 3 | 7–10.7 s | طباعة **3D** / حسب **طلبك** → مجسّمات **وديكورات** | dinosaur print | «طباعة ثلاثية الأبعاد حسب طلبك، مجسّمات وديكورات،» |
 | 4 | 10.7–14.3 s | نماذج **أولية** → وقطع **هندسية** | wrench print | «نماذج أولية وقطع هندسية،» |
