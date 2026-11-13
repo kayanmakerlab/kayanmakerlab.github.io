@@ -1,8 +1,8 @@
 {
  "slug": "kayan-reel-official-launch",
- "frames": 900,
- "maxFrames": 900,
- "audio": null,
+ "frames": 1027,
+ "maxFrames": 1030,
+ "audio": "voice-elevenlabs-mimi.mp3",
  "capture": {
   "url": "local",
   "viewport": [
@@ -14,41 +14,41 @@
   "shots": [
    {
     "id": "s1",
-    "from": 341,
-    "to": 499,
+    "from": 455,
+    "to": 602,
     "actions": [
      {
       "type": "scroll",
-      "from": 341,
-      "to": 341,
+      "from": 455,
+      "to": 455,
       "target": "#view",
       "offset": 250
      },
      {
       "type": "scroll",
-      "from": 345,
-      "to": 365,
+      "from": 459,
+      "to": 479,
       "target": "#view",
       "offset": 110
      },
      {
       "type": "cursor",
-      "at": 350,
+      "at": 482,
       "x": 330,
       "y": 430
      },
      {
       "type": "click",
-      "at": 380,
+      "at": 512,
       "target": "#view",
       "dx": 10,
       "dy": 25,
-      "travel": 26,
+      "travel": 24,
       "real": false
      },
      {
       "type": "upload",
-      "at": 383,
+      "at": 515,
       "input": "#file",
       "file": "vase.stl",
       "ms": 900,
@@ -56,18 +56,18 @@
      },
      {
       "type": "hide",
-      "at": 400
+      "at": 532
      },
      {
       "type": "scroll",
-      "from": 425,
-      "to": 445,
+      "from": 544,
+      "to": 564,
       "target": "#sP",
       "offset": 210
      },
      {
       "type": "record",
-      "at": 455,
+      "at": 575,
       "name": "price",
       "target": "#sP"
      }
@@ -75,42 +75,42 @@
    },
    {
     "id": "s2",
-    "from": 491,
-    "to": 604,
+    "from": 594,
+    "to": 694,
     "actions": [
      {
       "type": "scroll",
-      "from": 491,
-      "to": 491,
+      "from": 594,
+      "to": 594,
       "target": "#shop",
       "offset": 40
      },
      {
       "type": "cursor",
-      "at": 505,
+      "at": 604,
       "x": 60,
       "y": 420
      },
      {
       "type": "click",
-      "at": 538,
+      "at": 628,
       "target": "button.tile[data-c=\"kitchen\"]",
-      "travel": 22,
+      "travel": 20,
       "log": "#catTitle"
      },
      {
       "type": "wait",
-      "at": 539,
+      "at": 629,
       "ms": 600
      },
      {
       "type": "hide",
-      "at": 546
+      "at": 636
      },
      {
       "type": "scroll",
-      "from": 550,
-      "to": 570,
+      "from": 640,
+      "to": 660,
       "target": "#catView",
       "offset": 40
      }
@@ -118,19 +118,19 @@
    },
    {
     "id": "s3",
-    "from": 596,
-    "to": 724,
+    "from": 686,
+    "to": 788,
     "actions": [
      {
       "type": "scroll",
-      "from": 596,
-      "to": 596,
+      "from": 686,
+      "to": 686,
       "y": 120
      },
      {
       "type": "scroll",
-      "from": 640,
-      "to": 680,
+      "from": 720,
+      "to": 760,
       "y": 175
      }
     ]
@@ -150,7 +150,7 @@
      232
     ],
     [
-     100,
+     103,
      1.05,
      195,
      232
@@ -158,8 +158,8 @@
    ],
    "headlines": [
     {
-     "start": 3,
-     "end": 48,
+     "start": 6,
+     "end": 42,
      "lines": [
       [
        "في",
@@ -169,7 +169,7 @@
      ]
     },
     {
-     "start": 55,
+     "start": 50,
      "lines": [
       [
        "أو",
@@ -184,7 +184,7 @@
    ]
   },
   {
-   "start": 100,
+   "start": 103,
    "type": "brand",
    "sub": [
     "مع",
@@ -196,30 +196,30 @@
     "*حوّلها",
     "لواقع"
    ],
-   "headlineAt": 39
+   "headlineAt": 51
   },
   {
-   "start": 175,
+   "start": 195,
    "type": "image",
    "src": "../../../../../assets/products/175046.jpg",
    "zoom": [
     [
-     175,
+     195,
      1,
      195,
      232
     ],
     [
-     265,
-     1.05,
+     347,
+     1.06,
      195,
      232
     ]
    ],
    "headlines": [
     {
-     "start": 178,
-     "end": 218,
+     "start": 201,
+     "end": 268,
      "lines": [
       [
        "طباعة",
@@ -232,7 +232,7 @@
      ]
     },
     {
-     "start": 225,
+     "start": 276,
      "lines": [
       [
        "مجسّمات",
@@ -246,12 +246,12 @@
    ]
   },
   {
-   "start": 265,
+   "start": 347,
    "type": "text",
    "headlines": [
     {
-     "start": 268,
-     "end": 303,
+     "start": 352,
+     "end": 397,
      "lines": [
       [
        "هيدا",
@@ -263,7 +263,7 @@
      ]
     },
     {
-     "start": 310,
+     "start": 405,
      "lines": [
       [
        "لنقدّملكن"
@@ -277,18 +277,18 @@
    ]
   },
   {
-   "start": 345,
+   "start": 459,
    "type": "site",
    "shot": "s1",
    "zoom": [
     [
-     388,
+     518,
      1,
      195,
      430
     ],
     [
-     405,
+     535,
      1.12,
      195,
      430
@@ -296,8 +296,18 @@
    ],
    "headlines": [
     {
-     "start": 348,
-     "end": 405,
+     "start": 464,
+     "end": 487,
+     "lines": [
+      [
+       "على",
+       "*موقعنا"
+      ]
+     ]
+    },
+    {
+     "start": 495,
+     "end": 535,
      "lines": [
       [
        "ارفع",
@@ -307,7 +317,7 @@
      ]
     },
     {
-     "start": 412,
+     "start": 542,
      "lines": [
       [
        "وشوف",
@@ -324,18 +334,18 @@
    ]
   },
   {
-   "start": 495,
+   "start": 598,
    "type": "site",
    "shot": "s2",
    "zoom": [
     [
-     495,
+     598,
      1,
      195,
      232
     ],
     [
-     600,
+     690,
      1.04,
      195,
      232
@@ -343,8 +353,8 @@
    ],
    "headlines": [
     {
-     "start": 498,
-     "end": 545,
+     "start": 605,
+     "end": 649,
      "lines": [
       [
        "وقطع",
@@ -356,7 +366,7 @@
      ]
     },
     {
-     "start": 552,
+     "start": 657,
      "lines": [
       [
        "والطلب",
@@ -370,18 +380,18 @@
    ]
   },
   {
-   "start": 600,
+   "start": 690,
    "type": "site",
    "shot": "s3",
    "zoom": [
     [
-     600,
+     690,
      1,
      195,
      300
     ],
     [
-     720,
+     784,
      1.06,
      195,
      300
@@ -389,8 +399,8 @@
    ],
    "headlines": [
     {
-     "start": 603,
-     "end": 655,
+     "start": 696,
+     "end": 733,
      "lines": [
       [
        "توصيل",
@@ -400,7 +410,7 @@
      ]
     },
     {
-     "start": 662,
+     "start": 741,
      "lines": [
       [
        "والدفع",
@@ -414,26 +424,26 @@
    ]
   },
   {
-   "start": 720,
+   "start": 784,
    "type": "outro",
    "headline": [
     "جرّبونا",
     "*هلأ"
    ],
    "sub": [
-    "وفتحنا",
+    "فتحنا",
     "استقبال",
     "*الطلبات"
    ],
    "digits": [
-    81,
-    89,
-    97,
-    105,
-    113,
-    121,
-    129,
-    137
+    86,
+    106,
+    131,
+    145,
+    156,
+    175,
+    187,
+    202
    ]
   }
  ]
