@@ -71,6 +71,7 @@ element you want centred; with scale 1 the focus is irrelevant, so change it whi
   "y": 432,               // optional: vertical centre of the block (default 432; text-led scenes ~620)
   "lines": [["فوت", "على", "*الموقع"]] }   // words in reading order; "*" = accent colour
 
+Add `"dir": "ltr"` for a Latin-only headline (e.g. a slogan) so words read and enter left to right.
 Add `"lineStarts": [879, 923]` to make each line enter at its own frame (second line added
 under a line that stays — master scene 10).
 ```

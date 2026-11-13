@@ -84,7 +84,7 @@ function autoSize(lines){ if(lines.length>1) return 100; const n=lines[0].length
  if(n>=4) return 110; if(n===3) return 120; if(n===2) return lines[0].join('').replace(/\*/g,'').length<=7?140:130; return 150; }
 function buildHL(parent,h,cls){ const d=document.createElement('div'); d.className='hl'+(cls?' '+cls:'');
  const size=h.size||autoSize(h.lines); d.style.fontSize=size+'px'; d.style.lineHeight=(size*1.2)+'px';
- if(h.weight) d.style.fontWeight=h.weight;
+ if(h.weight) d.style.fontWeight=h.weight; if(h.dir==='ltr') d.style.direction='ltr';
  const top=h.top!=null?h.top:((h.y||432)-h.lines.length*size*1.2/2); d.style.top=top+'px'; if(h.top==null){d.dataset.y=h.y||432;d.dataset.n=h.lines.length;}
  let k=0; h.lines.forEach(ln=>{const l=document.createElement('span');l.className='ln';
   ln.forEach((w,j)=>{const s=document.createElement('span');const a=w.startsWith('*');s.className='w'+(a?' a':'');s.textContent=a?w.slice(1):w;s.dataset.k=k++;s.dataset.li=h.lines.indexOf(ln);s.dataset.kl=j;l.appendChild(s);if(j<ln.length-1)l.appendChild(document.createTextNode(' '));});
