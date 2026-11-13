@@ -23,6 +23,9 @@ scratchpad (never inside the repo: footage is ~100 MB).
    frame. Without it, use the pauses list + the script. Put the file in `$W` and set
    `"audio"` in the storyboard.
 3. **Write `$W/storyboard.json`** — see `storyboard.md` for every field. Rules:
+   - Writing the script yourself: follow the master's arc (guide 6.1): need/hook question →
+     brand as the answer → short action steps → name each doubt and answer it → payoff →
+     brand line → CTA with the number. Only claims the site/business really delivers.
    - Script → headlines: short Lebanese phrases, ≤ 2 lines, ≤ 4 words/line, key word(s) marked
      `*` (accent). Keep the user's wording; shorten only to fit.
    - Wipes = scene `start` frames. With audio, put each one on a pause marked "wipe OK".
@@ -49,7 +52,12 @@ scratchpad (never inside the repo: footage is ~100 MB).
 
 - Scene types: `site` (captured footage in the card), `image` (a still, e.g.
   `assets/products/*.jpg`, shown cover-fit in the card), `text` (headline-only beat),
-  `outro` (fixed lock-up; only headline, sub-line, phone, digit times may change).
+  `photo` (full-bleed dark picture + band, tag pill, callouts, status card, scan reveal —
+  master scenes 01/09/10; needs real dark KAYAN photos from the user), `brand` (logo intro —
+  master scene 02), `outro` (fixed lock-up; only headline, sub-line, phone, digit times change).
+- The master outro takes ~6.6 s (headline +4, sub +36, logo +48, digits from +81). In a
+  15–20 s reel that is a third of the time: tell the user, and use `"timing":"compact"` only
+  if they accept the deviation.
 - The logo is read from `index.html` (`logo-mark`, `logo-word`) at render time — never
   redraw it. Cyan parts are drawn in the video accent `#00C8EF` (owner decision).
 - `render.js` refuses storyboards that break hard rules (no outro last, > 2 lines, > 20 s,
@@ -66,6 +74,6 @@ scratchpad (never inside the repo: footage is ~100 MB).
 
 ## Things that are NOT observed in the reference (say so if you use them)
 
-Opening scenes, the transition into the outro, music/SFX, end fade-out, other aspect
-ratios. Zooms on screen recordings were requested by the owner for site reels; the
+The spoken script word for word, how the master's photos were made, other aspect ratios
+(the full master answered opening, brand intro, outro entrance, end and music). Zooms on screen recordings were requested by the owner for site reels; the
 reference itself has no camera moves.

@@ -34,12 +34,29 @@ The HUD counter shows `NN / TT` with TT = number of scenes.
 
 { "start": 200, "type": "text", "headlines": [ ... ] }    // headline-only beat on the background
 
+{ "start": 0, "type": "photo",                // full-bleed picture (guide 5.7) — dark, cyan-lit pictures only
+  "src": "photos/nozzle.jpg",                 // relative to the work dir; ask the user for real KAYAN photos
+  "band": 600,                                // dark headline band height (0 = top gradient only, like master scene 09)
+  "push": 0.0007,                             // push-in per frame (default = master scene 10)
+  "kicker": ["KAYAN", "MAKER", "*LAB"],       // optional Latin line above the headline (master scene 10)
+  "reveal": { "at": 24, "frames": 16 },       // optional scan-line reveal of the picture, bottom -> band edge
+  "tag": { "at": 65, "text": "بلا وجع راس", "y": 640 },             // optional reassurance pill
+  "callouts": [ { "at": 33, "x": 560, "y": 1240, "lx": 700, "ly": 1130, "label": "NOZZLE Ø 0.4 MM" } ],
+                                              // point (x,y) -> label anchor (lx,ly), stage px; only true specs
+  "status": { "at": 6, "n0": 108, "n1": 183, "total": 240, "label": "LAYER", "right": "PLA   0.2 MM" },
+  "headlines": [ ... ] }
+
+{ "start": 96, "type": "brand",               // brand intro (guide 5.8): website logo drawn on + wordmark
+  "sub": ["مع", "كيان", "ميكر", "لاب"], "headline": ["*الحل", "عنّا!"], "headlineAt": 39 }
+
 { "start": 480, "type": "outro",
   "headline": ["ما", "*تعقّدها"],          // 156 px, one line
   "sub": ["اطلب", "*أونلاين"],             // 62 px Medium
   "phone": "81 424 535",                   // default
-  "digits": [41,46,51,56,61,66,71,76],     // frame offsets from outro start, one per digit (default 41 + 5k)
-  "tagline": "3D PRINTING  ·  PROTOTYPING" }  // default (owner decision: only services offered)
+  "digits": [81,91,111,117,123,132,145,156], // offsets from outro start, one per digit, on the spoken digits (default 81 + 10k)
+  "tagline": "3D PRINTING  ·  PROTOTYPING",   // default (owner decision: only services offered)
+  "timing": "master" }                       // default: master timing (headline +4, sub +36, logo +48, digits from +81,
+                                             // ~6.6 s with hold). "compact" = the shorter pre-2026-11-13 timing (deviation)
 ```
 
 Zoom: keep scale ≤ 1.2 so text stays sharp (footage is captured at 4×). Focus Y around the
@@ -53,6 +70,9 @@ element you want centred; with scale 1 the focus is irrelevant, so change it whi
   "size": 120,            // optional: auto from the guide table (2 lines 100, 4 words 110, 3 words 120, 2 words 130/140, 1 word 150)
   "y": 432,               // optional: vertical centre of the block (default 432; text-led scenes ~620)
   "lines": [["فوت", "على", "*الموقع"]] }   // words in reading order; "*" = accent colour
+
+Add `"lineStarts": [879, 923]` to make each line enter at its own frame (second line added
+under a line that stays — master scene 10).
 ```
 
 Leave ≥ 7 frames between one headline's `end` and the next `start` (guide 5.3). A "word" may

@@ -266,3 +266,43 @@ onward), i.e. ×1.00 → ×1.04, easing out. In clip A the grid spacing is a con
   wordmark are estimates (marked ≈ in the guide).
 - Easing is described by measured per-frame positions; the original tool and its exact
   spring parameters are unknown.
+
+---
+
+# Addendum 2026-11-13 — the complete master
+
+Source: `reference/source/master-full-39s.mp4` (SHA-256 `58de607e…48e9a`, 13.6 MB). H.264 High
+1080×1920 30 fps, 1176 frames = 39.2 s, 2.6 Mbps; AAC mono 44.1 kHz; encoder Lavf (a render,
+not a phone recording). The earlier clips are parts of it: clip A frame 1 = master frame 183,
+clip B frame 1 = master frame 1026 (matched by image difference < 1/255).
+
+Analysed with the `kayan-video-reference` skill scripts (stills in `reference/frames/full-*`).
+
+## Scenes (wipe middle frames, 1-based; all wipes identical: 13.3–13.4°, 3–4 px)
+
+| # | Frames | Length | Content |
+|---|---|---|---|
+| 01 | 1–96 | 3.2 s | Hook over a dark cyan-lit nozzle close-up; band + 2-line headline (+1 → f1), callouts NOZZLE (f33) / LAYER (f45), tag pill «بلا وجع راس» (f65) |
+| 02 | 97–171 | 2.5 s | Brand intro: «مع كيان ميكر لاب» (Medium ≈ 58 px, IoU 0.90), logo draw-on f100–112 in rings, KAYAN f108–116, MAKER LAB f116–124, «الحل عنّا!» f136 |
+| 03–08 | 172–777 | 20.2 s | As analysed before (offset +182 frames from clip A) |
+| 09 | 778–843 | 2.2 s | Full-bleed printer photo, dark top gradient, status card LAYER 108→183 / 240 counting, «هيك بسيطة!» → «هيدا اللي / عملناه إلك» (Bold ≈ 111 px, IoU 0.90) |
+| 10 | 844–978 | 4.5 s | «KAYAN MAKER LAB» kicker (Plex Sans Bold ≈ 54 px, LAB accent) words rising f847–859; wireframe vase; scan line f867–883 reveals the photo bottom→top and becomes the band edge (y ≈ 460–520); line 1 «الطباعة ثلاثية الأبعاد» (≈ 92 px, IoU 0.90) f879, line 2 «صارت أسهل من أي وقت» f923 (line added); callout VORONOI LATTICE f935, LAYER 0.2 MM · PLA |
+| 11 | 979–1176 | 6.6 s | Outro (timings below), ends on a still frame |
+
+Photo motion: scene 10 fits a uniform push-in of ×1.0575 over 85 frames (residual 2.7/255);
+scenes 01 and 09 do not fit a pure zoom (residual 21–28/255, inter-frame change rising to
+3–8/255) — moving footage or camera move.
+
+## Outro timeline relative to the wipe middle (f979)
+
+headline first word +4 (≥ 5 % at +6, full +12) · sub-line +36 (full +48) · logo +48 (full +62)
+· wordmark +58 (+67) · call button +62 (+68) · Maker Lab +65 (+72) · card border +71 · tagline
++73 (+81) · digits appear +81 +91 +111 +117 +123 +132 +145 +156 · voice ends +170 · end +197.
+
+## Audio
+
+−27.5 LUFS integrated, −8.4 dBTP, LRA 7.9 LU. Every wipe middle frame lies inside a pause:
+3.20 s [2.89–3.20], 5.70 [5.40–5.78], 9.20 [9.00–9.33], 12.10 [11.97–12.16], 17.50
+[17.36–17.61], 21.00 [20.95–21.07], 22.50 [22.30–22.52], 25.90 [25.74–25.94], 28.10
+[28.03–28.19], 32.60 [32.39–32.72]. Pauses −68 to −73 dBFS; tail −92 dBFS → voice only.
+Speech ends at 38.3 s (frame 1149); 27 still frames follow.

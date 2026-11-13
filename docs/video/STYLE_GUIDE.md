@@ -1,7 +1,8 @@
 # KAYAN MAKER LAB — Motion Graphics Style Guide
 
 **Status: binding.** Every KAYAN MAKER LAB motion graphics video must follow this guide.
-It was reverse-engineered from the master reference video (see
+It was reverse-engineered from the master reference video — first from two phone recordings of
+parts of it, then (2026-11-13) from the complete 39 s, 11-scene master (see
 [`REFERENCE_ANALYSIS.md`](REFERENCE_ANALYSIS.md) for the evidence, timeline and measurement
 method, and [`reference/`](reference/) for stills). Nothing here is a design opinion: every
 value was measured from the reference frames or audio.
@@ -36,7 +37,7 @@ How to read the values:
 | Frame rate | 30 fps, constant |
 | Video codec | H.264 High, yuv420p, BT.709, limited range, ≈ 7–11 Mbps |
 | Audio | AAC, 48 kHz, 128 kbps, voice centred (both channels identical) |
-| Structure | Numbered scenes (the reference has 11); the last scene is the outro |
+| Structure | Numbered scenes (the master has 11 in 39.2 s); the last scene is the outro |
 
 ---
 
@@ -229,6 +230,11 @@ Measured rise of one word (px below final position, per frame): 58, 50, 41, 33, 
 | **Pop-in icons** | Speech bubbles and similar icons scale in, staggered ≈ 2 frames; leave by shrinking and fading, staggered. |
 | **Draw-on stroke** | Circles, check marks and the logo outline are drawn along their path (≈ 6–10 frames), then the inner detail appears. |
 | **Notification card** | Drops in from the top with a small overshoot, then later slides up to make room. |
+| **Line added** | A second headline line can enter later under a line that stays (master scene 10: line 2 starts 44 frames after line 1). |
+| **Tag pill** | Short reassurance under the headline (`• بلا وجع راس`): dark fill, 3 px accent border, fully rounded, ≈ 96 px tall, accent dot, Arabic Medium ≈ 50 px; pops in (scale 0.8→1 + fade, 6 frames) ≈ 2 s after the headline. |
+| **Callout** | Technical label on a photo (`NOZZLE Ø 0.4 MM`, `LAYER 0.20 MM`, `VORONOI LATTICE`): small accent ring on the point, 2 px accent leader line to an underline, Plex Mono ≈ 22 px uppercase label above it; line draws in ≈ 8 frames, label fades in after. 1–2 per photo, staggered ≈ 12 frames. |
+| **Status card** | Machine HUD over a photo (master scene 09): panel with accent border near the bottom, `LAYER n / total` in Plex Mono Bold ≈ 30 px counting up through the scene, specs on the right in Mono ≈ 20 px muted, accent progress bar. |
+| **Scan reveal** | Horizontal accent line sweeps up from the bottom (≈ 16 frames) revealing a photo, stopping at the headline band (master scene 10, after a wireframe drawing of the object). |
 
 ### 5.6 Scene transition — diagonal wipe (identical every time, measured)
 - A straight **accent line, 4 px wide with glow**, tilted **13.4° from vertical** (leaning
@@ -243,9 +249,33 @@ Measured rise of one word (px below final position, per frame): 58, 50, 41, 33, 
 
 ---
 
+### 5.7 Photo scenes (master scenes 01, 09, 10)
+
+- The picture fills the whole frame; the HUD brackets, label and counter stay on top.
+- A dark band (`#10191E`) covers the top of the frame for the headline (≈ 460–640 px tall
+  depending on the headline), with a soft lower edge; or, with no band, a dark gradient
+  fades the top 40 % (scene 09).
+- The picture moves slowly the whole scene: scene 10 is a still with a push-in of ×1.058 over
+  85 frames (≈ 0.07 %/frame); scenes 01 and 09 move more (real footage or a camera move —
+  not fully resolved).
+- **Pictures are dark and moody, lit in cyan/teal** (printer nozzle close-up, printer in a dark
+  workshop, white vase on a dark pedestal). Bright, white-background product photos do not
+  match: white headlines lose contrast. Use them only inside the card (`image` scene).
+- Callouts, tag pill and status card (5.5) are drawn over photos.
+
+### 5.8 Brand intro (master scene 02)
+
+Small Medium sub-line at the top (`مع كيان ميكر لاب`, ≈ 58 px, white), the logo drawn on at
+the centre inside two faint accent rings with a faint cross-hair, the wordmark under it, then a
+140 px headline between sub-line and logo (`الحل عنّا!`, accent on `الحل`). Timing from the
+wipe middle: sub-line +3, logo outline +3…+15, logo fill +12, wordmark +11…+19, `Maker Lab` +19,
+headline +39. Scene length 75 frames (2.5 s). (Logo = website logo, owner decision.)
+
 ## 6. Pacing and structure
 
-- A scene is one idea with one visual. Scene lengths in the reference: **1.5 s to 5.4 s**.
+- A scene is one idea with one visual. Scene lengths in the master: **1.5 s to 5.4 s**
+  (outro 6.6 s). Master: 11 scenes in 39.2 s — wipes at 3.2, 5.7, 9.2, 12.1, 17.5, 21.0, 22.5,
+  25.9, 28.1, 32.6 s.
 - A scene holds 1–4 headlines. A headline stays on screen ≈ **1.0–2.2 s**.
 - Every headline has a matching visual event (strike, upload, click, count-up…) that
   starts 0.3–0.8 s after the headline lands.
@@ -256,20 +286,50 @@ Measured rise of one word (px below final position, per frame): 58, 50, 41, 33, 
 
 ---
 
+### 6.1 Script pattern (from the master)
+
+The master's script, scene by scene (on-screen text):
+
+| # | Role | Headlines |
+|---|---|---|
+| 01 | **Hook** — the viewer's need, as a question + reassurance tag | بدك تطبع مجسّم / **ثلاثي الأبعاد؟** · tag «بلا وجع راس» |
+| 02 | **Brand = the answer** | مع كيان ميكر لاب → **الحل** عنّا! |
+| 03 | Step 1 + remove objections | فوت ع **الموقع** وبس → ما بدك خبرة / ولا برامج معقّدة (struck through) |
+| 04 | Step 2 + the next objection as a question | ارفع أي **ملف** عندك → وإذا **ما عندك؟** |
+| 05 | Answer the objection | **ولا يهمّك** → حاطّينلك / **مواقع جاهزة** → رسومات / **ثلاثية الأبعاد** → **بكبسة زر** |
+| 06 | Speed / ease | **بثواني** / بيحسبلك كل شي |
+| 07 | Independence | **بلا** ما تسأل / حدا |
+| 08 | Ordering, step by step to done | بتكبس **أوكيه** → بيوصلك **إشعار** / **ع الواتساب** → الطلب **تمّ** |
+| 09 | **Payoff** — the real result | هيك **بسيطة!** → هيدا اللي / عملناه **إلك** |
+| 10 | **Brand statement** | KAYAN MAKER LAB · الطباعة **ثلاثية الأبعاد** / صارت **أسهل** من أي وقت |
+| 11 | **CTA** with the spoken number | جرّبها **هلأ** / وتواصل معنا على **الرقم** |
+
+Rules drawn from it:
+
+- Arc: need → brand as answer → simple steps → objections removed → result → brand line → CTA.
+- Talk to one person (`بدك`, `عندك`, `إلك`), Lebanese colloquial, spoken contractions (`ع`,
+  `هلأ`, `هيك`, `حدا`, `بكبسة زر`).
+- Every step is one short action verb (`فوت`, `ارفع`, `بتكبس`); every doubt is named and
+  answered on the next headline (`وإذا ما عندك؟` → `ولا يهمّك`).
+- Accent marks the benefit or the answer, not decoration.
+- Only claims the product really delivers (owner rule, 2026-11-13).
+
 ## 7. Sound
 
 Measured from the reference audio (it could be analysed but not listened to or transcribed):
 
 - The track is **voice-over only**: a single voice (median pitch ≈ 260 Hz), centred.
-- **No music bed and no sound effects were detected** — pauses drop to digital silence,
-  including under the wipes.
-- Loudness of the main section: ≈ **−23.6 LUFS**, true peak ≈ −9 dBTP (quiet master).
+- **No music bed and no sound effects** — confirmed on the full master: pauses sit at
+  −68 to −73 dBFS and the end at −92 dBFS.
+- Loudness: full master **−27.5 LUFS**, true peak −8.4 dBTP, mono AAC 44.1 kHz (the phone
+  recordings measured −23.6 LUFS). The engine normalises to −23.6 LUFS unless set.
 - **Sync rules:**
   - Each headline's first word lands within ≈ 1–2 frames of the start of its spoken phrase.
-  - **Scene wipes are placed in voice-over pauses** (4 of the 5 wipes sit inside a
-    0.19–0.33 s silence).
+  - **Scene wipes are placed in voice-over pauses** — all 10 wipes of the master sit inside
+    a pause (0.07–0.6 s).
   - In the outro, **each phone digit appears on the onset of its spoken digit**.
-  - The voice ends ≈ 0.7 s before the final frame; the picture holds still under silence.
+  - The voice ends 0.9 s (27 frames) before the final frame; the picture holds still under
+    silence. The video ends on that still frame — no fade-out.
 
 Do not add music or sound effects unless the user asks for them.
 
@@ -300,7 +360,8 @@ Before a digit is typed, its slot shows a dim underscore placeholder (`__ ___ __
 
 | Time | Event |
 |---|---|
-| before 0.00 | Headline and sub-line are already settled (their entrance is **NOT OBSERVED** — use the standard headline entrance, section 5.2) |
+| | **Times in this table are from the phone recording, which starts 47 frames (1.57 s) after the wipe into the outro. Measured on the full master, relative to the wipe's middle frame:** headline first word +4 (standard entrance), sub-line +36, logo outline +48, call button +62, wordmark +58, card +71, `Maker Lab` +65, tagline +73, first digit +81, digits on the spoken numbers (master: +81 +91 +111 +117 +123 +132 +145 +156), last digit white +171, voice ends +170, last frame +197 (outro = 6.6 s). The engine uses these by default. |
+| before 0.00 | Headline and sub-line are already settled (standard headline entrance) |
 | 0.10 – 0.47 s | Logo mark outline **draws on** in accent; the white tile and the K fade in by ≈ 0.63 s and the outline fades away |
 | 0.37 – 0.70 s | `Kayan` wordmark fades in (grey → white) |
 | 0.47 – 0.83 s | Phone card rises and fades in with empty placeholders and the call button |
@@ -336,12 +397,10 @@ order, digit behaviour and the logo lock-up stay as specified.
 
 ## 9. Not observed in the reference
 
-The supplied material covers scenes **03–08** and the outro (**11**) of an 11-scene video.
-The following were not seen and must not be assumed:
+The full master (2026-11-13) answered most earlier gaps: opening hook, brand intro, scenes
+09–10, the transition into the outro (the standard wipe), the outro entrance, the end (still
+frame, no fade) and the absence of music/SFX. Still not observed:
 
-- Scenes 01–02 (the opening / hook) and scenes 09–10.
-- The transition **into** the outro and the outro headline's entrance.
-- Any end fade-out after the outro hold (the clip ends on a static frame).
-- Music and sound effects (none detected in the supplied clips).
-- The spoken script (the audio could not be transcribed here).
+- The spoken script word for word (the audio can be measured, not heard).
+- How the master's photos were produced (stills vs. footage for scenes 01 and 09).
 - A 16:9 or 1:1 version of the layout.

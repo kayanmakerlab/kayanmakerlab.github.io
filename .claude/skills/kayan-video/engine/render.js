@@ -23,9 +23,13 @@ let prev=-1; sb.scenes.forEach((s,i)=>{ if(s.start<=prev) errs.push(`scene ${i} 
  (s.headlines||[]).forEach(h=>{ if(h.lines.length>2) errs.push(`scene ${i}: headline has ${h.lines.length} lines (max 2)`);
   h.lines.forEach(l=>{ if(l.length>4) warns.push(`scene ${i}: line "${l.join(' ')}" has ${l.length} words (guide max 4)`); });
   if(h.start<s.start-3||(h.end!=null&&h.end>end)) warns.push(`scene ${i}: headline "${h.lines[0][0]}…" outside its scene`); }); });
+sb.scenes.forEach((s,i)=>{ if(!['site','image','text','photo','brand','outro'].includes(s.type)) errs.push(`scene ${i}: unknown type ${s.type}`);
+ if((s.type==='photo'||s.type==='image')&&s.src&&!/^(https?|file|data):/.test(s.src)&&!fs.existsSync(path.resolve(W,s.src))) errs.push(`scene ${i}: image not found ${s.src}`);
+ if(s.type==='brand'&&!s.sub) errs.push(`scene ${i}: brand scene needs "sub"`); });
 const last=sb.scenes[sb.scenes.length-1]; if(last.type!=='outro') errs.push('last scene must be the outro (guide section 8)');
 if(last.type==='outro'){ const nd=(last.phone||'81 424 535').replace(/\s/g,'').length; if(last.digits&&last.digits.length!==nd) errs.push(`outro: ${last.digits.length} digit times for ${nd} digits`);
- const lastDigit=last.start+Math.max(...(last.digits||[41+5*(nd-1)])); if(sb.frames-(lastDigit+15)<24) warns.push(`outro hold after last digit is ${sb.frames-lastDigit-15} frames (guide: >= 24)`); }
+ const lastDigit=last.start+Math.max(...(last.digits||[last.timing==='compact'?41+5*(nd-1):81+10*(nd-1)]));
+ if(last.timing==='compact') warns.push('outro uses compact timing (deviation: master outro is ~6.5 s)'); if(sb.frames-(lastDigit+15)<24) warns.push(`outro hold after last digit is ${sb.frames-lastDigit-15} frames (guide: >= 24)`); }
 warns.forEach(w=>console.log('WARN',w)); if(errs.length){errs.forEach(e=>console.log('ERROR',e));process.exit(2);}
 
 // ---- logo from the website
