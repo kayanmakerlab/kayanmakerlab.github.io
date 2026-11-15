@@ -13,7 +13,9 @@ that specific item.**
   **WhatsApp:** `81424535` (link `wa.me/96181424535`).
 - **Services to mention:** the shop (ready-made parts); send us a photo; we model your idea;
   upload an STL to the calculator and see the price instantly. Delivery $5 anywhere in Lebanon,
-  payment on delivery, Whish deposit for orders over $10.
+  payment on delivery, Whish deposit for orders over $10. **Confirmed by the owner
+  2026-11-15 for all new content** — do not write «الدفع عبر Whish Money» as the payment method
+  (older deliverables that say so stay as they are).
 - **Icons:** line icons, one colour only — cyan `#1DE5F5`. No coloured emoji in designs.
 - **Logo:** the real Kayan logo (from the PDF / the website's `logo-mark` + `logo-word`), medium
   size (68 px tall on posts), no effects on the logo itself.
