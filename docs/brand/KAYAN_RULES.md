@@ -4,6 +4,10 @@ Source: the owner's file «Kayan Maker Lab: المهارات والإضافات�
 to every post, story, Reel, video and caption made for Kayan. They extend the account skills
 `instagram-3d-printing-publisher` and `kayan-brand-posters`; when they disagree, these rules win.
 
+**Owner instruction (2026-11-15): apply these rules to new work only. Do not go back and edit
+existing deliverables (published/delivered reels, posts, the website) unless the owner asks for
+that specific item.**
+
 - **Dialect:** Lebanese colloquial (عامية لبنانية), not formal Arabic — in designs and captions.
 - **Website:** `kayanmakerlab.com` (written without `https://` in designs).
   **WhatsApp:** `81424535` (link `wa.me/96181424535`).
