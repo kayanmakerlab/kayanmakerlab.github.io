@@ -21,7 +21,7 @@ How to read the values:
 1. Canvas 1080×1920, 30 fps, dark slate background with drifting 60 px grid and HUD frame.
 2. All Arabic is **IBM Plex Sans Arabic**, correctly shaped and joined, RTL, letter-spacing 0.
 3. Headlines reveal **word by word, right to left**, never letter by letter.
-4. One accent colour only (`#1EE5F6`), used on the key word(s) of each headline.
+4. One accent colour only (`#1DE5F5`), used on the key word(s) of each headline.
 5. Every scene change is the **diagonal cyan wipe**, cut on a voice-over pause.
 6. HUD shows `KAYAN MAKER LAB` (top-left) and the scene counter `NN / TT` (top-right).
 7. The video ends with the **outro in section 8**, reproduced exactly.
@@ -48,7 +48,7 @@ no warm colours.
 
 | Token | Hex | Use |
 |---|---|---|
-| `accent` | `#1EE5F6` | Key words, icons, strokes, buttons, progress, wipe line. **Owner decision 2026-11-15:** the brand cyan of the KAYAN posters (measured `#1EE5F6`); the master video measured `#00C8EF`. |
+| `accent` | `#1DE5F5` | Key words, icons, strokes, buttons, progress, wipe line. **Owner decision 2026-11-15:** the brand cyan of the KAYAN posters (declared `#1DE5F5`; measured `#1EE5F6` on the posters); the master video measured `#00C8EF`. |
 | `text` | `#FFFFFF` | Headline text, values, wordmark |
 | `text-muted` | `#A4B1B9` | Tagline, secondary mono labels |
 | `hud` | `#5D686E` | HUD label and counter |
@@ -69,7 +69,7 @@ Rules:
 - A struck-through word dims to ≈ 60 % with a slight blue tint (`≈ #9FC4EA`).
 
 > Note: the website uses `#74D1E3`, the master video `#00C8EF`. **Videos use the owner's brand
-> cyan `#1EE5F6`** (sampled from the KAYAN social posters), with the same soft glow.
+> cyan `#1DE5F5`** (sampled from the KAYAN social posters), with the same soft glow.
 >
 > **Logo (owner decision, 2026-11-12):** videos use the **website's logo** — the "K" mark and
 > the `Kayan / Maker Lab` wordmark, taken from the `logo-mark` and `logo-word` symbols in

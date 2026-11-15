@@ -35,7 +35,7 @@ Quick reminders (the guide is the authority):
 - 1080 × 1920, 30 fps. Dark slate background, drifting 60 px grid, HUD frame with
   `KAYAN MAKER LAB` and the scene counter.
 - Fonts: IBM Plex Sans Arabic (Bold headlines), IBM Plex Sans, IBM Plex Mono. Nothing else.
-- Single accent colour `#1EE5F6` — the owner's brand cyan from the KAYAN posters (2026-11-15).
+- Single accent colour `#1DE5F5` — the owner's brand cyan from the KAYAN posters (2026-11-15).
   Not the master's `#00C8EF`, not the website's `#74D1E3`.
 - Arabic: RTL, fully joined, letter-spacing 0, revealed **word by word from the right**,
   never letter by letter.
@@ -43,6 +43,13 @@ Quick reminders (the guide is the authority):
 
 If the user supplies a new master reference, re-analyse it with `kayan-video-reference` and
 update the guide rather than working from memory.
+
+## Brand & social content
+
+For any post, story, carousel, Reel, caption or design for Kayan, follow
+[`docs/brand/KAYAN_RULES.md`](docs/brand/KAYAN_RULES.md) (dialect, website/WhatsApp, services,
+icons, logo, sizes, 5 hashtags, approval before publishing). They extend the account skills
+`instagram-3d-printing-publisher` and `kayan-brand-posters`.
 
 ## Website
 

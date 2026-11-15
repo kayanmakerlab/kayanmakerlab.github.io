@@ -17,20 +17,20 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111a21}
 .hl{position:absolute;left:0;width:1080px;text-align:center;direction:rtl;font-family:PA;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:0}
 .hl .ln{display:block}
 .w{display:inline-block}
-.w.a{color:#1ee5f6;text-shadow:0 0 26px rgba(30,229,246,.28)}
-.panel{position:absolute;left:98px;top:640px;width:884px;height:1050px;border-radius:32px;background:#25313a;border:2px solid rgba(30,229,246,.45);overflow:hidden}
+.w.a{color:#1de5f5;text-shadow:0 0 26px rgba(29,229,245,.28)}
+.panel{position:absolute;left:98px;top:640px;width:884px;height:1050px;border-radius:32px;background:#25313a;border:2px solid rgba(29,229,245,.45);overflow:hidden}
 .foot{position:absolute;left:0;top:0;width:884px;height:1052px}
 .foot img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
 .foot img.cover{object-fit:cover}
 .cursor{position:absolute;width:60px;height:60px;left:0;top:0;opacity:0}
-.ring{position:absolute;border:3px solid #1ee5f6;border-radius:50%;box-shadow:0 0 14px rgba(30,229,246,.5)}
+.ring{position:absolute;border:3px solid #1de5f5;border-radius:50%;box-shadow:0 0 14px rgba(29,229,245,.5)}
 #wipe{position:absolute;inset:0}
 .o{position:absolute}
-#card{left:98px;top:758px;width:884px;height:224px;border-radius:32px;background:#25313a;border:2px solid rgba(30,229,246,.45)}
+#card{left:98px;top:758px;width:884px;height:224px;border-radius:32px;background:#25313a;border:2px solid rgba(29,229,245,.45)}
 #digits,#ph{position:absolute;left:172px;top:802px;font:700 105px/1.3 PS;white-space:pre;direction:ltr}
 #digits{color:#fff}#ph{color:#55626a}
 #digits span,#ph span{display:inline-block;position:relative}
-#call{left:804px;top:804px;width:132px;height:132px;border-radius:50%;background:#1ee5f6}
+#call{left:804px;top:804px;width:132px;height:132px;border-radius:50%;background:#1de5f5}
 #tag{left:0;width:1080px;top:1478px;text-align:center;font:400 22px/1.3 PM;color:#a4b1b9;white-space:pre}
 /* photo scene (master scenes 01, 09, 10) */
 .ph{position:absolute;inset:0;overflow:hidden}
@@ -38,12 +38,12 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111a21}
 .band{position:absolute;left:0;top:0;width:1080px}
 .co{position:absolute;left:0;top:0}
 .tagp{position:absolute;left:0;width:1080px;text-align:center}
-.tagp span{display:inline-flex;align-items:center;gap:16px;direction:rtl;height:96px;padding:0 40px;border-radius:48px;border:3px solid #1ee5f6;background:rgba(14,22,28,.88);font:500 50px PA;color:#fff;box-shadow:0 0 22px rgba(30,229,246,.25)}
-.tagp i{width:14px;height:14px;border-radius:50%;background:#1ee5f6;box-shadow:0 0 10px #1ee5f6}
-.st{position:absolute;left:110px;width:860px;top:1440px;height:150px;border-radius:24px;border:2px solid rgba(30,229,246,.45);background:rgba(17,26,33,.78);padding:30px 40px;direction:ltr}
+.tagp span{display:inline-flex;align-items:center;gap:16px;direction:rtl;height:96px;padding:0 40px;border-radius:48px;border:3px solid #1de5f5;background:rgba(14,22,28,.88);font:500 50px PA;color:#fff;box-shadow:0 0 22px rgba(29,229,245,.25)}
+.tagp i{width:14px;height:14px;border-radius:50%;background:#1de5f5;box-shadow:0 0 10px #1de5f5}
+.st{position:absolute;left:110px;width:860px;top:1440px;height:150px;border-radius:24px;border:2px solid rgba(29,229,245,.45);background:rgba(17,26,33,.78);padding:30px 40px;direction:ltr}
 .st b{font:700 30px PM;color:#fff}.st em{position:absolute;right:40px;top:34px;font:400 20px PM;color:#a4b1b9;font-style:normal;white-space:pre}
-.st .bar{position:absolute;left:40px;right:40px;bottom:36px;height:10px;border-radius:5px;background:rgba(30,229,246,.15)}
-.st .bar div{height:100%;border-radius:5px;background:#1ee5f6;box-shadow:0 0 10px rgba(30,229,246,.6)}
+.st .bar{position:absolute;left:40px;right:40px;bottom:36px;height:10px;border-radius:5px;background:rgba(29,229,245,.15)}
+.st .bar div{height:100%;border-radius:5px;background:#1de5f5;box-shadow:0 0 10px rgba(29,229,245,.6)}
 .kick{direction:ltr!important;font-family:PS!important}
 </style></head><body><div id="stage">
 <svg id="grid" width="1880" height="2720"><defs>
@@ -108,10 +108,10 @@ const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className=
   if(s.kicker) s.kEl=buildHL(d,{lines:[s.kicker],size:54,top:s.kickerTop||254},'kick');
  }
  if(s.type==='brand'){ s.subEl=buildHL(d,{lines:[s.sub],size:58,top:359,weight:500});
-  d.insertAdjacentHTML('beforeend',`<svg class="o" style="left:0;top:0" width="1080" height="1920"><g fill="none" stroke="#1ee5f6" stroke-opacity=".16" stroke-width="2"><circle cx="540" cy="930" r="150"/><circle cx="540" cy="930" r="215"/></g><path d="M0 930H1080M540 640V1220" stroke="#fff" stroke-opacity=".06" stroke-width="2"/></svg>
-  <svg class="o bm" style="left:440px;top:830px;color:#fff;overflow:visible" width="200" height="200" viewBox="${LOGO_MARK.viewBox}"><g class="bmFill" opacity="0">${LOGO_MARK.body.replace(/class="lb"/g,'fill="#1ee5f6"')}</g>
-   <path class="bmLine" d="${LOGO_MARK.outline}" fill="none" stroke="#1ee5f6" stroke-width="5" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="filter:drop-shadow(0 0 6px rgba(30,229,246,.6))"/></svg>
-  <svg class="o" style="left:320px;top:1110px;overflow:visible" width="440" height="141" viewBox="${LOGO_WORD.viewBox}"><g class="bwMain" fill="#fff" opacity="0">${LOGO_WORD.main}</g><g class="bwSub" fill="#1ee5f6" opacity="0">${LOGO_WORD.sub}</g></svg>`);
+  d.insertAdjacentHTML('beforeend',`<svg class="o" style="left:0;top:0" width="1080" height="1920"><g fill="none" stroke="#1de5f5" stroke-opacity=".16" stroke-width="2"><circle cx="540" cy="930" r="150"/><circle cx="540" cy="930" r="215"/></g><path d="M0 930H1080M540 640V1220" stroke="#fff" stroke-opacity=".06" stroke-width="2"/></svg>
+  <svg class="o bm" style="left:440px;top:830px;color:#fff;overflow:visible" width="200" height="200" viewBox="${LOGO_MARK.viewBox}"><g class="bmFill" opacity="0">${LOGO_MARK.body.replace(/class="lb"/g,'fill="#1de5f5"')}</g>
+   <path class="bmLine" d="${LOGO_MARK.outline}" fill="none" stroke="#1de5f5" stroke-width="5" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="filter:drop-shadow(0 0 6px rgba(29,229,245,.6))"/></svg>
+  <svg class="o" style="left:320px;top:1110px;overflow:visible" width="440" height="141" viewBox="${LOGO_WORD.viewBox}"><g class="bwMain" fill="#fff" opacity="0">${LOGO_WORD.main}</g><g class="bwSub" fill="#1de5f5" opacity="0">${LOGO_WORD.sub}</g></svg>`);
   if(s.headline) s.bhEl=buildHL(d,{lines:[s.headline],size:s.size||140,y:537});
  }
  s.hl=(s.headlines||[]).map(h=>({h,el:buildHL(d,h)}));
@@ -123,10 +123,10 @@ if(OS){ const d=L[OI];
  d.insertAdjacentHTML('beforeend',`<div class="o" id="cardwrap" style="left:0;top:0;width:1080px;height:1920px"><div class="o" id="card"></div><div id="ph"></div><div id="digits"></div>
  <div class="o" id="call"><svg width="132" height="132" viewBox="0 0 132 132"><path d="M46 84 C50 66 62 54 84 50" fill="none" stroke="#00324d" stroke-width="13" stroke-linecap="round"/><circle cx="46" cy="85" r="8.5" fill="#00324d"/><circle cx="85" cy="50" r="8.5" fill="#00324d"/></svg></div></div>
  <svg class="o" style="left:465px;top:1122px;color:#fff;overflow:visible" width="150" height="150" viewBox="${LOGO_MARK.viewBox}">
-  <g id="lmFill" opacity="0">${LOGO_MARK.body.replace(/class="lb"/g,'fill="#1ee5f6"')}</g>
-  <path id="lmLine" d="${LOGO_MARK.outline}" fill="none" stroke="#1ee5f6" stroke-width="5" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="filter:drop-shadow(0 0 6px rgba(30,229,246,.6))"/></svg>
+  <g id="lmFill" opacity="0">${LOGO_MARK.body.replace(/class="lb"/g,'fill="#1de5f5"')}</g>
+  <path id="lmLine" d="${LOGO_MARK.outline}" fill="none" stroke="#1de5f5" stroke-width="5" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="filter:drop-shadow(0 0 6px rgba(29,229,245,.6))"/></svg>
  <svg class="o" style="left:375px;top:1302px;overflow:visible" width="330" height="106" viewBox="${LOGO_WORD.viewBox}">
-  <g id="lwMain" fill="#fff">${LOGO_WORD.main}</g><g id="lwSub" fill="#1ee5f6" opacity="0">${LOGO_WORD.sub}</g></svg>
+  <g id="lwMain" fill="#fff">${LOGO_WORD.main}</g><g id="lwSub" fill="#1de5f5" opacity="0">${LOGO_WORD.sub}</g></svg>
  <div class="o" id="tag">${OS.tagline||'3D PRINTING  ·  PROTOTYPING'}</div>`);
  OS.oh=buildHL(d,{lines:[OS.headline],size:156,top:349});
  OS.os=buildHL(d,{lines:[OS.sub],size:62,top:550,weight:500}); OS.os.style.lineHeight='80px';
@@ -166,7 +166,7 @@ window.render=async function(f){
  if(wipe){const xb=WIPE[wipe.i], xt=xb+1895*TAN, xbb=xb-25*TAN;
   L[wipe.to].style.clipPath=`polygon(${xt}px 0px,1600px 0px,1600px 1920px,${xbb}px 1920px)`;
   L[wipe.to-1].style.clipPath=`polygon(-600px 0px,${xt}px 0px,${xbb}px 1920px,-600px 1920px)`;
-  $('wipe').innerHTML=`<g style="filter:drop-shadow(0 0 8px rgba(30,229,246,.8))"><line x1="${xt}" y1="0" x2="${xbb}" y2="1920" stroke="#1ee5f6" stroke-width="4"/></g><line x1="${xt+38}" y1="0" x2="${xbb+38}" y2="1920" stroke="#1ee5f6" stroke-opacity=".45" stroke-width="1"/>`; }
+  $('wipe').innerHTML=`<g style="filter:drop-shadow(0 0 8px rgba(29,229,245,.8))"><line x1="${xt}" y1="0" x2="${xbb}" y2="1920" stroke="#1de5f5" stroke-width="4"/></g><line x1="${xt+38}" y1="0" x2="${xbb+38}" y2="1920" stroke="#1de5f5" stroke-opacity=".45" stroke-width="1"/>`; }
  const jobs=[];
  for(const i of show){ const s=SB.scenes[i], d=L[i]; d.style.display='block';
   if(s.type==='site'||s.type==='image'){
@@ -188,12 +188,12 @@ window.render=async function(f){
    const co=d.querySelector('.co'); let svg='';
    if(s.reveal){ const rv=s.reveal, yb=(s.band!=null?s.band:560), y=lerp(1920,yb,eio((f-rv.at)/(rv.frames||16)));   // scan line reveals the photo bottom->top (master scene 10)
     ph.style.clipPath=f<rv.at?'inset(100% 0 0 0)':`inset(${y}px 0 0 0)`;
-    if(f>=rv.at&&f<rv.at+(rv.frames||16)+6) svg+=`<line x1="0" x2="1080" y1="${y}" y2="${y}" stroke="#1ee5f6" stroke-width="3" opacity="${1-clamp((f-rv.at-(rv.frames||16))/6)}" style="filter:drop-shadow(0 0 8px #1ee5f6)"/>`; }
+    if(f>=rv.at&&f<rv.at+(rv.frames||16)+6) svg+=`<line x1="0" x2="1080" y1="${y}" y2="${y}" stroke="#1de5f5" stroke-width="3" opacity="${1-clamp((f-rv.at-(rv.frames||16))/6)}" style="filter:drop-shadow(0 0 8px #1de5f5)"/>`; }
    else ph.style.clipPath='none';
    (s.callouts||[]).forEach(c=>{ const p=clamp((f-c.at)/8); if(p<=0) return; const w=c.label.length*13.2+8, right=c.lx>=c.x;
     const ex=right?c.lx+w:c.lx-w, d1=Math.hypot(c.lx-c.x,c.ly-c.y), L1=d1+w;
-    svg+=`<circle cx="${c.x}" cy="${c.y}" r="7" fill="none" stroke="#1ee5f6" stroke-width="2.5" opacity="${p}"/>`+
-     `<path d="M${c.x} ${c.y}L${c.lx} ${c.ly}L${ex} ${c.ly}" fill="none" stroke="#1ee5f6" stroke-width="2" stroke-dasharray="${L1}" stroke-dashoffset="${L1*(1-eo(p))}" style="filter:drop-shadow(0 0 4px rgba(30,229,246,.6))"/>`+
+    svg+=`<circle cx="${c.x}" cy="${c.y}" r="7" fill="none" stroke="#1de5f5" stroke-width="2.5" opacity="${p}"/>`+
+     `<path d="M${c.x} ${c.y}L${c.lx} ${c.ly}L${ex} ${c.ly}" fill="none" stroke="#1de5f5" stroke-width="2" stroke-dasharray="${L1}" stroke-dashoffset="${L1*(1-eo(p))}" style="filter:drop-shadow(0 0 4px rgba(29,229,245,.6))"/>`+
      `<text x="${right?c.lx+4:ex+4}" y="${c.ly-12}" font-family="PM" font-size="22" fill="#e9eef1" opacity="${clamp((f-c.at-5)/5)}">${c.label}</text>`; });
    co.innerHTML=svg;
    if(s.tagEl){const t=clamp((f-s.tag.at)/6); s.tagEl.style.opacity=t; s.tagEl.style.transform=`scale(${.8+.2*eo(t)})`;}
@@ -220,7 +220,7 @@ window.render=async function(f){
    $('lwSub').style.opacity=clamp((t-T.sub)/7); $('tag').style.opacity=clamp((t-T.tag)/9);
    const ds=[...$('digits').children].filter(x=>x.textContent!==' '), ps=[...$('ph').children].filter(x=>x.textContent!==' ');
    ds.forEach((x,k)=>{const tt=f-OS.dig[k]; if(tt<0){x.style.opacity=0;ps[k].style.opacity=1;return;} ps[k].style.opacity=0; x.style.opacity=1;
-    x.style.top=DRISE[Math.min(tt,DRISE.length-1)]+'px'; x.style.color=tt>=15?'#fff':'#1ee5f6';}); }
+    x.style.top=DRISE[Math.min(tt,DRISE.length-1)]+'px'; x.style.color=tt>=15?'#fff':'#1de5f5';}); }
  }
  await Promise.all(jobs); await document.fonts.ready;
 };

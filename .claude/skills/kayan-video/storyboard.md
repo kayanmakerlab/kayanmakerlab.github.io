@@ -12,7 +12,7 @@ the card's aspect). Working example: `examples/price-calculator/storyboard.json`
   "audio": "voice.mp3",            // optional, relative to the work dir; null = silent
   "audioOffset": 0,                // optional seconds to delay the voice
   "loudness": -23.6,               // optional LUFS target (reference level)
-  "accent": "#00c8ef",             // optional: override the brand cyan (#1EE5F6) — only to patch older videos
+  "accent": "#00c8ef",             // optional: override the brand cyan (#1DE5F5) — only to patch older videos
   "capture": { ... },              // only needed for "site" scenes
   "scenes": [ ... ]                // in order; the last one must be the outro
 }

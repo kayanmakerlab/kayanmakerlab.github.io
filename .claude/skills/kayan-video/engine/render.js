@@ -45,7 +45,7 @@ let page=fs.readFileSync(path.join(ENGINE,'template.html'),'utf8')
  .replace('__LOGO_MARK__',JSON.stringify(LOGO_MARK)).replace('__LOGO_WORD__',JSON.stringify(LOGO_WORD));
 if(sb.accent&&/^#[0-9a-f]{6}$/i.test(sb.accent)){ // optional override (e.g. patching a video made with another cyan)
  const h=sb.accent.toLowerCase(), rgb=[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(',');
- page=page.replace(/#1ee5f6/gi,h).replace(/rgba\(30,229,246,/g,`rgba(${rgb},`); }
+ page=page.replace(/#1de5f5/gi,h).replace(/rgba\(30,229,246,/g,`rgba(${rgb},`); }
 fs.writeFileSync(path.join(W,'comp.html'),page); fs.mkdirSync(path.join(W,'out'),{recursive:true});
 
 (async()=>{
