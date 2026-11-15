@@ -35,7 +35,8 @@ Quick reminders (the guide is the authority):
 - 1080 × 1920, 30 fps. Dark slate background, drifting 60 px grid, HUD frame with
   `KAYAN MAKER LAB` and the scene counter.
 - Fonts: IBM Plex Sans Arabic (Bold headlines), IBM Plex Sans, IBM Plex Mono. Nothing else.
-- Single accent colour `#00C8EF`. (The website's `#74D1E3` is not used in video.)
+- Single accent colour `#1EE5F6` — the owner's brand cyan from the KAYAN posters (2026-11-15).
+  Not the master's `#00C8EF`, not the website's `#74D1E3`.
 - Arabic: RTL, fully joined, letter-spacing 0, revealed **word by word from the right**,
   never letter by letter.
 - Scene changes: the diagonal cyan wipe only, placed on a voice-over pause.

@@ -59,7 +59,7 @@ scratchpad (never inside the repo: footage is ~100 MB).
   15–20 s reel that is a third of the time: tell the user, and use `"timing":"compact"` only
   if they accept the deviation.
 - The logo is read from `index.html` (`logo-mark`, `logo-word`) at render time — never
-  redraw it. Cyan parts are drawn in the video accent `#00C8EF` (owner decision).
+  redraw it. Cyan parts are drawn in the video accent `#1EE5F6` (owner decision).
 - `render.js` refuses storyboards that break hard rules (no outro last, > 2 lines, > 20 s,
   missing shots) and warns on soft ones (scene < 1.5 s, > 4 words, short outro hold);
   headlines wider than the safe area are shrunk automatically and reported.
