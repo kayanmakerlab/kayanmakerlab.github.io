@@ -257,6 +257,12 @@ h2{font-size:clamp(24px,3.4vw,30px);margin:0 0 6px;line-height:1.3}
 footer{padding:28px 0 36px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer nav{display:flex;margin:0}
+.socials{display:flex;gap:8px;flex-wrap:wrap}
+.socials a{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line);background:var(--surface);color:var(--text);transition:color .2s,border-color .2s}
+.socials a:hover{color:var(--accent);border-color:var(--accent)}
+.socials svg{width:20px;height:20px}
+.cta .socials{justify-content:center;margin-top:18px}
+.paybar{flex-basis:100%;text-align:center;font-size:13px;border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
 
 .fab{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .2s}
 .fab:hover{transform:scale(1.06)}
@@ -291,13 +297,17 @@ footer nav{display:flex;margin:0}
  <symbol id="i-zap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14Z"/></g></symbol>
  <symbol id="i-fwd" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></g></symbol>
  <symbol id="i-back" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></g></symbol>
+ <symbol id="s-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></g></symbol>
+ <symbol id="s-facebook" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3H13a4 4 0 0 0-4 4v14M6 10.5h8.5"/></g></symbol>
+ <symbol id="s-tiktok" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3v12a3.8 3.8 0 1 1-3.8-3.8M13.5 3c.4 2.7 2.3 4.6 5.5 4.9"/></g></symbol>
+ <symbol id="s-threads" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12c0 2.8-1.5 4.3-3.6 4.3-1.8 0-3-1-3-2.6 0-1.9 1.8-2.8 4.3-2.8 3.8 0 5.3 1.9 5.3 4.1 0 2.9-2.6 5-6.6 5C7.6 20 5 16.6 5 12s2.6-8 7.4-8c3.5 0 5.6 1.7 6.4 4.2"/></g></symbol>
  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
 </svg>
 
 <header><div class="wrap">
  <a class="logo" href="#top" aria-label="كيان ميكر لاب – الرئيسية"><svg class="m" aria-hidden="true"><use href="#logo-mark"/></svg><svg class="w" aria-hidden="true"><use href="#logo-word"/></svg></a>
- <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#how">كيف نشتغل</a><a href="#shop">المتجر</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
+ <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#shop">المتجر</a><a href="#how">كيف نشتغل</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
  <div class="tools">
   <button class="icon-btn" id="theme" type="button" aria-label="تبديل الوضع الليلي"><svg><use href="#i-moon"/></svg></button>
   <a class="btn cta-h" href="#calc"><svg><use href="#i-up"/></svg>ارفع ملفك</a>
@@ -314,7 +324,7 @@ footer nav{display:flex;margin:0}
   <li><svg><use href="#i-check"/></svg>ملفك ما بينرفع لأي سيرفر</li>
   <li><svg><use href="#i-check"/></svg>طلب مباشر عبر واتساب</li>
   <li><svg><use href="#i-check"/></svg>توصيل إلى كافة المناطق اللبنانية</li>
-  <li><svg><use href="#i-check"/></svg>الدفع عبر Whish Money</li>
+  <li><svg><use href="#i-check"/></svg>الدفع عند الاستلام</li>
  </ul>
 
  <div class="calc">
@@ -363,36 +373,25 @@ footer nav{display:flex;margin:0}
     <div><span>الوزن التقريبي</span><b id="sW">-</b></div>
     <div><span>وقت الطباعة</span><b id="sT">-</b></div>
    </div>
-   <fieldset><legend>الاستلام</legend><div class="seg" id="dlv"></div></fieldset>
    <p class="warn" id="warn" hidden><svg><use href="#i-warn"/></svg><span id="warnTxt"></span></p>
    <div class="price"><span>السعر التقريبي</span><b id="sP" aria-live="polite">-</b></div>
    <details class="bd" id="bd"><summary>تفصيل السعر</summary>
     <dl><dt>الخامة</dt><dd id="bMat">-</dd><dt>وقت الطابعة</dt><dd id="bTime">-</dd><dt>هامش التشغيل</dt><dd id="bMarg">-</dd><dt>سعر الطباعة</dt><dd id="bPrint">-</dd><dt>التوصيل</dt><dd id="bDel">-</dd></dl>
    </details>
    <button class="btn wa" id="send" type="button" style="width:100%" disabled><svg><use href="#i-wa"/></svg>اطلب عبر واتساب</button>
-   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. الدفع عبر Whish Money. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.<br>التوصيل 5$ لأي منطقة بلبنان، وممكن يتغيّر إذا المنطقة برّا نطاق شركة التوصيل. ما منربح عالتوصيل، هو أتعاب شركة التوصيل بس.</p>
+   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.<br>التوصيل 5$ لأي منطقة بلبنان، وممكن يتغيّر إذا المنطقة برّا نطاق شركة التوصيل. ما منربح عالتوصيل، هو أتعاب شركة التوصيل بس.<br><b>الدفع عند الاستلام.</b> للطلبات فوق 10$، منأكد الطلب بعربون عبر Whish Money.</p>
   </div>
  </div>
 </div></div>
 
 <section class="hl" aria-label="معلومات مهمة"><div class="wrap"><div class="hl-grid">
- <div class="hl-item"><div class="ic"><svg><use href="#i-truck"/></svg></div><div><h3>توصيل لكل لبنان</h3><p>5$ للطلب كلّه، أو استلام مجاني من المحل.</p></div></div>
- <div class="hl-item"><div class="ic"><svg><use href="#i-wallet"/></svg></div><div><h3>الدفع عبر Whish Money</h3><p>بتدفع بعد ما نأكدلك السعر عالواتساب.</p></div></div>
+ <div class="hl-item"><div class="ic"><svg><use href="#i-truck"/></svg></div><div><h3>توصيل لكل لبنان</h3><p>5$ للطلب كلّه، لأي منطقة.</p></div></div>
+ <div class="hl-item"><div class="ic"><svg><use href="#i-wallet"/></svg></div><div><h3>الدفع عند الاستلام</h3><p>للطلبات فوق 10$، تأكيد بعربون عبر Whish Money.</p></div></div>
  <div class="hl-item"><div class="ic"><svg><use href="#i-zap"/></svg></div><div><h3>سعر فوري لملفك</h3><p>ارفع ملف STL وشوف السعر لحظتها.</p></div></div>
  <div class="hl-item"><div class="ic"><svg><use href="#i-ruler"/></svg></div><div><h3>تصميم وهندسة عكسية</h3><p>ما عندك ملف؟ منرسملك القطعة من صورة أو قياس.</p></div></div>
 </div></div></section>
 
-<section id="how" class="alt-bg"><div class="wrap">
- <h2>كيف نشتغل؟</h2><p class="sub">من الملف للقطعة بإيدك بأربع خطوات بسيطة.</p>
- <ol class="steps">
-  <li><h3>ارفع الملف</h3><p>ارفع ملف STL وشوف المعاينة والأبعاد مباشرة.</p></li>
-  <li><h3>اختر المواصفات</h3><p>الخامة، اللون، التعبئة، الجودة والكمية، والسعر بيتحدث فوراً.</p></li>
-  <li><h3>أرسل الطلب</h3><p>زر واتساب بيجهزلك رسالة فيها كل التفاصيل، وأنت بترفق الملف.</p></li>
-  <li><h3>استلم قطعتك</h3><p>منراجع الملف، منأكدلك السعر والموعد، ومنوصّلك القطعة لأي منطقة بلبنان.</p></li>
- </ol>
-</div></section>
-
-<section id="shop"><div class="wrap">
+<section id="shop" class="alt-bg"><div class="wrap">
  <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. اختار القسم، وبعدين اطلب مباشرة عبر واتساب.</p>
  <div class="tiles" id="tiles"></div>
  <div id="catView" hidden>
@@ -400,7 +399,17 @@ footer nav{display:flex;margin:0}
   <div class="cats" id="cats" role="toolbar" aria-label="أقسام المتجر"></div>
   <div class="products" id="products"></div>
  </div>
- <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل، ومنأكدها عالواتساب. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
+ <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل (5$)، ومنأكدها عالواتساب. الدفع عند الاستلام. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
+</div></section>
+
+<section id="how"><div class="wrap">
+ <h2>كيف نشتغل؟</h2><p class="sub">من الملف للقطعة بإيدك بأربع خطوات بسيطة.</p>
+ <ol class="steps">
+  <li><h3>ارفع الملف</h3><p>ارفع ملف STL وشوف المعاينة والأبعاد مباشرة.</p></li>
+  <li><h3>اختر المواصفات</h3><p>الخامة، اللون، التعبئة، الجودة والكمية، والسعر بيتحدث فوراً.</p></li>
+  <li><h3>أرسل الطلب</h3><p>زر واتساب بيجهزلك رسالة فيها كل التفاصيل، وأنت بترفق الملف.</p></li>
+  <li><h3>استلم قطعتك</h3><p>منراجع الملف، منأكدلك السعر والموعد، ومنوصّلك القطعة لأي منطقة بلبنان.</p></li>
+ </ol>
 </div></section>
 
 <section id="services" class="alt-bg"><div class="wrap">
@@ -436,8 +445,8 @@ footer nav{display:flex;margin:0}
   <details><summary>أي خامة بختار؟</summary><p>للمجسمات والتحف PLA، للقطع العملية اللي بتتعرض لرطوبة PETG، للحرارة ABS، وللقطع المرنة TPU. شوف قسم <a href="#materials">الخامات</a> أو اسألنا.</p></details>
   <details><summary>شو يعني نسبة التعبئة؟</summary><p>هي كمية المادة جوّا القطعة. 15% خفيفة ومناسبة للمجسمات، 30% للاستخدام العادي، و60% أو أكثر للقطع اللي بتتحمل ضغط.</p></details>
   <details><summary>القياسات بالمعاينة غلط، ليش؟</summary><p>غالباً وحدة الملف مش مليمتر. غيّر «وحدة الملف» لسنتيمتر أو إنش، أو عدّل «الحجم %» لحتى توصل للقياس الصحيح.</p></details>
-  <details><summary>كيف بدفع؟</summary><p>الدفع عبر <b>Whish Money</b> فقط. بعد ما نأكدلك السعر عالواتساب، منبعتلك تفاصيل التحويل.</p></details>
-  <details><summary>هل في توصيل؟</summary><p>إيه، منوصّل إلى كافة المناطق اللبنانية بـ 5$ للطلب كلّه (مش لكل قطعة). إذا المنطقة برّا نطاق شركة التوصيل، ممكن يتغيّر السعر ومنخبرك قبل. ما منربح عالتوصيل، المبلغ كلّه أتعاب شركة التوصيل. وفيك تستلم من المحل مجاناً.</p></details>
+  <details><summary>كيف بدفع؟</summary><p><b>الدفع عند الاستلام.</b> للطلبات اللي سعرها فوق 10$، منطلب عربون (جزء من المبلغ) عبر <b>Whish Money</b> لتأكيد الطلب، والباقي بتدفعه وقت الاستلام.</p></details>
+  <details><summary>هل في توصيل؟</summary><p>إيه، منوصّل إلى كافة المناطق اللبنانية بـ 5$ للطلب كلّه (مش لكل قطعة). إذا المنطقة برّا نطاق شركة التوصيل، ممكن يتغيّر السعر ومنخبرك قبل. ما منربح عالتوصيل، المبلغ كلّه أتعاب شركة التوصيل.</p></details>
   <details><summary>هل ملفي بينرفع لمكان؟</summary><p>لا. المعاينة والحساب بيصيروا بالكامل على جهازك، والملف ما بيوصلنا إلا لما ترسله أنت بالواتساب.</p></details>
  </div>
 </div></section>
@@ -450,15 +459,18 @@ footer nav{display:flex;margin:0}
   <a class="btn alt" href="#calc">عندي ملف، بدي احسب السعر</a>
   <a class="btn alt" href="#shop">تسوّق القطع الجاهزة</a>
  </div>
+ <div class="socials" aria-label="تابعنا"></div>
 </div></div></section>
 </main>
 
 <footer><div class="wrap">
  <a class="logo" href="#top" aria-label="كيان ميكر لاب"><svg class="m" aria-hidden="true"><use href="#logo-mark"/></svg><svg class="w" aria-hidden="true"><use href="#logo-word"/></svg></a>
  <nav aria-label="روابط"><a href="#calc">احسب السعر</a><a href="#shop">المتجر</a><a href="#services">الخدمات</a><a href="#faq">أسئلة</a></nav>
+ <div class="socials" aria-label="تابعنا"></div>
  <a href="https://wa.me/96181424535" dir="ltr" target="_blank" rel="noopener">+961 81 424 535</a>
- <span>توصيل إلى كافة المناطق اللبنانية</span>
+ <span>توصيل إلى كافة المناطق اللبنانية · متجر أونلاين</span>
  <span>© <span id="yr">2026</span> كيان ميكر لاب</span>
+ <p class="paybar"><b>الدفع عند الاستلام.</b> تأكيد الطلبات فوق 10$ بعربون عبر Whish Money.</p>
 </div></footer>
 
 <a class="fab" href="https://wa.me/96181424535" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg><use href="#i-wa"/></svg></a>
@@ -476,6 +488,13 @@ var CFG={
  profit:1.50,    // هامش الربح 50%
  round:0.5,      // تقريب السعر لأقرب 0.5$
  delivery:5,     // التوصيل لأي منطقة بلبنان (مرة وحدة لكل طلب، بلا ربح)
+ depositOver:10, // الطلبات فوق هالسعر بتحتاج عربون عبر Whish Money لتأكيدها
+ social:{        // روابط الحسابات (اتركه فاضي إذا ما في حساب)
+  instagram:'https://www.instagram.com/kayan.maker.lab',
+  tiktok:'',
+  facebook:'',
+  threads:''
+ },
  gph:22,         // غرامات بالساعة (سرعة تقريبية للطابعة)
  wa:'96181424535',
  bed:[220,220,250], // مساحة الطابعة بالمليمتر
@@ -518,7 +537,6 @@ function radios(box,name,items,def){
   box.appendChild(inp);box.appendChild(lb)})}
 radios($('inf'),'inf',CFG.infill.map(function(x){return{v:x[0],html:x[0]+'%<small>'+x[1]+'</small>'}}),CFG.infDef);
 radios($('qual'),'qual',CFG.quality.map(function(x){return{v:x[0],html:x[1]+'<small>'+x[2]+'</small>'}}),CFG.quality[0][0]);
-radios($('dlv'),'dlv',[{v:'d',html:'توصيل<small>'+CFG.cur+CFG.delivery+' لكل لبنان</small>'},{v:'p',html:'استلام من المحل<small>مجاناً</small>'}],'d');
 radios($('colors'),'col',CFG.colors.map(function(x,i){return{v:i,html:'<span class="sr">'+x[0]+'</span>',title:x[0],style:'background:'+x[1]}}),CFG.colDef);
 function val(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
 function color(){return CFG.colors[+val('col')]}
@@ -529,6 +547,14 @@ $('cname').textContent=color()[0];
 $('matCards').innerHTML=Object.keys(CFG.mats).map(function(k){var m=CFG.mats[k];
  return '<div class="card mat"><h3>'+k+'</h3><p>'+m.txt+'</p><div class="meter">'+
  '<span>القوة</span><i style="--v:'+m.str+'%"></i><span>تحمّل الحرارة</span><i style="--v:'+m.heat+'%"></i><span>المرونة</span><i style="--v:'+m.flex+'%"></i></div></div>'}).join('');
+
+/* ---- social links ---- */
+(function(){
+ var L=[['instagram','إنستغرام'],['tiktok','تيك توك'],['facebook','فيسبوك'],['threads','ثريدز']].filter(function(s){return CFG.social[s[0]]});
+ var html=L.map(function(s){return '<a href="'+CFG.social[s[0]]+'" target="_blank" rel="noopener" aria-label="'+s[1]+'" title="'+s[1]+'"><svg><use href="#s-'+s[0]+'"/></svg></a>'}).join('')+
+  '<a href="https://wa.me/'+CFG.wa+'" target="_blank" rel="noopener" aria-label="واتساب" title="واتساب"><svg><use href="#i-wa"/></svg></a>';
+ document.querySelectorAll('.socials').forEach(function(e){e.innerHTML=html});
+})();
 
 /* ---- shop ---- */
 var CATS={kitchen:'المطبخ',keys:'ميداليات',desk:'المكتب',toys:'ألعاب وفيدجت',home:'البيت والديكور',car:'السيارة',tools:'أدوات',gifts:'هدايا'}; // الأيقونة: c-<المفتاح>
@@ -581,7 +607,9 @@ function priceOf(g,h){var c=(g*CFG.mats.PLA.g+h*CFG.hourly)*CFG.fail*CFG.profit;
   var L=inCat(k),min=Math.min.apply(null,L.map(function(p){return priceOf(p.g,p.h)}));
   var th=L.filter(function(p){return p.img}).slice(0,3).map(function(p){return '<img src="'+esc(p.img)+'" alt="" loading="lazy">'}).join('');
   return '<button class="tile" type="button" data-c="'+k+'"><span class="ic">'+ic(k)+'</span><b>'+CATS[k]+'</b><small>'+L.length+' منتجات · من <bdi dir="ltr">'+money(min)+'</bdi></small>'+(th?'<span class="thumbs">'+th+'</span>':'')+'<span class="go"><svg><use href="#i-fwd"/></svg></span></button>'}).join('');
- function open(k,scroll){
+ function open(k,scroll,how){
+  if(!CATS[k])return;
+  if(how!=='pop'){try{history[cur?'replaceState':'pushState']({cat:k},'','#shop-'+k)}catch(e){}}
   cur=k;tiles.hidden=true;view.hidden=false;
   $('catTitle').innerHTML=ic(k)+CATS[k];
   catBox.innerHTML=keys.map(function(c){return '<button type="button" data-c="'+c+'" aria-pressed="'+(c===k)+'">'+ic(c)+CATS[c]+'</button>'}).join('');
@@ -591,13 +619,16 @@ function priceOf(g,h){var c=(g*CFG.mats.PLA.g+h*CFG.hourly)*CFG.fail*CFG.profit;
    '<div class="buy"><span class="pr">'+money(priceOf(p.g,p.h))+'</span><button class="btn wa" type="button" data-id="'+p.id+'"><svg><use href="#i-wa"/></svg>اطلب</button></div>'+
    '<span class="cr">تصميم: <a href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.by)+'</a> · '+p.lic+'</span></div></article>'}).join('');
   if(scroll)$('shop').scrollIntoView({behavior:'smooth'})}
- function close(){cur=null;view.hidden=true;tiles.hidden=false;$('shop').scrollIntoView({behavior:'smooth'})}
+ function show(){cur=null;view.hidden=true;tiles.hidden=false}
+ function close(){if(history.state&&history.state.cat){history.back()}else{show();$('shop').scrollIntoView({behavior:'smooth'})}}
+ window.addEventListener('popstate',function(e){var k=e.state&&e.state.cat;if(k)open(k,false,'pop');else if(cur){show();$('shop').scrollIntoView()}});
+ var m=location.hash.match(/^#shop-(\w+)$/);if(m&&CATS[m[1]]){try{history.replaceState({cat:m[1]},'')}catch(e){}open(m[1],true,'pop')}
  tiles.addEventListener('click',function(e){var b=e.target.closest('.tile');if(b)open(b.dataset.c,true)});
  catBox.addEventListener('click',function(e){var b=e.target.closest('button');if(b)open(b.dataset.c,false)});
  $('backCats').addEventListener('click',close);
  box.addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(!b)return;
   var p=PRODUCTS.filter(function(x){return x.id==b.dataset.id})[0];if(!p)return;
-  var msg='مرحباً كيان ميكر لاب، بدي اطلب من المتجر:\n• القطعة: '+p.n+' (#'+p.id+')\n• السعر التقريبي: '+money(priceOf(p.g,p.h))+'\n• الكمية: 1\n• اللون: \n• الاستلام: توصيل / من المحل\n• الدفع: Whish Money';
+  var msg='مرحباً كيان ميكر لاب، بدي اطلب من المتجر:\n• القطعة: '+p.n+' (#'+p.id+')\n• السعر التقريبي: '+money(priceOf(p.g,p.h))+'\n• الكمية: 1\n• اللون: \n• المنطقة: \n• الدفع: '+payTxt(priceOf(p.g,p.h));
   window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
 })();
 
@@ -687,6 +718,7 @@ function applyScale(){
  R.dirty=true}
 
 /* ---- pricing ---- */
+function payTxt(x){return 'عند الاستلام'+(x>CFG.depositOver?' (مع عربون عبر Whish Money لتأكيد الطلب)':'')}
 function money(x){return CFG.cur+(x%1?x.toFixed(2):x.toFixed(0))}
 function fmtT(h){var m=Math.max(1,Math.round(h*60));return m<60?m+' د':Math.floor(m/60)+' س '+(m%60?(m%60)+' د':'')}
 function qtyVal(){var q=Math.round(+$('qty').value);return isFinite(q)&&q>=1?Math.min(500,q):1}
@@ -703,7 +735,7 @@ function calc(){
  var w=vol*m.d*(0.25+0.75*inf),h=w/CFG.gph*Q[3];
  var cMat=w*m.g*q,cTime=h*CFG.hourly*q,cost=cMat+cTime;
  var print=Math.max(CFG.round,Math.round(cost*CFG.fail*CFG.profit/CFG.round)*CFG.round);
- var del=val('dlv')==='d'?CFG.delivery:0,total=print+del;
+ var del=CFG.delivery,total=print+del;
  data.out={w:w,h:h,total:total,q:q,print:print,del:del};
  var dimTxt=data.dimS.map(function(x){return x.toFixed(1)}).join(' × ');
  $('sDim').textContent=dimTxt;
@@ -713,7 +745,7 @@ function calc(){
  $('sP').textContent=money(total);
  $('bMat').textContent=money(cMat);$('bTime').textContent=fmtT(h*q)+' · '+money(cTime);
  $('bMarg').textContent=money(print-cost);$('bPrint').textContent=(q>1?money(print/q)+' للقطعة · ':'')+money(print);
- $('bDel').textContent=del?money(del):'مجاناً (استلام)';
+ $('bDel').textContent=money(del);
  // bed fit (any orientation)
  var a=data.dimS.slice().sort(function(x,y){return y-x}),b=CFG.bed.slice().sort(function(x,y){return y-x}),fits=a[0]<=b[0]&&a[1]<=b[1]&&a[2]<=b[2];
  var tiny=a[0]<3;
@@ -767,7 +799,7 @@ view.addEventListener('drop',function(e){load(e.dataTransfer.files[0])});
 $('qty').addEventListener('change',function(){this.value=qtyVal()});
 $('scale').addEventListener('change',function(){this.value=scaleVal()});
 document.querySelectorAll('.stepper button').forEach(function(b){b.addEventListener('click',function(){$('qty').value=Math.max(1,Math.min(500,qtyVal()+ +b.dataset.d));calc()})});
-document.querySelectorAll('#inf input,#qual input,#colors input,#dlv input').forEach(function(i){i.addEventListener('change',calc)});
+document.querySelectorAll('#inf input,#qual input,#colors input').forEach(function(i){i.addEventListener('change',calc)});
 if(matchMedia('(pointer:coarse)').matches)$('gesture').textContent='اسحب للتدوير · كبّر بإصبعين';
 
 $('send').addEventListener('click',function(){
@@ -783,9 +815,10 @@ $('send').addEventListener('click',function(){
   (u.value!=='1'||scaleVal()!==100?' (وحدة الملف: '+u.options[u.selectedIndex].text+'، الحجم '+scaleVal()+'%)':'')+
   '\n• الوزن التقريبي: '+Math.round(o.w*o.q)+' غ'+
   '\n• وقت الطباعة التقريبي: '+fmtT(o.h*o.q)+
-  '\n• الاستلام: '+(o.del?'توصيل ('+money(o.del)+')':'من المحل')+
+  '\n• التوصيل: '+money(o.del)+
   '\n• سعر الطباعة: '+money(o.print)+
   '\n• المجموع التقريبي: '+money(o.total)+
+  '\n• الدفع: '+payTxt(o.print)+
   '\n\nرح ارفق الملف هون.';
  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
 </script>
