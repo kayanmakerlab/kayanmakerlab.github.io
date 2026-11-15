@@ -1,0 +1,8 @@
+{"slug":"master-patch","frames":1176,"maxFrames":1180,"accent":"#00c8ef",
+ "scenes":[
+  {"start":0,"type":"text"},
+  {"start":96,"type":"brand","sub":["مع","كيان","ميكر","لاب"],"headline":["*الحل","عنّا!"],"headlineAt":39},
+  {"start":171,"type":"text"},{"start":276,"type":"text"},{"start":363,"type":"text"},{"start":525,"type":"text"},
+  {"start":630,"type":"text"},{"start":675,"type":"text"},{"start":777,"type":"text"},{"start":843,"type":"text"},
+  {"start":978,"type":"outro","headline":["جرّبها","*هلأ"],"sub":["وتواصل","معنا","على","*الرقم"],
+   "digits":[81,91,111,117,123,132,145,156]}]}

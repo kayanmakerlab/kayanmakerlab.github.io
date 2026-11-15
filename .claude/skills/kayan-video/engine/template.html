@@ -233,8 +233,8 @@ window.prep=async function(){
  document.querySelectorAll('.hl').forEach(h=>{ h.querySelectorAll('.w').forEach(w=>w.style.opacity=1);
   const wmax=Math.max(...[...h.querySelectorAll('.ln')].map(l=>{const ws=[...l.querySelectorAll('.w')];const r=ws.map(w=>w.getBoundingClientRect());return Math.max(...r.map(x=>x.right))-Math.min(...r.map(x=>x.left));}));
   if(wmax>930){const fs=parseFloat(h.style.fontSize), n=Math.floor(fs*930/wmax); h.style.fontSize=n+'px'; h.style.lineHeight=(n*1.2)+'px'; if(h.dataset.y) h.style.top=(h.dataset.y-h.dataset.n*n*1.2/2)+'px'; warn.push(`headline "${h.textContent.trim()}" shrunk ${fs}→${n}px to fit`);} });
- document.querySelectorAll('.w').forEach(w=>w.style.opacity=0); L.forEach(d=>d.style.display='none');
  if(OS){const ds=[...$('digits').children],ps=[...$('ph').children]; ds.forEach((x,k)=>{ps[k].style.width=x.getBoundingClientRect().width+'px';ps[k].style.textAlign='center';});}
+ document.querySelectorAll('.w').forEach(w=>w.style.opacity=0); L.forEach(d=>d.style.display='none');
  return warn;
 };
 </script></body></html>
