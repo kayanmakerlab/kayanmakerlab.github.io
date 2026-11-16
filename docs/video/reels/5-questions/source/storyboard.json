@@ -1,8 +1,8 @@
 {
  "slug": "kayan-reel-5-questions",
- "frames": 1286,
- "maxFrames": 1290,
- "audio": null,
+ "frames": 1330,
+ "maxFrames": 1340,
+ "audio": "voice-elevenlabs-mimi.mp3",
  "capture": {
   "url": "local",
   "viewport": [
@@ -14,41 +14,41 @@
   "shots": [
    {
     "id": "c",
-    "from": 842,
-    "to": 1000,
+    "from": 896,
+    "to": 1006,
     "actions": [
      {
       "type": "scroll",
-      "from": 842,
-      "to": 842,
+      "from": 896,
+      "to": 896,
       "target": "#view",
       "offset": 250
      },
      {
       "type": "scroll",
-      "from": 846,
-      "to": 866,
+      "from": 900,
+      "to": 918,
       "target": "#view",
       "offset": 110
      },
      {
       "type": "cursor",
-      "at": 866,
+      "at": 912,
       "x": 330,
       "y": 430
      },
      {
       "type": "click",
-      "at": 892,
+      "at": 935,
       "target": "#view",
       "dx": 10,
       "dy": 25,
-      "travel": 22,
+      "travel": 20,
       "real": false
      },
      {
       "type": "upload",
-      "at": 895,
+      "at": 938,
       "input": "#file",
       "file": "vase.stl",
       "ms": 900,
@@ -56,18 +56,18 @@
      },
      {
       "type": "hide",
-      "at": 912
+      "at": 952
      },
      {
       "type": "scroll",
-      "from": 930,
-      "to": 952,
+      "from": 962,
+      "to": 980,
       "target": "#sP",
       "offset": 210
      },
      {
       "type": "record",
-      "at": 965,
+      "at": 992,
       "name": "price",
       "target": "#sP"
      }
@@ -83,8 +83,8 @@
    "band": 560,
    "headlines": [
     {
-     "start": 3,
-     "end": 46,
+     "start": 5,
+     "end": 60,
      "lines": [
       [
        "قبل",
@@ -98,7 +98,7 @@
      ]
     },
     {
-     "start": 53,
+     "start": 70,
      "lines": [
       [
        "جاوب",
@@ -114,7 +114,7 @@
    "push": 0.0003
   },
   {
-   "start": 96,
+   "start": 112,
    "type": "brand",
    "sub": [
     "مع",
@@ -126,17 +126,17 @@
     "*منساعدك",
     "تختار"
    ],
-   "headlineAt": 39
+   "headlineAt": 50
   },
   {
-   "start": 171,
+   "start": 197,
    "type": "photo",
    "src": "photos/q1-uses.jpg",
    "band": 560,
    "headlines": [
     {
-     "start": 174,
-     "end": 232,
+     "start": 205,
+     "end": 268,
      "lines": [
       [
        "سؤال",
@@ -149,7 +149,7 @@
      ]
     },
     {
-     "start": 239,
+     "start": 275,
      "lines": [
       [
        "بالسيارة؟",
@@ -170,14 +170,14 @@
    ]
   },
   {
-   "start": 306,
+   "start": 367,
    "type": "photo",
    "src": "photos/q2-spools.jpg",
    "band": 560,
    "headlines": [
     {
-     "start": 309,
-     "end": 360,
+     "start": 374,
+     "end": 428,
      "lines": [
       [
        "سؤال",
@@ -190,7 +190,7 @@
      ]
     },
     {
-     "start": 367,
+     "start": 434,
      "lines": [
       [
        "كل",
@@ -205,7 +205,7 @@
    ],
    "callouts": [
     {
-     "at": 318,
+     "at": 380,
      "x": 203,
      "y": 760,
      "lx": 223,
@@ -213,7 +213,7 @@
      "label": "PLA"
     },
     {
-     "at": 326,
+     "at": 388,
      "x": 426,
      "y": 760,
      "lx": 446,
@@ -221,7 +221,7 @@
      "label": "PETG"
     },
     {
-     "at": 334,
+     "at": 396,
      "x": 658,
      "y": 760,
      "lx": 678,
@@ -229,7 +229,7 @@
      "label": "ABS"
     },
     {
-     "at": 342,
+     "at": 404,
      "x": 881,
      "y": 760,
      "lx": 901,
@@ -244,14 +244,14 @@
    ]
   },
   {
-   "start": 441,
+   "start": 478,
    "type": "photo",
    "src": "photos/q3-infill.jpg",
    "band": 560,
    "headlines": [
     {
-     "start": 444,
-     "end": 490,
+     "start": 485,
+     "end": 557,
      "lines": [
       [
        "سؤال",
@@ -264,7 +264,7 @@
      ]
     },
     {
-     "start": 497,
+     "start": 564,
      "lines": [
       [
        "أقوى"
@@ -279,7 +279,7 @@
    ],
    "callouts": [
     {
-     "at": 456,
+     "at": 492,
      "x": 330,
      "y": 930,
      "lx": 250,
@@ -287,7 +287,7 @@
      "label": "INFILL: GRID"
     },
     {
-     "at": 468,
+     "at": 504,
      "x": 770,
      "y": 960,
      "lx": 830,
@@ -302,14 +302,14 @@
    ]
   },
   {
-   "start": 576,
+   "start": 620,
    "type": "photo",
    "src": "photos/q4-layers.jpg",
    "band": 560,
    "headlines": [
     {
-     "start": 579,
-     "end": 625,
+     "start": 626,
+     "end": 700,
      "lines": [
       [
        "سؤال",
@@ -322,7 +322,7 @@
      ]
     },
     {
-     "start": 632,
+     "start": 707,
      "lines": [
       [
        "أنعم"
@@ -337,7 +337,7 @@
    ],
    "callouts": [
     {
-     "at": 592,
+     "at": 640,
      "x": 250,
      "y": 1000,
      "lx": 330,
@@ -345,7 +345,7 @@
      "label": "THICK LAYERS"
     },
     {
-     "at": 604,
+     "at": 652,
      "x": 800,
      "y": 960,
      "lx": 720,
@@ -360,14 +360,14 @@
    ]
   },
   {
-   "start": 711,
+   "start": 765,
    "type": "photo",
    "src": "photos/q5-sizes.jpg",
    "band": 560,
    "headlines": [
     {
-     "start": 714,
-     "end": 760,
+     "start": 772,
+     "end": 833,
      "lines": [
       [
        "سؤال",
@@ -380,7 +380,7 @@
      ]
     },
     {
-     "start": 767,
+     "start": 839,
      "lines": [
       [
        "الحجم",
@@ -400,30 +400,30 @@
    ]
   },
   {
-   "start": 846,
+   "start": 900,
    "type": "site",
    "shot": "c",
    "zoom": [
     [
-     900,
+     940,
      1,
      195,
      430
     ],
     [
-     918,
+     956,
      1.12,
      195,
      430
     ],
     [
-     928,
+     962,
      1.12,
      195,
      430
     ],
     [
-     946,
+     978,
      1,
      195,
      430
@@ -431,8 +431,8 @@
    ],
    "headlines": [
     {
-     "start": 849,
-     "end": 900,
+     "start": 906,
+     "end": 947,
      "lines": [
       [
        "حط",
@@ -444,7 +444,7 @@
      ]
     },
     {
-     "start": 907,
+     "start": 950,
      "lines": [
       [
        "وشوف",
@@ -460,12 +460,12 @@
    ]
   },
   {
-   "start": 996,
+   "start": 1002,
    "type": "text",
    "headlines": [
     {
-     "start": 999,
-     "end": 1033,
+     "start": 1009,
+     "end": 1035,
      "lines": [
       [
        "مش",
@@ -474,7 +474,7 @@
      ]
     },
     {
-     "start": 1040,
+     "start": 1042,
      "lines": [
       [
        "ابعتلنا",
@@ -488,7 +488,7 @@
    ]
   },
   {
-   "start": 1086,
+   "start": 1096,
    "type": "outro",
    "headline": [
     "اطلب",
@@ -499,6 +499,16 @@
     "احكينا",
     "على",
     "*الرقم"
+   ],
+   "digits": [
+    73,
+    92,
+    116,
+    131,
+    144,
+    160,
+    172,
+    182
    ]
   }
  ],
