@@ -77,6 +77,13 @@ scratchpad (never inside the repo: footage is ~100 MB).
 - Cursor speed: a click's `travel` is the glide length in frames (default 16; 24–46 reads
   as calm). The cursor then rests 4 frames before the click ring.
 
+## Pro effects (owner 2026-11-16)
+
+New videos use `"fx": true` (film grain, cyan dust particles, light sweep over photos, photo
+settle-in + slow pan, blur-in words, glint on accent words, wipe glow, question progress bars
+via scene `"step": [k, n]`). They are additions the owner asked for, not observed in the master;
+the outro lock-up and timing stay as specified. Older reels are rendered without them.
+
 ## Things that are NOT observed in the reference (say so if you use them)
 
 The spoken script word for word, how the master's photos were made, other aspect ratios

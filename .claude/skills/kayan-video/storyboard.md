@@ -12,6 +12,10 @@ the card's aspect). Working example: `examples/price-calculator/storyboard.json`
   "audio": "voice.mp3",            // optional, relative to the work dir; null = silent
   "audioOffset": 0,                // optional seconds to delay the voice
   "loudness": -23.6,               // optional LUFS target (reference level)
+  "fx": true,                      // optional pro effects (owner 2026-11-16), or pick: {"grain":1,"particles":1,"sweep":1,"pan":1,"blur":1,"glint":1,"glow":1,"steps":1}
+                                   //   grain = film grain · particles = floating cyan dust · sweep = light sweep over photos
+                                   //   pan = photo settle-in + slow pan · blur = words blur in · glint = shine across accent words
+                                   //   glow = wide glow on the wipe line · steps = progress bars (scene "step": [k, n])
   "accent": "#00c8ef",             // optional: override the brand cyan (#1DE5F5) — only to patch older videos
   "capture": { ... },              // only needed for "site" scenes
   "scenes": [ ... ]                // in order; the last one must be the outro
