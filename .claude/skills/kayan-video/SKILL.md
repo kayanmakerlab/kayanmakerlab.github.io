@@ -22,6 +22,11 @@ scratchpad (never inside the repo: footage is ~100 MB).
    Ask the user for ElevenLabs' *with-timestamps* JSON if they have it: it gives every word's
    frame. Without it, use the pauses list + the script. Put the file in `$W` and set
    `"audio"` in the storyboard.
+2b. **Pictures** — the owner generates them: when a scene needs a picture (a `photo` scene),
+   don't use the plain shop photos. Give the owner Nano Banana / Gemini prompts (9:16,
+   dark `#0F1A1E`, cyan `#1DE5F5` light, realistic 3D-printed subject in the lower 60 %, top
+   35 % dark and empty for the headline band, no text/logos), wait for the images, then build.
+   See `docs/brand/KAYAN_RULES.md`.
 3. **Write `$W/storyboard.json`** — see `storyboard.md` for every field. Rules:
    - Writing the script yourself: follow the master's arc (guide 6.1): need/hook question →
      brand as the answer → short action steps → name each doubt and answer it → payoff →

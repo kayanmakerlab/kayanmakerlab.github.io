@@ -31,3 +31,9 @@ that specific item.**
   Stories.
 - **Brand colours:** cyan `#1DE5F5`, background `#0F1A1E` (charcoal teal-black) with a thin grid.
   Tag: «3D Printing» only (no CNC, no Laser).
+- **Images for videos and designs (owner, 2026-11-16):** don't fall back on the plain shop
+  photos or screenshots as the main visuals. When a scene needs a picture, write Nano Banana /
+  Gemini prompts (Kayan style: dark `#0F1A1E` scene, cyan `#1DE5F5` neon/rim light, realistic
+  3D-printed objects with visible layer lines, no text/logos) and **ask the owner to generate
+  them and send them back**; then build with those images. Real website footage is still fine
+  where the website itself is the subject.
