@@ -1,7 +1,7 @@
 {
  "slug": "kayan-reel-5-questions",
- "frames": 1181,
- "maxFrames": 1200,
+ "frames": 1286,
+ "maxFrames": 1290,
  "audio": null,
  "capture": {
   "url": "local",
@@ -13,169 +13,62 @@
   "theme": "dark",
   "shots": [
    {
-    "id": "m",
-    "from": 317,
-    "to": 475,
+    "id": "c",
+    "from": 842,
+    "to": 1000,
     "actions": [
      {
       "type": "scroll",
-      "from": 317,
-      "to": 317,
-      "target": "#materials",
-      "offset": 30
+      "from": 842,
+      "to": 842,
+      "target": "#view",
+      "offset": 250
      },
      {
       "type": "scroll",
-      "from": 380,
-      "to": 440,
-      "target": "#matCards",
-      "offset": -260
-     }
-    ]
-   },
-   {
-    "id": "i",
-    "from": 467,
-    "to": 625,
-    "actions": [
+      "from": 846,
+      "to": 866,
+      "target": "#view",
+      "offset": 110
+     },
+     {
+      "type": "cursor",
+      "at": 866,
+      "x": 330,
+      "y": 430
+     },
+     {
+      "type": "click",
+      "at": 892,
+      "target": "#view",
+      "dx": 10,
+      "dy": 25,
+      "travel": 22,
+      "real": false
+     },
      {
       "type": "upload",
-      "at": 467,
+      "at": 895,
       "input": "#file",
       "file": "vase.stl",
       "ms": 900,
       "log": "#fname"
      },
      {
-      "type": "scroll",
-      "from": 467,
-      "to": 467,
-      "target": "#inf",
-      "offset": 170
-     },
-     {
-      "type": "cursor",
-      "at": 490,
-      "x": 330,
-      "y": 420
-     },
-     {
-      "type": "click",
-      "at": 540,
-      "target": "#inf label:nth-of-type(3)",
-      "travel": 24,
-      "log": "#sP"
-     },
-     {
-      "type": "click",
-      "at": 566,
-      "target": "#inf label:nth-of-type(4)",
-      "travel": 16,
-      "log": "#sP"
-     },
-     {
       "type": "hide",
-      "at": 574
+      "at": 912
      },
      {
       "type": "scroll",
-      "from": 584,
-      "to": 604,
+      "from": 930,
+      "to": 952,
       "target": "#sP",
       "offset": 210
      },
      {
       "type": "record",
-      "at": 612,
-      "name": "price_infill100",
-      "target": "#sP"
-     }
-    ]
-   },
-   {
-    "id": "q",
-    "from": 617,
-    "to": 760,
-    "actions": [
-     {
-      "type": "scroll",
-      "from": 617,
-      "to": 617,
-      "target": "#qual",
-      "offset": 170
-     },
-     {
-      "type": "cursor",
-      "at": 640,
-      "x": 330,
-      "y": 420
-     },
-     {
-      "type": "click",
-      "at": 690,
-      "target": "#qual label:nth-of-type(2)",
-      "travel": 24,
-      "log": "#sT"
-     },
-     {
-      "type": "hide",
-      "at": 700
-     },
-     {
-      "type": "scroll",
-      "from": 714,
-      "to": 734,
-      "target": "#sT",
-      "offset": 230
-     },
-     {
-      "type": "record",
-      "at": 745,
-      "name": "time_fine",
-      "target": "#sT"
-     }
-    ]
-   },
-   {
-    "id": "z",
-    "from": 752,
-    "to": 895,
-    "actions": [
-     {
-      "type": "scroll",
-      "from": 752,
-      "to": 752,
-      "target": ".stepper",
-      "offset": 200
-     },
-     {
-      "type": "cursor",
-      "at": 770,
-      "x": 330,
-      "y": 420
-     },
-     {
-      "type": "click",
-      "at": 804,
-      "target": ".stepper button[data-d=\"1\"]",
-      "travel": 24,
-      "log": "#sP"
-     },
-     {
-      "type": "hide",
-      "at": 812
-     },
-     {
-      "type": "scroll",
-      "from": 826,
-      "to": 846,
-      "target": "#sP",
-      "offset": 210
-     },
-     {
-      "type": "record",
-      "at": 860,
-      "name": "price_qty2",
+      "at": 965,
+      "name": "price",
       "target": "#sP"
      }
     ]
@@ -185,7 +78,9 @@
  "scenes": [
   {
    "start": 0,
-   "type": "text",
+   "type": "photo",
+   "src": "photos/hook-nozzle.jpg",
+   "band": 560,
    "headlines": [
     {
      "start": 3,
@@ -215,7 +110,8 @@
       ]
      ]
     }
-   ]
+   ],
+   "push": 0.0003
   },
   {
    "start": 96,
@@ -234,22 +130,9 @@
   },
   {
    "start": 171,
-   "type": "image",
-   "src": "../../../../../assets/products/133800.jpg",
-   "zoom": [
-    [
-     171,
-     1,
-     195,
-     232
-    ],
-    [
-     321,
-     1.06,
-     195,
-     232
-    ]
-   ],
+   "type": "photo",
+   "src": "photos/q1-uses.jpg",
+   "band": 560,
    "headlines": [
     {
      "start": 174,
@@ -279,30 +162,18 @@
       ]
      ]
     }
-   ]
+   ],
+   "push": 0.0003
   },
   {
-   "start": 321,
-   "type": "site",
-   "shot": "m",
-   "zoom": [
-    [
-     321,
-     1,
-     195,
-     232
-    ],
-    [
-     471,
-     1.04,
-     195,
-     232
-    ]
-   ],
+   "start": 306,
+   "type": "photo",
+   "src": "photos/q2-spools.jpg",
+   "band": 560,
    "headlines": [
     {
-     "start": 324,
-     "end": 370,
+     "start": 309,
+     "end": 360,
      "lines": [
       [
        "سؤال",
@@ -315,22 +186,7 @@
      ]
     },
     {
-     "start": 377,
-     "end": 420,
-     "lines": [
-      [
-       "PLA،",
-       "PETG،",
-       "ABS"
-      ],
-      [
-       "ولا",
-       "*TPU؟"
-      ]
-     ]
-    },
-    {
-     "start": 427,
+     "start": 367,
      "lines": [
       [
        "كل",
@@ -342,16 +198,52 @@
       ]
      ]
     }
-   ]
+   ],
+   "callouts": [
+    {
+     "at": 318,
+     "x": 203,
+     "y": 760,
+     "lx": 223,
+     "ly": 650,
+     "label": "PLA"
+    },
+    {
+     "at": 326,
+     "x": 426,
+     "y": 760,
+     "lx": 446,
+     "ly": 650,
+     "label": "PETG"
+    },
+    {
+     "at": 334,
+     "x": 658,
+     "y": 760,
+     "lx": 678,
+     "ly": 650,
+     "label": "ABS"
+    },
+    {
+     "at": 342,
+     "x": 881,
+     "y": 760,
+     "lx": 901,
+     "ly": 650,
+     "label": "TPU"
+    }
+   ],
+   "push": 0.0003
   },
   {
-   "start": 471,
-   "type": "site",
-   "shot": "i",
+   "start": 441,
+   "type": "photo",
+   "src": "photos/q3-infill.jpg",
+   "band": 560,
    "headlines": [
     {
-     "start": 474,
-     "end": 520,
+     "start": 444,
+     "end": 490,
      "lines": [
       [
        "سؤال",
@@ -364,22 +256,7 @@
      ]
     },
     {
-     "start": 527,
-     "end": 576,
-     "lines": [
-      [
-       "التعبئة"
-      ],
-      [
-       "من",
-       "*15%",
-       "لـ",
-       "*100%"
-      ]
-     ]
-    },
-    {
-     "start": 583,
+     "start": 497,
      "lines": [
       [
        "أقوى"
@@ -391,16 +268,36 @@
       ]
      ]
     }
-   ]
+   ],
+   "callouts": [
+    {
+     "at": 456,
+     "x": 330,
+     "y": 930,
+     "lx": 250,
+     "ly": 1480,
+     "label": "INFILL: GRID"
+    },
+    {
+     "at": 468,
+     "x": 770,
+     "y": 960,
+     "lx": 830,
+     "ly": 1480,
+     "label": "HONEYCOMB"
+    }
+   ],
+   "push": 0.0003
   },
   {
-   "start": 621,
-   "type": "site",
-   "shot": "q",
+   "start": 576,
+   "type": "photo",
+   "src": "photos/q4-layers.jpg",
+   "band": 560,
    "headlines": [
     {
-     "start": 624,
-     "end": 668,
+     "start": 579,
+     "end": 625,
      "lines": [
       [
        "سؤال",
@@ -413,22 +310,7 @@
      ]
     },
     {
-     "start": 675,
-     "end": 710,
-     "lines": [
-      [
-       "طبقة",
-       "0.2"
-      ],
-      [
-       "ولا",
-       "*0.16",
-       "مم؟"
-      ]
-     ]
-    },
-    {
-     "start": 717,
+     "start": 632,
      "lines": [
       [
        "أنعم"
@@ -440,16 +322,36 @@
       ]
      ]
     }
-   ]
+   ],
+   "callouts": [
+    {
+     "at": 592,
+     "x": 250,
+     "y": 1000,
+     "lx": 330,
+     "ly": 780,
+     "label": "THICK LAYERS"
+    },
+    {
+     "at": 604,
+     "x": 800,
+     "y": 960,
+     "lx": 720,
+     "ly": 760,
+     "label": "FINE LAYERS"
+    }
+   ],
+   "push": 0.0003
   },
   {
-   "start": 756,
-   "type": "site",
-   "shot": "z",
+   "start": 711,
+   "type": "photo",
+   "src": "photos/q5-sizes.jpg",
+   "band": 560,
    "headlines": [
     {
-     "start": 759,
-     "end": 805,
+     "start": 714,
+     "end": 760,
      "lines": [
       [
        "سؤال",
@@ -462,7 +364,7 @@
      ]
     },
     {
-     "start": 812,
+     "start": 767,
      "lines": [
       [
        "الحجم",
@@ -474,15 +376,76 @@
       ]
      ]
     }
+   ],
+   "push": 0.0003
+  },
+  {
+   "start": 846,
+   "type": "site",
+   "shot": "c",
+   "zoom": [
+    [
+     900,
+     1,
+     195,
+     430
+    ],
+    [
+     918,
+     1.12,
+     195,
+     430
+    ],
+    [
+     928,
+     1.12,
+     195,
+     430
+    ],
+    [
+     946,
+     1,
+     195,
+     430
+    ]
+   ],
+   "headlines": [
+    {
+     "start": 849,
+     "end": 900,
+     "lines": [
+      [
+       "حط",
+       "ملفك"
+      ],
+      [
+       "*بالحاسبة"
+      ]
+     ]
+    },
+    {
+     "start": 907,
+     "lines": [
+      [
+       "وشوف",
+       "*السعر"
+      ],
+      [
+       "مع",
+       "كل",
+       "خيار"
+      ]
+     ]
+    }
    ]
   },
   {
-   "start": 891,
+   "start": 996,
    "type": "text",
    "headlines": [
     {
-     "start": 894,
-     "end": 928,
+     "start": 999,
+     "end": 1033,
      "lines": [
       [
        "مش",
@@ -491,7 +454,7 @@
      ]
     },
     {
-     "start": 935,
+     "start": 1040,
      "lines": [
       [
        "ابعتلنا",
@@ -505,11 +468,11 @@
    ]
   },
   {
-   "start": 981,
+   "start": 1086,
    "type": "outro",
    "headline": [
-    "جرّب",
-    "*الحاسبة"
+    "اطلب",
+    "*هلّق"
    ],
    "sub": [
     "أو",
