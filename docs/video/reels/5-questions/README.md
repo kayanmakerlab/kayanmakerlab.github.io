@@ -19,3 +19,5 @@ scene is real footage of the Kayan site (STL upload, price `$14`).
 | 10 | 1086–1286 | اطلب **هلّق** / أو احكينا على **الرقم** | outro 81 424 535 |
 
 Callout labels describe what the pictures show (illustrative), not measured settings.
+
+Pro effects on (`"fx": true`, owner 2026-11-16): film grain, cyan dust, light sweep over photos, photo settle-in + pan, blur-in words, glint on accent words, wipe glow, question progress bars.
