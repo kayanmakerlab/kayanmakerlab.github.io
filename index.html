@@ -209,6 +209,51 @@ details.bd summary{cursor:pointer;width:max-content}
 .prod .cr a{color:inherit}
 @media(max-width:480px){.prod .buy{flex-direction:column;align-items:stretch}.prod .pr{text-align:right}.prod h3{font-size:14.5px}}
 .shop-note{font-size:13px;color:var(--muted);margin:16px 0 0}
+.bundles-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
+.bundles-h h3{margin:0;font-size:19px}.bundles-h small{color:var(--muted);font-size:13px}
+.bundles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+@media(max-width:900px){.bundles{grid-template-columns:1fr 1fr;gap:10px}}
+.bundle{display:flex;flex-direction:column;gap:6px;padding:16px;background:var(--surface);border:1px solid var(--line)}
+.bundle .top{display:flex;align-items:center;gap:10px}
+.bundle .ic{width:40px;height:40px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);flex:none}
+.bundle .ic svg{width:22px;height:22px}
+.bundle b{font-size:16px}
+.bundle ul{margin:0;padding:0 18px 0 0;font-size:13px;color:var(--muted);line-height:1.7}
+.bundle .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:6px}
+.bundle .pr{font-size:20px;font-weight:700;direction:ltr}
+.bundle .btn{padding:8px 12px;font-size:13.5px}
+@media(max-width:480px){.bundle .row{flex-direction:column;align-items:stretch}.bundle .pr{text-align:right}}
+.btn.add.in{background:var(--accent-2)}
+.cartbar{position:fixed;z-index:26;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:16px;left:90px;max-width:520px;margin-inline-start:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 10px;background:var(--text);color:var(--bg);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.cartbar[hidden]{display:none}
+.cartbar span{font-size:14px}.cartbar b{direction:ltr;display:inline-block}
+.cartbar .btn{padding:9px 14px;font-size:14px}
+dialog.cart{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 40px);border:0;padding:0;background:var(--surface);color:var(--text);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog.cart::backdrop{background:rgba(5,12,16,.55)}
+.cart-in{display:flex;flex-direction:column;max-height:calc(100dvh - 40px)}
+.cart-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cart-hd h3{margin:0;font-size:18px}
+.cart-bd{overflow:auto;padding:8px 16px}
+.ci{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.ci img,.ci .ph{width:48px;height:48px;object-fit:cover;background:var(--surface-2);display:grid;place-items:center;color:var(--accent)}
+.ci .ph svg{width:22px;height:22px}
+.ci .nm{font-size:14px;font-weight:500;line-height:1.4}.ci .up{font-size:12.5px;color:var(--muted)}
+.qty{display:flex;align-items:center;border:1px solid var(--line);height:34px}
+.qty button{width:32px;height:100%;border:0;background:transparent;color:var(--text);font-size:18px;cursor:pointer;font-family:inherit}
+.qty span{min-width:26px;text-align:center;font-size:14px}
+.sum{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:14px;margin:12px 0}
+.sum dd{margin:0;direction:ltr;text-align:left;font-variant-numeric:tabular-nums}.sum dt{color:var(--muted)}
+.sum .tot{font-weight:700;font-size:17px;color:var(--text)}
+.nudge{background:var(--accent-soft);color:var(--text);padding:10px 12px;font-size:13.5px;margin:0 0 12px}
+.nudge.ok{background:rgba(31,168,85,.12)}
+.cart label.l{margin-top:8px}
+.cart input[type=text]{width:100%;height:42px;padding:0 10px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);font:inherit}
+.cart-ft{padding:12px 16px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
+.cart-ft .btn.wa{flex:1}
+.linkbtn{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;padding:4px}
+.hint2{font-size:13px;background:var(--accent-soft);padding:8px 10px;margin:0 0 12px}
+.hint2[hidden]{display:none}
+body.has-cart .fab{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 [hidden]{display:none!important}
 
 /* sections */
@@ -271,16 +316,16 @@ footer nav{display:flex;margin:0}
 
 /* ===== إطار الشعار (زاوية مقصوصة فوق-يسار وتحت-يمين) — لإلغائه احذف هالبلوك ===== */
 :root{--cut-l:26px;--cut-s:18px;--cut-btn-l:11px;--cut-btn-s:7px}
-.card,.hl-item,.tile,.prod,.steps li,.faq details,.btn,.icon-btn,.back,.ic,.fab{
+.card,.hl-item,.tile,.prod,.steps li,.faq details,.btn,.icon-btn,.back,.ic,.fab,.bundle,.cartbar,dialog.cart,.nudge,.hint2,.qty{
  --c1:var(--cut-l);--c2:var(--cut-s);
  clip-path:polygon(var(--c1) 0,100% 0,100% calc(100% - var(--c2)),calc(100% - var(--c2)) 100%,0 100%,0 var(--c1));
  border-radius:0!important}
-.btn,.icon-btn,.back,.fab,.hl-item .ic,.svc .ic{--c1:var(--cut-btn-l);--c2:var(--cut-btn-s)}
+.btn,.icon-btn,.back,.fab,.hl-item .ic,.svc .ic,.bundle .ic,.qty,.nudge,.hint2{--c1:var(--cut-btn-l);--c2:var(--cut-btn-s)}
 .tile .ic{--c1:14px;--c2:10px}
 /* الإطار الخارجي: لون الحدود، والطبقة الداخلية بلون الكارت */
-.card,.hl-item,.tile,.prod,.steps li,.faq details,.btn.alt,.icon-btn,.back{
+.card,.hl-item,.tile,.prod,.steps li,.faq details,.btn.alt,.icon-btn,.back,.bundle{
  position:relative;isolation:isolate;border:0!important;box-shadow:none!important;background:var(--line)!important}
-.card::after,.hl-item::after,.tile::after,.prod::after,.steps li::after,.faq details::after,.btn.alt::after,.icon-btn::after,.back::after{
+.card::after,.hl-item::after,.tile::after,.prod::after,.steps li::after,.faq details::after,.btn.alt::after,.icon-btn::after,.back::after,.bundle::after{
  content:"";position:absolute;inset:1px;z-index:-1;background:var(--ch-bg,var(--surface));
  clip-path:polygon(var(--c1) 0,100% 0,100% calc(100% - var(--c2)),calc(100% - var(--c2)) 100%,0 100%,0 var(--c1))}
 .btn.alt::after,.icon-btn::after,.back::after{--ch-bg:var(--surface)}
@@ -401,10 +446,11 @@ footer nav{display:flex;margin:0}
    <p class="warn" id="warn" hidden><svg><use href="#i-warn"/></svg><span id="warnTxt"></span></p>
    <div class="price"><span>السعر التقريبي</span><b id="sP" aria-live="polite">-</b></div>
    <details class="bd" id="bd"><summary>تفصيل السعر</summary>
-    <dl><dt>الخامة</dt><dd id="bMat">-</dd><dt>وقت الطابعة</dt><dd id="bTime">-</dd><dt>هامش التشغيل</dt><dd id="bMarg">-</dd><dt>سعر الطباعة</dt><dd id="bPrint">-</dd><dt>التوصيل</dt><dd id="bDel">-</dd></dl>
+    <dl><dt>الخامة</dt><dd id="bMat">-</dd><dt>وقت الطابعة</dt><dd id="bTime">-</dd><dt>سعر الطباعة</dt><dd id="bPrint">-</dd><dt>رسم تجهيز الطلب</dt><dd id="bFee">-</dd><dt>التوصيل</dt><dd id="bDel">-</dd></dl>
    </details>
+   <p class="hint2" id="calcHint" hidden></p>
    <button class="btn wa" id="send" type="button" style="width:100%" disabled><svg><use href="#i-wa"/></svg>اطلب عبر واتساب</button>
-   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.<br>التوصيل 5$ لأي منطقة بلبنان، وممكن يتغيّر إذا المنطقة برّا نطاق شركة التوصيل. ما منربح عالتوصيل، هو أتعاب شركة التوصيل بس.<br><b>الدفع عند الاستلام.</b> للطلبات فوق 10$، منأكد الطلب بعربون عبر Whish Money.</p>
+   <p class="note">السعر تقديري ويتأكد بعد مراجعة الملف. أرفق الملف نفسه داخل محادثة واتساب. الألوان حسب التوفر.<br>الطلبات الصغيرة إلها رسم تجهيز صغير، وبيروح لحاله لما يكبر الطلب.<br>التوصيل 5$ لأي منطقة بلبنان، وممكن يتغيّر إذا المنطقة برّا نطاق شركة التوصيل. ما منربح عالتوصيل، هو أتعاب شركة التوصيل بس.<br><b>الدفع عند الاستلام.</b> للطلبات فوق 10$، منأكد الطلب بعربون عبر Whish Money.</p>
   </div>
  </div>
 </div></div>
@@ -417,14 +463,17 @@ footer nav{display:flex;margin:0}
 </div></div></section>
 
 <section id="shop" class="alt-bg"><div class="wrap">
- <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. اختار القسم، وبعدين اطلب مباشرة عبر واتساب.</p>
+ <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. ضيف القطع للسلة، وابعت طلبك كله برسالة واتساب وحدة.</p>
+ <div class="bundles-h"><h3>الباقات</h3><small>قطع بتمشي مع بعض، بطلب واحد</small></div>
+ <div class="bundles" id="bundles"></div>
+ <div class="bundles-h"><h3>الأقسام</h3></div>
  <div class="tiles" id="tiles"></div>
  <div id="catView" hidden>
   <div class="shopbar"><button class="back" type="button" id="backCats"><svg><use href="#i-back"/></svg>كل الأقسام</button><h3 id="catTitle"></h3></div>
   <div class="cats" id="cats" role="toolbar" aria-label="أقسام المتجر"></div>
   <div class="products" id="products"></div>
  </div>
- <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل (5$)، ومنأكدها عالواتساب. الدفع عند الاستلام. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
+ <p class="shop-note">الأسعار تقريبية للقطعة الوحدة بالـ PLA ومن دون التوصيل (5$)، ومنأكدها عالواتساب. الطلبات الصغيرة إلها رسم تجهيز، وبيصغر لحاله كل ما زدت قطع لحد ما يروح. الدفع عند الاستلام. الصور توضيحية، والقطعة الحقيقية ممكن تختلف شوي باللون والتفاصيل. التصاميم من مصمّمين على Printables برخص بتسمح بالبيع، واسم كل مصمّم مذكور مع تصميمه.</p>
 </div></section>
 
 <section id="how"><div class="wrap">
@@ -470,6 +519,7 @@ footer nav{display:flex;margin:0}
   <details><summary>أي خامة بختار؟</summary><p>للمجسمات والتحف PLA، للقطع العملية اللي بتتعرض لرطوبة PETG، للحرارة ABS، وللقطع المرنة TPU. شوف قسم <a href="#materials">الخامات</a> أو اسألنا.</p></details>
   <details><summary>شو يعني نسبة التعبئة؟</summary><p>هي كمية المادة جوّا القطعة. 15% خفيفة ومناسبة للمجسمات، 30% للاستخدام العادي، و60% أو أكثر للقطع اللي بتتحمل ضغط.</p></details>
   <details><summary>القياسات بالمعاينة غلط، ليش؟</summary><p>غالباً وحدة الملف مش مليمتر. غيّر «وحدة الملف» لسنتيمتر أو إنش، أو عدّل «الحجم %» لحتى توصل للقياس الصحيح.</p></details>
+  <details><summary>شو هو رسم تجهيز الطلب؟</summary><p>كل طلب بياخد منا وقت ثابت: الحكي معك، تجهيز الملف، التغليف والتنسيق مع التوصيل. القطع الكبيرة بتغطّي هالوقت من سعرها، بس الطلبات الصغيرة كتير بينزاد عليها رسم تجهيز صغير. <b>كل ما زدت قطع، بيصغر الرسم لحد ما يروح.</b></p></details>
   <details><summary>كيف بدفع؟</summary><p><b>الدفع عند الاستلام.</b> للطلبات اللي سعرها فوق 10$، منطلب عربون (جزء من المبلغ) عبر <b>Whish Money</b> لتأكيد الطلب، والباقي بتدفعه وقت الاستلام.</p></details>
   <details><summary>هل في توصيل؟</summary><p>إيه، منوصّل إلى كافة المناطق اللبنانية بـ 5$ للطلب كلّه (مش لكل قطعة). إذا المنطقة برّا نطاق شركة التوصيل، ممكن يتغيّر السعر ومنخبرك قبل. ما منربح عالتوصيل، المبلغ كلّه أتعاب شركة التوصيل.</p></details>
   <details><summary>هل ملفي بينرفع لمكان؟</summary><p>لا. المعاينة والحساب بيصيروا بالكامل على جهازك، والملف ما بيوصلنا إلا لما ترسله أنت بالواتساب.</p></details>
@@ -498,6 +548,20 @@ footer nav{display:flex;margin:0}
  <p class="paybar"><b>الدفع عند الاستلام.</b> تأكيد الطلبات فوق 10$ بعربون عبر Whish Money.</p>
 </div></footer>
 
+<div class="cartbar" id="cartbar" hidden><span>🛒 <b id="cbN">0</b> قطع · <b id="cbT">$0</b></span><button class="btn" type="button" id="cbOpen">شوف السلة</button></div>
+<dialog class="cart" id="cartDlg" aria-labelledby="cartTitle"><div class="cart-in">
+ <div class="cart-hd"><h3 id="cartTitle">سلتك</h3><button class="icon-btn" type="button" id="cartClose" aria-label="سكّر">✕</button></div>
+ <div class="cart-bd">
+  <div id="cartItems"></div>
+  <dl class="sum"><dt>سعر القطع</dt><dd id="csSub">-</dd><dt>رسم تجهيز الطلب</dt><dd id="csFee">-</dd><dt>التوصيل</dt><dd id="csDel">-</dd><dt class="tot">المجموع التقريبي</dt><dd class="tot" id="csTot">-</dd></dl>
+  <p class="nudge" id="cartNudge"></p>
+  <label class="l" for="cArea">المنطقة</label><input type="text" id="cArea" placeholder="مثلاً: طرابلس، الميناء">
+  <label class="l" for="cNote">الألوان أو أي ملاحظة</label><input type="text" id="cNote" placeholder="مثلاً: المشبك أحمر، الباقي سماوي">
+  <p class="note" id="cPay"></p>
+ </div>
+ <div class="cart-ft"><button class="btn wa" type="button" id="cartSend"><svg><use href="#i-wa"/></svg>ابعت الطلب عبر واتساب</button><button class="linkbtn" type="button" id="cartClear">فضّي السلة</button></div>
+</div></dialog>
+
 <a class="fab" href="https://wa.me/96181424535" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg><use href="#i-wa"/></svg></a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -511,8 +575,8 @@ var CFG={
  hourly:0.405,   // تكلفة ساعة الطابعة: كهرباء 0.25 + إهلاك 0.125 + صيانة 0.03
  fail:1.10,      // هامش الفشل 10%
  profit:1.50,    // هامش الربح 50%
- minProfit:5,    // أقل ربح بالقطعة الوحدة ($): السعر = الأعلى بين (التكلفة×1.10×1.50) و(التكلفة×1.10 + 5)
- round:0.5,      // تقريب السعر لفوق لأقرب 0.5$
+ minOrderProfit:5, // أقل ربح من الطلب كلّه ($). إذا ربح القطع أقل، بينزاد "رسم تجهيز الطلب" بالفرق بس
+ round:0.5,      // تقريب السعر لأقرب 0.5$
  delivery:5,     // التوصيل لأي منطقة بلبنان (مرة وحدة لكل طلب، بلا ربح)
  depositOver:10, // الطلبات فوق هالسعر بتحتاج عربون عبر Whish Money لتأكيدها
  social:{        // روابط الحسابات (اتركه فاضي إذا ما في حساب)
@@ -622,40 +686,109 @@ var PRODUCTS=[
  {id:57497,c:'gifts',n:'علبة هدية على شكل قلب',g:41,h:5.21,by:'Devmiser',lic:'CC BY',src:'https://www.printables.com/model/57497-heart-shaped-box-v2',img:'assets/products/57497.jpg'},
  {id:56287,c:'gifts',n:'سوار قلوب',g:10,h:1.55,by:'M4NU',lic:'CC BY',src:'https://www.printables.com/model/56287-unchain-my-heart-print-in-place-bracelet',img:'assets/products/56287.jpg'}
 ];
-function piecePrice(cost){var c=cost*CFG.fail,p=Math.max(c*CFG.profit,c+CFG.minProfit);return Math.ceil(p/CFG.round-1e-9)*CFG.round}
-function priceOf(g,h){return piecePrice(g*CFG.mats.PLA.g+h*CFG.hourly)}
+/* ---- pricing (shared) ---- */
+function unitPrice(cost){return Math.max(CFG.round,Math.round(cost*CFG.fail*CFG.profit/CFG.round)*CFG.round)}
+// رسم تجهيز الطلب: الفرق اللي بيكمّل ربح الطلب لـ CFG.minOrderProfit
+function orderFee(price,cost){var pr=price-cost*CFG.fail;return pr>=CFG.minOrderProfit?0:Math.ceil((CFG.minOrderProfit-pr)/CFG.round-1e-9)*CFG.round}
+function pCost(p){return p.g*CFG.mats.PLA.g+p.h*CFG.hourly}
+function priceOf(g,h){return unitPrice(g*CFG.mats.PLA.g+h*CFG.hourly)}
+var BUNDLES=[ // باقات: c = أيقونة القسم ، items = أرقام المنتجات
+ {c:'desk',n:'باقة المكتب',items:[564262,359285,376433,27759]},
+ {c:'car',n:'باقة السيارة',items:[126404,133800,1500247]},
+ {c:'kitchen',n:'باقة المطبخ',items:[83628,509410,467047,215691]},
+ {c:'gifts',n:'باقة الهدايا',items:[288069,223241,391094,57497]}
+];
+var CART=(function(){
+ var items={},KEY='kml-cart';
+ try{items=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){items={}}
+ function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+ function prod(id){return PRODUCTS.filter(function(p){return p.id==id})[0]}
+ Object.keys(items).forEach(function(id){if(!prod(id)||!(items[id]>0))delete items[id]});
+ var subs=[];
+ function changed(){save();subs.forEach(function(f){f()})}
+ return{
+  prod:prod,
+  add:function(id,n){items[id]=Math.min(500,(items[id]||0)+(n||1));changed()},
+  set:function(id,q){if(q>0)items[id]=Math.min(500,q);else delete items[id];changed()},
+  qty:function(id){return items[id]||0},
+  clear:function(){items={};changed()},
+  list:function(){return Object.keys(items).map(function(id){return{p:prod(id),q:items[id]}})},
+  on:function(f){subs.push(f)},
+  totals:function(L){L=L||this.list();var price=0,cost=0,n=0;L.forEach(function(x){price+=priceOf(x.p.g,x.p.h)*x.q;cost+=pCost(x.p)*x.q;n+=x.q});
+   var fee=n?orderFee(price,cost):0;return{n:n,price:price,cost:cost,fee:fee,del:n?CFG.delivery:0,sub:price+fee,total:price+fee+(n?CFG.delivery:0)}}
+ }})();
 (function(){
  var tiles=$('tiles'),view=$('catView'),catBox=$('cats'),box=$('products'),cur=null;
  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return'&#'+c.charCodeAt(0)+';'})}
  function ic(k){return '<svg aria-hidden="true"><use href="#c-'+k+'"/></svg>'}
  function inCat(k){return PRODUCTS.filter(function(p){return p.c===k}).sort(function(a,b){return (b.img?1:0)-(a.img?1:0)})}
  var keys=Object.keys(CATS).filter(function(k){return inCat(k).length});
+ // bundles
+ $('bundles').innerHTML=BUNDLES.map(function(B,i){
+  var L=B.items.map(function(id){return{p:CART.prod(id),q:1}}).filter(function(x){return x.p}),t=CART.totals(L);
+  return '<div class="bundle"><div class="top"><span class="ic">'+ic(B.c)+'</span><b>'+esc(B.n)+'</b></div><ul>'+L.map(function(x){return '<li>'+esc(x.p.n)+'</li>'}).join('')+'</ul>'+
+  '<div class="row"><span class="pr">'+money(t.sub)+'</span><button class="btn add" type="button" data-b="'+i+'"><svg><use href="#i-check"/></svg>ضيف الباقة</button></div></div>'}).join('');
+ $('bundles').addEventListener('click',function(e){var b=e.target.closest('button[data-b]');if(!b)return;
+  BUNDLES[b.dataset.b].items.forEach(function(id){if(CART.prod(id))CART.add(id,1)});
+  b.innerHTML='<svg><use href="#i-check"/></svg>انضافت ✓';setTimeout(function(){b.innerHTML='<svg><use href="#i-check"/></svg>ضيف الباقة'},1600)});
  tiles.innerHTML=keys.map(function(k){
   var L=inCat(k),min=Math.min.apply(null,L.map(function(p){return priceOf(p.g,p.h)}));
   var th=L.filter(function(p){return p.img}).slice(0,3).map(function(p){return '<img src="'+esc(p.img)+'" alt="" loading="lazy">'}).join('');
   return '<button class="tile" type="button" data-c="'+k+'"><span class="ic">'+ic(k)+'</span><b>'+CATS[k]+'</b><small>'+L.length+' منتجات · من <bdi dir="ltr">'+money(min)+'</bdi></small>'+(th?'<span class="thumbs">'+th+'</span>':'')+'<span class="go"><svg><use href="#i-fwd"/></svg></span></button>'}).join('');
+ function addBtn(p){var q=CART.qty(p.id);return '<button class="btn add'+(q?' in':'')+'" type="button" data-id="'+p.id+'">'+(q?'✓ بالسلة ('+q+')':'+ ضيف للسلة')+'</button>'}
+ function renderProducts(){if(!cur)return;
+  box.innerHTML=inCat(cur).map(function(p){
+   return '<article class="prod"><div class="pic">'+(p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.n)+'" loading="lazy">':ic(p.c))+'</div>'+
+   '<div class="body"><h3>'+esc(p.n)+'</h3><span class="meta">≈ '+Math.round(p.g)+' غ · '+fmtT(p.h)+'</span>'+
+   '<div class="buy"><span class="pr">'+money(priceOf(p.g,p.h))+'</span>'+addBtn(p)+'</div>'+
+   '<span class="cr">تصميم: <a href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.by)+'</a> · '+p.lic+'</span></div></article>'}).join('')}
  function open(k,scroll,how){
   if(!CATS[k])return;
   if(how!=='pop'){try{history[cur?'replaceState':'pushState']({cat:k},'','#shop-'+k)}catch(e){}}
-  cur=k;tiles.hidden=true;view.hidden=false;
+  cur=k;tiles.hidden=true;view.hidden=false;$('bundles').hidden=true;document.querySelectorAll('.bundles-h').forEach(function(e){e.hidden=true});
   $('catTitle').innerHTML=ic(k)+CATS[k];
   catBox.innerHTML=keys.map(function(c){return '<button type="button" data-c="'+c+'" aria-pressed="'+(c===k)+'">'+ic(c)+CATS[c]+'</button>'}).join('');
-  box.innerHTML=inCat(k).map(function(p){
-   return '<article class="prod"><div class="pic">'+(p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.n)+'" loading="lazy">':ic(p.c))+'</div>'+
-   '<div class="body"><h3>'+esc(p.n)+'</h3><span class="meta">≈ '+Math.round(p.g)+' غ · '+fmtT(p.h)+'</span>'+
-   '<div class="buy"><span class="pr">'+money(priceOf(p.g,p.h))+'</span><button class="btn wa" type="button" data-id="'+p.id+'"><svg><use href="#i-wa"/></svg>اطلب</button></div>'+
-   '<span class="cr">تصميم: <a href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.by)+'</a> · '+p.lic+'</span></div></article>'}).join('');
+  renderProducts();
   if(scroll)$('shop').scrollIntoView({behavior:'smooth'})}
- function show(){cur=null;view.hidden=true;tiles.hidden=false}
+ function show(){cur=null;view.hidden=true;tiles.hidden=false;$('bundles').hidden=false;document.querySelectorAll('.bundles-h').forEach(function(e){e.hidden=false})}
  function close(){if(history.state&&history.state.cat){history.back()}else{show();$('shop').scrollIntoView({behavior:'smooth'})}}
  window.addEventListener('popstate',function(e){var k=e.state&&e.state.cat;if(k)open(k,false,'pop');else if(cur){show();$('shop').scrollIntoView()}});
  var m=location.hash.match(/^#shop-(\w+)$/);if(m&&CATS[m[1]]){try{history.replaceState({cat:m[1]},'')}catch(e){}open(m[1],true,'pop')}
  tiles.addEventListener('click',function(e){var b=e.target.closest('.tile');if(b)open(b.dataset.c,true)});
  catBox.addEventListener('click',function(e){var b=e.target.closest('button');if(b)open(b.dataset.c,false)});
  $('backCats').addEventListener('click',close);
- box.addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(!b)return;
-  var p=PRODUCTS.filter(function(x){return x.id==b.dataset.id})[0];if(!p)return;
-  var msg='مرحباً كيان ميكر لاب، بدي اطلب من المتجر:\n• القطعة: '+p.n+' (#'+p.id+')\n• السعر التقريبي: '+money(priceOf(p.g,p.h))+'\n• الكمية: 1\n• اللون: \n• المنطقة: \n• الدفع: '+payTxt(priceOf(p.g,p.h));
+ box.addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(b)CART.add(b.dataset.id,1)});
+ CART.on(renderProducts);
+ // cart bar + dialog
+ var dlg=$('cartDlg');
+ function nudgeTxt(t){
+  if(!t.n)return['السلة فاضية. ضيف قطع من المتجر.',false];
+  if(!t.fee)return['✓ طلبك ما عليه رسم تجهيز.',true];
+  var need=Math.ceil(t.fee*3/CFG.round)*CFG.round; // كل 1$ قطع بيعطي تقريباً ثلث دولار ربح
+  return['💡 زيد قطع بحوالي '+money(need)+' وبيروح رسم التجهيز ('+money(t.fee)+').',false]}
+ function render(){
+  var L=CART.list(),t=CART.totals(L);
+  document.body.classList.toggle('has-cart',t.n>0);$('cartbar').hidden=!t.n;
+  $('cbN').textContent=t.n;$('cbT').textContent=money(t.total);
+  $('cartItems').innerHTML=L.map(function(x){var p=x.p,u=priceOf(p.g,p.h);
+   return '<div class="ci">'+(p.img?'<img src="'+esc(p.img)+'" alt="">':'<span class="ph">'+ic(p.c)+'</span>')+
+   '<div><div class="nm">'+esc(p.n)+'</div><div class="up"><bdi dir="ltr">'+money(u)+'</bdi> للقطعة</div></div>'+
+   '<div class="qty"><button type="button" data-q="'+p.id+'" data-d="1" aria-label="زيادة">+</button><span>'+x.q+'</span><button type="button" data-q="'+p.id+'" data-d="-1" aria-label="إنقاص">−</button></div></div>'}).join('');
+  $('csSub').textContent=money(t.price);$('csFee').textContent=t.fee?money(t.fee):'—';$('csDel').textContent=money(t.del);$('csTot').textContent=money(t.total);
+  var nd=nudgeTxt(t);$('cartNudge').textContent=nd[0];$('cartNudge').classList.toggle('ok',nd[1]);
+  $('cPay').innerHTML='<b>الدفع: '+payTxt(t.sub)+'.</b>';
+  $('cartSend').disabled=!t.n}
+ CART.on(render);render();
+ $('cbOpen').addEventListener('click',function(){if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')});
+ $('cartClose').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
+ dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+ $('cartItems').addEventListener('click',function(e){var b=e.target.closest('button[data-q]');if(!b)return;var id=b.dataset.q;CART.set(id,CART.qty(id)+(+b.dataset.d))});
+ $('cartClear').addEventListener('click',function(){CART.clear()});
+ $('cartSend').addEventListener('click',function(){
+  var L=CART.list(),t=CART.totals(L);if(!t.n)return;
+  var msg='مرحباً كيان ميكر لاب، بدي اطلب من المتجر:\n'+L.map(function(x){return '• '+x.p.n+' (#'+x.p.id+') × '+x.q+' = '+money(priceOf(x.p.g,x.p.h)*x.q)}).join('\n')+
+   '\n\nسعر القطع: '+money(t.price)+(t.fee?'\nرسم تجهيز الطلب: '+money(t.fee):'')+'\nالتوصيل: '+money(t.del)+'\nالمجموع التقريبي: '+money(t.total)+
+   '\n\n• المنطقة: '+($('cArea').value.trim()||'')+'\n• الألوان/ملاحظات: '+($('cNote').value.trim()||'')+'\n• الدفع: '+payTxt(t.sub);
   window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
 })();
 
@@ -761,9 +894,11 @@ function calc(){
  var vol=data.vol*f*f*f;
  var w=vol*m.d*(0.25+0.75*inf),h=w/CFG.gph*Q[3];
  var cMat=w*m.g*q,cTime=h*CFG.hourly*q,cost=cMat+cTime;
- var print=piecePrice(cost/q)*q;
- var del=CFG.delivery,total=print+del;
- data.out={w:w,h:h,total:total,q:q,print:print,del:del};
+ var print=unitPrice(cost/q)*q,fee=orderFee(print,cost);
+ var del=CFG.delivery,total=print+fee+del;
+ data.out={w:w,h:h,total:total,q:q,print:print,fee:fee,del:del};
+ var hint='';if(fee){for(var k=q+1;k<=60;k++){if(!orderFee(unitPrice(cost/q)*k,cost/q*k)){hint='💡 من '+k+' قطع وطالع، ما في رسم تجهيز.';break}}if(!hint)hint='رسم التجهيز بيغطّي شغل تحضير الطلب، وبيصغر كل ما كبر الطلب.'}
+ $('calcHint').hidden=!fee;$('calcHint').textContent=hint;
  var dimTxt=data.dimS.map(function(x){return x.toFixed(1)}).join(' × ');
  $('sDim').textContent=dimTxt;
  $('sVol').textContent=vol.toFixed(1)+' cm³';
@@ -771,7 +906,7 @@ function calc(){
  $('sT').textContent=fmtT(h*q);
  $('sP').textContent=money(total);
  $('bMat').textContent=money(cMat);$('bTime').textContent=fmtT(h*q)+' · '+money(cTime);
- $('bMarg').textContent=money(print-cost);$('bPrint').textContent=(q>1?money(print/q)+' للقطعة · ':'')+money(print);
+ $('bPrint').textContent=(q>1?money(print/q)+' للقطعة · ':'')+money(print);$('bFee').textContent=fee?money(fee):'—';
  $('bDel').textContent=money(del);
  // bed fit (any orientation)
  var a=data.dimS.slice().sort(function(x,y){return y-x}),b=CFG.bed.slice().sort(function(x,y){return y-x}),fits=a[0]<=b[0]&&a[1]<=b[1]&&a[2]<=b[2];
@@ -843,9 +978,9 @@ $('send').addEventListener('click',function(){
   '\n• الوزن التقريبي: '+Math.round(o.w*o.q)+' غ'+
   '\n• وقت الطباعة التقريبي: '+fmtT(o.h*o.q)+
   '\n• التوصيل: '+money(o.del)+
-  '\n• سعر الطباعة: '+money(o.print)+
+  '\n• سعر الطباعة: '+money(o.print)+(o.fee?'\n• رسم تجهيز الطلب: '+money(o.fee):'')+
   '\n• المجموع التقريبي: '+money(o.total)+
-  '\n• الدفع: '+payTxt(o.print)+
+  '\n• الدفع: '+payTxt(o.print+o.fee)+
   '\n\nرح ارفق الملف هون.';
  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
 </script>
