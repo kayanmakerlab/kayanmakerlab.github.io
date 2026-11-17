@@ -403,7 +403,7 @@ footer nav{display:flex;margin:0}
     <div class="hint">
      <div class="up"><svg><use href="#i-file"/></svg></div>
      <b>اسحب ملف STL هنا</b>أو اضغط لاختيار الملف من جهازك
-     <small>حتى 60 ميغابايت · Binary أو ASCII</small>
+     <small id="limitTxt">حتى 300 ميغابايت · Binary أو ASCII</small>
     </div>
     <div class="loading" aria-hidden="true"><div class="spin"></div>جاري قراءة الملف…</div>
     <canvas id="cv" aria-label="معاينة ثلاثية الأبعاد للقطعة"></canvas>
@@ -588,7 +588,10 @@ var CFG={
  gph:22,         // غرامات بالساعة (سرعة تقريبية للطابعة)
  wa:'96181424535',
  bed:[220,220,250], // مساحة الطابعة بالمليمتر
- maxMB:60,
+ maxMB:300,      // أكبر ملف STL على الكمبيوتر (ميغابايت)
+ maxMBMobile:150, // أكبر ملف على الموبايل
+ bigTris:800000, // فوق هالعدد من المثلثات: معاينة أخف (بلا حساب نعومة السطح)
+ maxPreviewTris:6000000, maxPreviewTrisMobile:2000000, // فوقهم: الحساب بس، بلا معاينة
  mats:{ // d: الكثافة غ/سم³ ، g: سعر الغرام ، والباقي للمقارنة (0-100)
   PLA :{d:1.24,g:0.021,txt:'سهلة ودقيقة، للمجسمات والتحف والنماذج.',str:55,heat:30,flex:10},
   PETG:{d:1.27,g:0.025,txt:'أقوى وبتتحمل الرطوبة، للقطع العملية.',str:75,heat:55,flex:25},
@@ -798,12 +801,20 @@ function parseSTL(buf){
  if(buf.byteLength>=84){var n=dv.getUint32(80,true);
   if(84+n*50===buf.byteLength){t=new Float32Array(n*9);var o=84;
    for(var i=0;i<n;i++){o+=12;for(var j=0;j<9;j++){t[i*9+j]=dv.getFloat32(o,true);o+=4}o+=2}return t}}
- var txt=new TextDecoder().decode(buf);
- if(!/^\s*solid/i.test(txt))throw new Error('bad');
- var re=/vertex\s+(\S+)\s+(\S+)\s+(\S+)/g,a=[],m;
- while((m=re.exec(txt)))a.push(+m[1],+m[2],+m[3]);
- if(!a.length||a.length%9)throw new Error('bad');
- return new Float32Array(a)}
+ // ASCII: بنقرا الملف على دفعات لحتى ما يتعبّى الذاكرة بالملفات الكبيرة
+ var bytes=new Uint8Array(buf),dec=new TextDecoder(),CH=8<<20,rest='',cap=Math.max(9000,Math.ceil(buf.byteLength/250)*9),out=new Float32Array(cap),k=0;
+ var head=dec.decode(bytes.subarray(0,Math.min(512,bytes.length)));if(!/^\s*solid/i.test(head))throw new Error('bad');
+ dec=new TextDecoder();
+ var re=/vertex\s+(\S+)\s+(\S+)\s+(\S+)/g,m;
+ for(var off=0;off<bytes.length;off+=CH){
+  var s=rest+dec.decode(bytes.subarray(off,Math.min(off+CH,bytes.length)),{stream:off+CH<bytes.length});
+  var cut=s.lastIndexOf('\n');if(off+CH<bytes.length&&cut>=0){rest=s.slice(cut+1);s=s.slice(0,cut)}else rest='';
+  re.lastIndex=0;
+  while((m=re.exec(s))){
+   if(k+3>out.length){var o2=new Float32Array(out.length*2);o2.set(out);out=o2}
+   out[k++]=+m[1];out[k++]=+m[2];out[k++]=+m[3]}}
+ if(!k||k%9)throw new Error('bad');
+ return out.subarray(0,k)}
 
 function analyze(t){
  var mn=[Infinity,Infinity,Infinity],mx=[-Infinity,-Infinity,-Infinity],vol=0;
@@ -858,8 +869,9 @@ function show(t,info){
  var geo=new THREE.BufferGeometry();
  geo.setAttribute('position',new THREE.BufferAttribute(t,3));
  geo.translate(-(info.mn[0]+info.mx[0])/2,-(info.mn[1]+info.mx[1])/2,-info.mn[2]); // centre XY, bottom on plate
- geo.computeVertexNormals();
- var mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:color()[1],roughness:.55,metalness:.05}));
+ var big=t.length/9>CFG.bigTris; // ملف كبير: بلا حساب نعومة لتوفير الذاكرة
+ if(!big)geo.computeVertexNormals();
+ var mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:color()[1],roughness:.55,metalness:.05,flatShading:big}));
  mesh.rotation.x=-Math.PI/2; // STL is Z-up
  g.grp.add(mesh);g.mesh=mesh;
  if(!g.grid){
@@ -918,14 +930,17 @@ function calc(){
  applyScale()}
 
 /* ---- loading ---- */
+var MOBILE=matchMedia('(pointer:coarse)').matches,LIMIT=MOBILE?CFG.maxMBMobile:CFG.maxMB;
+$('limitTxt').textContent='حتى '+LIMIT+' ميغابايت · Binary أو ASCII';
 function setBusy(b){view.classList.toggle('busy',b);view.setAttribute('aria-busy',b)}
 function use(t,name){
  var info=analyze(t);
  if(!t.length||!(info.vol>0))throw new Error('empty');
  data=info;data.name=name;tris=t;
  $('fname').textContent=name;
- var ok=show(t,info);
- if(ok){view.classList.add('has');view.setAttribute('aria-label','معاينة '+name+'، اضغط Enter لاختيار ملف آخر')}
+ var ok=t.length/9<=(MOBILE?CFG.maxPreviewTrisMobile:CFG.maxPreviewTris)?show(t,info):'big';
+ if(ok==='big'){ok=false;view.classList.remove('has');err.textContent='الملف كبير كتير للمعاينة على هالجهاز، بس الحساب شغّال.'}
+ else if(ok){view.classList.add('has');view.setAttribute('aria-label','معاينة '+name+'، اضغط Enter لاختيار ملف آخر')}
  else err.textContent='المعاينة ثلاثية الأبعاد غير مدعومة على هذا المتصفح، بس الحساب شغال.';
  calc();if(ok)resetView()}
 
@@ -934,11 +949,11 @@ function load(f){
  err.textContent='';
  if(!f)return;
  if(!/\.stl$/i.test(f.name))return fail('الملف لازم يكون بصيغة STL.');
- if(f.size>CFG.maxMB*1048576)return fail('حجم الملف كبير. الحد الأقصى '+CFG.maxMB+' ميغابايت.');
+ if(f.size>LIMIT*1048576)return fail('حجم الملف أكبر من '+LIMIT+' ميغابايت. اضغطه بملف ZIP وابعته مباشرة عالواتساب، ومنحسبلك سعره.');
  setBusy(true);
  f.arrayBuffer().then(function(b){
   return new Promise(function(res){setTimeout(function(){res(b)},30)})
- }).then(function(b){use(parseSTL(b),f.name);setBusy(false)}).catch(function(){fail()})}
+ }).then(function(b){var t=parseSTL(b);b=null;use(t,f.name);setBusy(false)}).catch(function(e){fail(e&&/memory|allocation|Array buffer/i.test(e.message||'')?'الجهاز ما عنده ذاكرة كافية لهالملف. جرّب من كمبيوتر، أو ابعته عالواتساب ومنحسبلك سعره.':null)})}
 
 function demo(){
  err.textContent='';
