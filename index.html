@@ -511,7 +511,8 @@ var CFG={
  hourly:0.405,   // تكلفة ساعة الطابعة: كهرباء 0.25 + إهلاك 0.125 + صيانة 0.03
  fail:1.10,      // هامش الفشل 10%
  profit:1.50,    // هامش الربح 50%
- round:0.5,      // تقريب السعر لأقرب 0.5$
+ minProfit:5,    // أقل ربح بالقطعة الوحدة ($): السعر = الأعلى بين (التكلفة×1.10×1.50) و(التكلفة×1.10 + 5)
+ round:0.5,      // تقريب السعر لفوق لأقرب 0.5$
  delivery:5,     // التوصيل لأي منطقة بلبنان (مرة وحدة لكل طلب، بلا ربح)
  depositOver:10, // الطلبات فوق هالسعر بتحتاج عربون عبر Whish Money لتأكيدها
  social:{        // روابط الحسابات (اتركه فاضي إذا ما في حساب)
@@ -621,7 +622,8 @@ var PRODUCTS=[
  {id:57497,c:'gifts',n:'علبة هدية على شكل قلب',g:41,h:5.21,by:'Devmiser',lic:'CC BY',src:'https://www.printables.com/model/57497-heart-shaped-box-v2',img:'assets/products/57497.jpg'},
  {id:56287,c:'gifts',n:'سوار قلوب',g:10,h:1.55,by:'M4NU',lic:'CC BY',src:'https://www.printables.com/model/56287-unchain-my-heart-print-in-place-bracelet',img:'assets/products/56287.jpg'}
 ];
-function priceOf(g,h){var c=(g*CFG.mats.PLA.g+h*CFG.hourly)*CFG.fail*CFG.profit;return Math.max(CFG.round,Math.round(c/CFG.round)*CFG.round)}
+function piecePrice(cost){var c=cost*CFG.fail,p=Math.max(c*CFG.profit,c+CFG.minProfit);return Math.ceil(p/CFG.round-1e-9)*CFG.round}
+function priceOf(g,h){return piecePrice(g*CFG.mats.PLA.g+h*CFG.hourly)}
 (function(){
  var tiles=$('tiles'),view=$('catView'),catBox=$('cats'),box=$('products'),cur=null;
  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return'&#'+c.charCodeAt(0)+';'})}
@@ -759,7 +761,7 @@ function calc(){
  var vol=data.vol*f*f*f;
  var w=vol*m.d*(0.25+0.75*inf),h=w/CFG.gph*Q[3];
  var cMat=w*m.g*q,cTime=h*CFG.hourly*q,cost=cMat+cTime;
- var print=Math.max(CFG.round,Math.round(cost*CFG.fail*CFG.profit/CFG.round)*CFG.round);
+ var print=piecePrice(cost/q)*q;
  var del=CFG.delivery,total=print+del;
  data.out={w:w,h:h,total:total,q:q,print:print,del:del};
  var dimTxt=data.dimS.map(function(x){return x.toFixed(1)}).join(' × ');
