@@ -41,7 +41,7 @@ The HUD counter shows `NN / TT` with TT = number of scenes.
 
 { "start": 0, "type": "photo",                // full-bleed picture (guide 5.7) — dark, cyan-lit pictures only
   "src": "photos/nozzle.jpg",                 // relative to the work dir; ask the user for real KAYAN photos
-  "band": 600,                                // dark headline band height (0 = top gradient only, like master scene 09)
+  "band": 600,  "bandPos": "bottom",   // optional: band at the bottom (subject fills the top); give headlines "y": ~1700                                // dark headline band height (0 = top gradient only, like master scene 09)
   "push": 0.0007,                             // push-in per frame (default = master scene 10)
   "kicker": ["KAYAN", "MAKER", "*LAB"],       // optional Latin line above the headline (master scene 10)
   "reveal": { "at": 24, "frames": 16 },       // optional scan-line reveal of the picture, bottom -> band edge

@@ -112,6 +112,7 @@ const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className=
   if(s.type==='image') d.querySelector('img').src=s.src; }
  if(s.type==='photo'){ const band=s.band!=null?s.band:560;
   d.innerHTML=`<div class="ph"><img src="${s.src}"></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`;
+  if(s.bandPos==='bottom') d.querySelector('.band').style.cssText=`top:${1920-band-70}px;height:${band+70}px;background:linear-gradient(0deg,#10191e 0,#10191e ${band}px,rgba(16,25,30,0) ${band+70}px)`; else
   d.querySelector('.band').style.cssText=band>0?`height:${band+70}px;background:linear-gradient(180deg,#10191e 0,#10191e ${band}px,rgba(16,25,30,0) ${band+70}px)`
    :`height:760px;background:linear-gradient(180deg,rgba(16,23,29,.96) 0,rgba(16,23,29,.75) 45%,rgba(16,23,29,0) 100%)`;
   if(s.tag){const t=document.createElement('div');t.className='tagp';t.style.top=(s.tag.y||640)+'px';t.innerHTML=`<span><i></i>${s.tag.text}</span>`;d.appendChild(t);s.tagEl=t;}
