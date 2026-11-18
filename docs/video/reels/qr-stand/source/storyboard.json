@@ -9,7 +9,7 @@
    "start": 0,
    "type": "photo",
    "src": "photos/paper-wide.jpg",
-   "band": 560,
+   "band": 0,
    "headlines": [
     {
      "start": 3,
@@ -36,8 +36,9 @@
    ],
    "frame": {
     "w": 1000,
-    "aspect": 0.62,
-    "y": 1190
+    "aspect": 0.7,
+    "y": 1130,
+    "cut": 80
    }
   },
   {
@@ -60,7 +61,7 @@
    "start": 161,
    "type": "photo",
    "src": "photos/stand-wide.jpg",
-   "band": 560,
+   "band": 0,
    "headlines": [
     {
      "start": 171,
@@ -89,15 +90,16 @@
    ],
    "frame": {
     "w": 1000,
-    "aspect": 0.78,
-    "y": 1190
+    "aspect": 1.0,
+    "y": 1150,
+    "cut": 80
    }
   },
   {
    "start": 256,
    "type": "photo",
    "src": "photos/scan.jpg",
-   "band": 560,
+   "band": 0,
    "headlines": [
     {
      "start": 262,
@@ -112,18 +114,23 @@
       ]
      ]
     }
-   ]
+   ],
+   "frame": {
+    "w": 1000,
+    "aspect": 1.15,
+    "y": 1150,
+    "pos": "50% 72%",
+    "cut": 80
+   }
   },
   {
    "start": 332,
    "type": "photo",
    "src": "photos/cards.jpg",
-   "band": 380,
-   "bandPos": "bottom",
+   "band": 0,
    "headlines": [
     {
      "start": 337,
-     "y": 1690,
      "lines": [
       [
        "ومعو",
@@ -134,13 +141,20 @@
       ]
      ]
     }
-   ]
+   ],
+   "frame": {
+    "w": 1000,
+    "aspect": 1.15,
+    "y": 1150,
+    "pos": "50% 60%",
+    "cut": 80
+   }
   },
   {
    "start": 374,
    "type": "photo",
    "src": "photos/colors.jpg",
-   "band": 560,
+   "band": 0,
    "headlines": [
     {
      "start": 380,
@@ -164,7 +178,14 @@
       ]
      ]
     }
-   ]
+   ],
+   "frame": {
+    "w": 1000,
+    "aspect": 1.15,
+    "y": 1150,
+    "pos": "50% 76%",
+    "cut": 80
+   }
   },
   {
    "start": 451,
