@@ -37,3 +37,10 @@ that specific item.**
   3D-printed objects with visible layer lines, no text/logos) and **ask the owner to generate
   them and send them back**; then build with those images. Real website footage is still fine
   where the website itself is the subject.
+- **How pictures appear in videos (owner, agreed 2026-11-18 — apply every time, don't ask again):**
+  pictures go in the **poster-style frame** (`"frame"`: logo-shaped cut corners, offset outline,
+  + marks, ~1000 px wide, `top` 590), **never full-bleed with text or bands over them**. All text
+  (kicker, headline, subtitle pill) sits **above** the frame at a fixed position, with the accent
+  bars between text and picture. Nothing (particles, sweep, pills, labels) is drawn over the
+  product; use `pos` to keep the product centred in the frame.
+

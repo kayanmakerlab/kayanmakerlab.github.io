@@ -27,6 +27,10 @@ scratchpad (never inside the repo: footage is ~100 MB).
    dark `#0F1A1E`, cyan `#1DE5F5` light, realistic 3D-printed subject in the lower 60 %, top
    35 % dark and empty for the headline band, no text/logos), wait for the images, then build.
    See `docs/brand/KAYAN_RULES.md`.
+2c. **Picture layout (owner rule, don't re-ask):** every picture scene uses the poster-style
+   `"frame"` (`{"w":1000,"aspect":1.1,"top":590,"cut":80,"pos":"50% NN%"}`) with all text above it
+   (`y` ≈ 372, or kicker + headline + tag pill stacked above `top`). Never full-bleed with bands or
+   text over the picture. See `docs/brand/KAYAN_RULES.md`.
 3. **Write `$W/storyboard.json`** — see `storyboard.md` for every field. Rules:
    - Writing the script yourself: follow the master's arc (guide 6.1): need/hook question →
      brand as the answer → short action steps → name each doubt and answer it → payoff →
