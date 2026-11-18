@@ -44,6 +44,9 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111a21}
 .st b{font:700 30px PM;color:#fff}.st em{position:absolute;right:40px;top:34px;font:400 20px PM;color:#a4b1b9;font-style:normal;white-space:pre}
 .st .bar{position:absolute;left:40px;right:40px;bottom:36px;height:10px;border-radius:5px;background:rgba(29,229,245,.15)}
 .st .bar div{height:100%;border-radius:5px;background:#1de5f5;box-shadow:0 0 10px rgba(29,229,245,.6)}
+.ph img.bgb{filter:blur(38px) brightness(.36) saturate(1.15);transform:scale(1.2)}
+.frm{position:absolute;left:40px;width:1000px;border-radius:28px;overflow:hidden;border:2px solid rgba(29,229,245,.45);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(29,229,245,.15);background:#0f1a1e}
+.frm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
 .sweep{position:absolute;left:-60%;top:0;width:220%;height:100%;pointer-events:none;mix-blend-mode:screen;opacity:0;background:linear-gradient(110deg,transparent 42%,rgba(150,245,255,.30) 49%,rgba(255,255,255,.42) 50%,rgba(150,245,255,.30) 51%,transparent 58%)}
 .w.a.gl{background:linear-gradient(100deg,#1de5f5 0%,#1de5f5 40%,#effeff 50%,#1de5f5 60%,#1de5f5 100%);background-size:320% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 .steps{position:absolute;left:0;width:1080px;top:268px;display:flex;justify-content:center;gap:10px;direction:rtl}
@@ -111,7 +114,9 @@ const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className=
  if(s.type==='site'||s.type==='image'){ d.innerHTML=`<div class="panel"><div class="foot"><img${s.type==='image'?' class="cover"':''}></div></div><div class="rings"></div>`+CURSOR;
   if(s.type==='image') d.querySelector('img').src=s.src; }
  if(s.type==='photo'){ const band=s.band!=null?s.band:560;
-  d.innerHTML=`<div class="ph"><img src="${s.src}"></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`;
+  if(s.frame){ const fr=s.frame, fw=fr.w||1000, fh=fr.h||Math.round(fw*(fr.aspect||0.75)), fy=fr.y||1180;   // whole picture in a framed card over a blurred copy (owner 2026-11-18: don't crop the pictures)
+   d.innerHTML=`<div class="ph"><img class="bgb" src="${s.src}"><div class="frm" style="left:${(1080-fw)/2}px;top:${fy-fh/2}px;width:${fw}px;height:${fh}px"><img src="${s.src}" style="object-position:${fr.pos||'50% 50%'}"></div></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`; }
+  else d.innerHTML=`<div class="ph"><img src="${s.src}"></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`;
   if(s.bandPos==='bottom') d.querySelector('.band').style.cssText=`top:${1920-band-70}px;height:${band+70}px;background:linear-gradient(0deg,#10191e 0,#10191e ${band}px,rgba(16,25,30,0) ${band+70}px)`; else
   d.querySelector('.band').style.cssText=band>0?`height:${band+70}px;background:linear-gradient(180deg,#10191e 0,#10191e ${band}px,rgba(16,25,30,0) ${band+70}px)`
    :`height:760px;background:linear-gradient(180deg,rgba(16,23,29,.96) 0,rgba(16,23,29,.75) 45%,rgba(16,23,29,0) 100%)`;
@@ -197,9 +202,11 @@ window.render=async function(f){
      [0,5].forEach(dl=>{const tt=t-dl; if(tt<0||tt>14)return; const rad=14+eo(tt/14)*86; const el=document.createElement('div'); el.className='ring';
       el.style.cssText=`left:${p.x-rad}px;top:${p.y-rad+py}px;width:${rad*2}px;height:${rad*2}px;opacity:${(1-tt/14)*.95}`; r.appendChild(el);});}); }
   }
-  if(s.type==='photo'){ const img=d.querySelector('.ph img'), ph=d.querySelector('.ph');
-   if(FX.pan){ const T=Math.max(1,s.end-s.start+6), u=clamp((f-s.start+3)/T), dir=(i%2?-1:1), pan=(s.pan!=null?s.pan:26);
-    const z=1.06+(s.push!=null?s.push:.0004)*(f-s.start+3)+0.08*(1-eo((f-s.start+3)/20));     // settle-in from 1.14, then slow push
+  if(s.type==='photo'){ const img=s.frame?d.querySelector('.frm img'):d.querySelector('.ph img'), ph=d.querySelector('.ph');
+   if(s.frame){ const fm=d.querySelector('.frm'), t0=s.start-3; fm.style.opacity=clamp((f-t0)/8); fm.style.transform=`translateY(${80*(1-eo((f-t0)/14))}px)`;
+    d.querySelector('.bgb').style.transform=`scale(${1.2+0.0006*(f-s.start)})`; }
+   if(FX.pan){ const T=Math.max(1,s.end-s.start+6), u=clamp((f-s.start+3)/T), dir=(i%2?-1:1), pan=(s.pan!=null?s.pan:(s.frame?0:12));
+    const z=(s.frame?1.0:1.025)+(s.push!=null?s.push:.0003)*(f-s.start+3)+0.035*(1-eo((f-s.start+3)/20));     // gentle settle-in, slow push: keeps the picture almost whole
     img.style.transform=`translate(${dir*pan*(1-2*u)}px,${-10*u}px) scale(${z})`;
     const sw=d.querySelector('.sweep'); if(sw){const q=(f-s.start-8)/30; sw.style.opacity=(q>0&&q<1)?1:0; sw.style.transform=`translateX(${lerp(-45,45,eio(q))}%)`;} }
    else img.style.transform=`scale(${1+(s.push!=null?s.push:.0007)*(f-s.start+3)})`;              // slow push-in, measured x1.058 over 85 frames (master scene 10)
