@@ -1,0 +1,250 @@
+{
+ "slug": "kayan-reel-keychain-collection",
+ "frames": 900,
+ "maxFrames": 900,
+ "audio": null,
+ "fx": {
+  "grain": 1,
+  "blur": 1,
+  "glint": 1,
+  "glow": 1,
+  "pan": 1
+ },
+ "scenes": [
+  {
+   "start": 0,
+   "type": "text",
+   "headlines": [
+    {
+     "start": 3,
+     "end": 36,
+     "lines": [
+      [
+       "شو",
+       "*بتحب؟"
+      ]
+     ]
+    },
+    {
+     "start": 43,
+     "lines": [
+      [
+       "عنّا",
+       "ميدالية"
+      ],
+      [
+       "*بتشبهك"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 75,
+   "type": "brand",
+   "sub": [
+    "مع",
+    "كيان",
+    "ميكر",
+    "لاب"
+   ],
+   "headline": [
+    "كولكشن",
+    "*جديد"
+   ],
+   "headlineAt": 30
+  },
+  {
+   "start": 140,
+   "type": "photo",
+   "src": "photos/coffee.jpg",
+   "band": 650,
+   "push": 0.0004,
+   "pan": 10,
+   "kicker": [
+    "01",
+    "—",
+    "COLLECTION"
+   ],
+   "headlines": [
+    {
+     "start": 148,
+     "size": 150,
+     "lines": [
+      [
+       "*COFFEE"
+      ]
+     ],
+     "dir": "ltr"
+    }
+   ],
+   "tag": {
+    "at": 166,
+    "text": "لمدمني القهوة",
+    "y": 525
+   }
+  },
+  {
+   "start": 234,
+   "type": "photo",
+   "src": "photos/gym.jpg",
+   "band": 650,
+   "push": 0.0004,
+   "pan": 10,
+   "kicker": [
+    "02",
+    "—",
+    "COLLECTION"
+   ],
+   "headlines": [
+    {
+     "start": 242,
+     "size": 150,
+     "lines": [
+      [
+       "*GYM"
+      ]
+     ],
+     "dir": "ltr"
+    }
+   ],
+   "tag": {
+    "at": 260,
+    "text": "لعشاق الحديد",
+    "y": 525
+   }
+  },
+  {
+   "start": 328,
+   "type": "photo",
+   "src": "photos/lebanon.jpg",
+   "band": 650,
+   "push": 0.0004,
+   "pan": 10,
+   "kicker": [
+    "03",
+    "—",
+    "COLLECTION"
+   ],
+   "headlines": [
+    {
+     "start": 336,
+     "size": 150,
+     "lines": [
+      [
+       "*لبنان"
+      ]
+     ]
+    }
+   ],
+   "tag": {
+    "at": 354,
+    "text": "معك وين ما رحت",
+    "y": 525
+   }
+  },
+  {
+   "start": 422,
+   "type": "photo",
+   "src": "photos/gamer.jpg",
+   "band": 650,
+   "push": 0.0004,
+   "pan": 10,
+   "kicker": [
+    "04",
+    "—",
+    "COLLECTION"
+   ],
+   "headlines": [
+    {
+     "start": 430,
+     "size": 150,
+     "lines": [
+      [
+       "*GAMER"
+      ]
+     ],
+     "dir": "ltr"
+    }
+   ],
+   "tag": {
+    "at": 448,
+    "text": "للجيمرز",
+    "y": 525
+   }
+  },
+  {
+   "start": 516,
+   "type": "photo",
+   "src": "photos/football.jpg",
+   "band": 650,
+   "push": 0.0004,
+   "pan": 10,
+   "kicker": [
+    "05",
+    "—",
+    "COLLECTION"
+   ],
+   "headlines": [
+    {
+     "start": 524,
+     "size": 150,
+     "lines": [
+      [
+       "*FOOTBALL"
+      ]
+     ],
+     "dir": "ltr"
+    }
+   ],
+   "tag": {
+    "at": 542,
+    "text": "لعشاق الطابة",
+    "y": 525
+   }
+  },
+  {
+   "start": 610,
+   "type": "photo",
+   "src": "photos/boxing.jpg",
+   "band": 650,
+   "push": 0.0004,
+   "pan": 10,
+   "kicker": [
+    "06",
+    "—",
+    "COLLECTION"
+   ],
+   "headlines": [
+    {
+     "start": 618,
+     "size": 150,
+     "lines": [
+      [
+       "*BOXING"
+      ]
+     ],
+     "dir": "ltr"
+    }
+   ],
+   "tag": {
+    "at": 636,
+    "text": "لأبطال الحلبة",
+    "y": 525
+   }
+  },
+  {
+   "start": 705,
+   "type": "outro",
+   "headline": [
+    "اختار",
+    "*ميداليتك"
+   ],
+   "sub": [
+    "واطلبها",
+    "على",
+    "*الرقم"
+   ]
+  }
+ ]
+}
