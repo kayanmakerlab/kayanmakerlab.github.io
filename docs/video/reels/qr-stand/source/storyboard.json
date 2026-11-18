@@ -1,0 +1,235 @@
+{
+ "slug": "kayan-reel-qr-stand",
+ "frames": 790,
+ "maxFrames": 790,
+ "audio": "voice-elevenlabs-mimi.mp3",
+ "fx": true,
+ "scenes": [
+  {
+   "start": 0,
+   "type": "photo",
+   "src": "photos/paper.jpg",
+   "band": 560,
+   "headlines": [
+    {
+     "start": 3,
+     "lines": [
+      [
+       "لسّا",
+       "الـ QR"
+      ],
+      [
+       "*عندك…"
+      ]
+     ],
+     "end": 52
+    },
+    {
+     "start": 58,
+     "size": 150,
+     "lines": [
+      [
+       "*هيك؟"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 77,
+   "type": "brand",
+   "sub": [
+    "مع",
+    "كيان",
+    "ميكر",
+    "لاب"
+   ],
+   "headline": [
+    "في",
+    "حل",
+    "*أحلى"
+   ],
+   "headlineAt": 55
+  },
+  {
+   "start": 161,
+   "type": "photo",
+   "src": "photos/stand.jpg",
+   "band": 380,
+   "bandPos": "bottom",
+   "headlines": [
+    {
+     "start": 171,
+     "y": 1690,
+     "lines": [
+      [
+       "ستاند",
+       "*QR"
+      ]
+     ],
+     "end": 194
+    },
+    {
+     "start": 199,
+     "y": 1690,
+     "lines": [
+      [
+       "بالألوان",
+       "واللوغو"
+      ],
+      [
+       "*اللي",
+       "*بدك",
+       "ياه"
+      ]
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "at": 180,
+     "x": 480,
+     "y": 800,
+     "lx": 760,
+     "ly": 640,
+     "label": "QR CODE"
+    },
+    {
+     "at": 192,
+     "x": 470,
+     "y": 1440,
+     "lx": 760,
+     "ly": 1330,
+     "label": "CARD HOLDER"
+    }
+   ]
+  },
+  {
+   "start": 256,
+   "type": "photo",
+   "src": "photos/scan.jpg",
+   "band": 560,
+   "headlines": [
+    {
+     "start": 262,
+     "lines": [
+      [
+       "الزبون",
+       "بيمسح"
+      ],
+      [
+       "*وبيدفع",
+       "*بثواني"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 332,
+   "type": "photo",
+   "src": "photos/cards.jpg",
+   "band": 380,
+   "bandPos": "bottom",
+   "headlines": [
+    {
+     "start": 337,
+     "y": 1690,
+     "lines": [
+      [
+       "ومعو",
+       "مكان"
+      ],
+      [
+       "*للكروت"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 374,
+   "type": "photo",
+   "src": "photos/colors.jpg",
+   "band": 560,
+   "headlines": [
+    {
+     "start": 380,
+     "lines": [
+      [
+       "بـ",
+       "*4",
+       "ألوان"
+      ]
+     ],
+     "end": 409
+    },
+    {
+     "start": 413,
+     "lines": [
+      [
+       "أو",
+       "*اللون",
+       "*اللي",
+       "بتختارو"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 451,
+   "type": "text",
+   "headlines": [
+    {
+     "start": 457,
+     "lines": [
+      [
+       "بدك",
+       "تعرف"
+      ],
+      [
+       "*السعر؟"
+      ]
+     ],
+     "end": 489
+    },
+    {
+     "start": 496,
+     "lines": [
+      [
+       "اكتب",
+       "*«سعر»"
+      ],
+      [
+       "بالتعليقات"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 534,
+   "type": "outro",
+   "headline": [
+    "اطلبو",
+    "*هلّق"
+   ],
+   "sub": [
+    "توصيل",
+    "لكل",
+    "*لبنان"
+   ],
+   "digits": [
+    81,
+    103,
+    126,
+    145,
+    158,
+    177,
+    199,
+    211
+   ]
+  }
+ ]
+}
