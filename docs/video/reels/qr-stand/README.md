@@ -7,3 +7,4 @@ Sync: voice measured, not heard. Every wipe sits in a voice pause; outro digits 
 Pictures are no longer heavily cropped (owner, 2026-11-18): wide pictures are shown whole in a framed card over a blurred copy; full-bleed pictures use a gentler zoom.
 
 Picture frames use the owner's poster style (2026-11-18): logo-shaped cut corners, thin offset outline, cyan + marks, on the Kayan grid background; frames 1000 px wide and kept clean (no particles/sweep over the product) so the customer sees it clearly.
+Headlines sit above the frames at a fixed position and size, with the poster's accent bars between headline and picture (owner, 2026-11-18).
