@@ -117,7 +117,7 @@ const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className=
   if(s.type==='image') d.querySelector('img').src=s.src; }
  if(s.type==='photo'){ const band=s.band!=null?s.band:560;
   if(s.frame){ const fr=s.frame, fw=fr.w||1000, fh=fr.h||Math.round(fw*(fr.aspect||0.75)), fy=fr.y||1180;   // whole picture in a framed card over a blurred copy (owner 2026-11-18: don't crop the pictures)
-   if((fr.style||'kayan')==='kayan'){ const c=fr.cut||110, L=(1080-fw)/2, T=fy-fh/2, dx=18, dy=-18, x0=L+dx, y0=T+dy, x1=x0+fw, y1=y0+fh;   // owner's poster frame: logo-shaped cut corners + offset outline (2026-11-18)
+   if((fr.style||'kayan')==='kayan'){ const c=fr.cut||110, L=(1080-fw)/2, T=fy-fh/2; s._fr={L,T,fw,fh}; const dx=18, dy=-18, x0=L+dx, y0=T+dy, x1=x0+fw, y1=y0+fh;   // owner's poster frame: logo-shaped cut corners + offset outline (2026-11-18)
     const pts=`${x0+c},${y0} ${x1},${y0} ${x1},${y1-c} ${x1-c},${y1} ${x0},${y1} ${x0},${y0+c}`;
     const plus=(x,y)=>`<path d="M${x-14} ${y}H${x+14}M${x} ${y-14}V${y+14}" stroke="#1de5f5" stroke-opacity=".7" stroke-width="2"/>`;
     d.innerHTML=`<div class="ph"><svg class="fo" width="1080" height="1920"><polygon class="fol" points="${pts}" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/><g class="fop" opacity="0">${plus(L-36,T+fh*0.42)}${plus(L+fw+36,T+fh*0.72)}</g></svg><div class="frm k" style="left:${L}px;top:${T}px;width:${fw}px;height:${fh}px;clip-path:polygon(${c}px 0,100% 0,100% calc(100% - ${c}px),calc(100% - ${c}px) 100%,0 100%,0 ${c}px)"><img src="${s.src}" style="object-position:${fr.pos||'50% 50%'}"></div></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`; }
@@ -129,7 +129,7 @@ const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className=
   if(s.tag){const t=document.createElement('div');t.className='tagp';t.style.top=(s.tag.y||640)+'px';t.innerHTML=`<span><i></i>${s.tag.text}</span>`;d.appendChild(t);s.tagEl=t;}
   if(s.status){const st=s.status,e=document.createElement('div');e.className='st';e.innerHTML=`<b></b><em>${st.right||''}</em><div class="bar"><div></div></div>`;d.appendChild(e);s.stEl=e;}
   if(s.kicker) s.kEl=buildHL(d,{lines:[s.kicker],size:54,top:s.kickerTop||254},'kick');
-  if(FX.sweep) d.querySelector('.ph').insertAdjacentHTML('beforeend','<div class="sweep"></div>');
+  if(FX.sweep&&!s.frame) d.querySelector('.ph').insertAdjacentHTML('beforeend','<div class="sweep"></div>');
  }
  if(s.type==='brand'){ s.subEl=buildHL(d,{lines:[s.sub],size:58,top:359,weight:500});
   d.insertAdjacentHTML('beforeend',`<svg class="o" style="left:0;top:0" width="1080" height="1920"><g fill="none" stroke="#1de5f5" stroke-opacity=".16" stroke-width="2"><circle cx="540" cy="930" r="150"/><circle cx="540" cy="930" r="215"/></g><path d="M0 930H1080M540 640V1220" stroke="#fff" stroke-opacity=".06" stroke-width="2"/></svg>
@@ -256,16 +256,17 @@ window.render=async function(f){
     x.style.top=DRISE[Math.min(tt,DRISE.length-1)]+'px'; x.style.color=tt>=15?'#fff':'#1de5f5';}); }
  }
  const P=$('fxp').getContext('2d'); P.clearRect(0,0,1080,1920);
- if(FX.particles){ const cur2=SB.scenes[cur]; const on=!(OS&&f>=OS.start+4);
+ if(FX.particles){ const cur2=SB.scenes[cur]; const on=!(OS&&f>=OS.start+4); P.save();
+  if(cur2._fr&&!wipe){ const r=cur2._fr; P.beginPath(); P.rect(0,0,1080,1920); P.rect(r.L-30,r.T-30,r.fw+60,r.fh+60); P.clip('evenodd'); }   // keep the product picture clean (owner 2026-11-18)
   if(on) for(let k=0;k<70;k++){ const r1=hash(k*7+1),r2=hash(k*13+5),r3=hash(k*29+11),big=k<8;
    const sp=.35+r2*.9, x=(r1*1080+18*Math.sin(f*.02+k))%1080, y=((r3*2200-f*sp)%2200+2200)%2200-140;
    const a=(big?.18:.55)*(.55+.45*Math.sin(f*.09+k*1.7)), rad=big?(10+r2*14):(1.2+r2*2.6);
    P.globalAlpha=Math.max(0,a); P.fillStyle=k%3?'#1de5f5':'#e8fdff'; P.shadowColor='#1de5f5'; P.shadowBlur=big?30:8;
    P.beginPath(); P.arc(x,y,rad,0,7); P.fill(); }
-  P.globalAlpha=1; P.shadowBlur=0; }
+  P.globalAlpha=1; P.shadowBlur=0; P.restore(); }
  if(FX.grain){ const g=$('fxg'), G=g.getContext('2d'), im=G.createImageData(270,480), dta=im.data; let seed=f*9973+7;
   for(let k=0;k<dta.length;k+=4){ seed=(Math.imul(seed,1103515245)+12345)|0; const v=128+((seed>>>16)&255)-128; dta[k]=dta[k+1]=dta[k+2]=v; dta[k+3]=255; }
-  G.putImageData(im,0,0); g.style.opacity=.09; }
+  G.putImageData(im,0,0); g.style.opacity=.05; }
  await Promise.all(jobs); await document.fonts.ready;
 };
 
