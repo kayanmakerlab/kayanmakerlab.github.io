@@ -209,6 +209,29 @@ details.bd summary{cursor:pointer;width:max-content}
 .prod .cr a{color:inherit}
 @media(max-width:480px){.prod .buy{flex-direction:column;align-items:stretch}.prod .pr{text-align:right}.prod h3{font-size:14.5px}}
 .shop-note{font-size:13px;color:var(--muted);margin:16px 0 0}
+.coll{position:relative;margin:0 0 30px;padding:18px 16px 16px;background:linear-gradient(135deg,var(--accent-soft),transparent 55%),var(--surface);border:1px solid var(--line)}
+.coll-h{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.coll-h h3{margin:0;font-size:21px;display:flex;align-items:center;gap:8px}
+.coll-h p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.hot{display:inline-flex;align-items:center;gap:4px;background:#e8452c;color:#fff;font-size:12px;font-weight:700;padding:3px 9px}
+.coll-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.coll-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:8px;margin:0 -16px;padding-inline:16px;scrollbar-width:none}.coll-grid::-webkit-scrollbar{display:none}.kc{flex:0 0 68%;scroll-snap-align:start}}
+.kc{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.kc .ph{position:relative;aspect-ratio:4/5;padding:0;border:0;cursor:zoom-in;background:var(--surface-2);display:block;width:100%}
+.kc .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.kc:hover .ph img{transform:scale(1.04)}
+.kc .tag{position:absolute;top:10px;right:10px}
+.kc .bd2{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.kc b{font-size:15.5px}.kc small{color:var(--muted);font-size:12.5px;line-height:1.5}
+.kc .btn{margin-top:auto;padding:9px 10px;font-size:13.5px}
+.kc .ask{font-size:12px;color:var(--muted);text-align:center;margin-top:4px}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,520px)}
+dialog.lb::backdrop{background:rgba(5,12,16,.85)}
+dialog.lb img{width:100%;max-height:82vh;object-fit:contain;display:block}
+dialog.lb .btn{width:100%;margin-top:10px}
+.hot{--c1:7px!important;--c2:5px!important;padding:3px 10px 3px 11px}
+.chips li.newchip{color:#fff!important;background:#e8452c!important;--ch-bg:#e8452c;font-weight:700}
+.newchip::after{display:none}
 .bundles-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
 .bundles-h h3{margin:0;font-size:19px}.bundles-h small{color:var(--muted);font-size:13px}
 .bundles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
@@ -322,7 +345,7 @@ footer nav{display:flex;margin:0}
 
 /* ===== إطار الشعار (زاوية مقصوصة فوق-يسار وتحت-يمين) — لإلغائه احذف هالبلوك ===== */
 :root{--cut-l:26px;--cut-s:18px;--cut-btn-l:11px;--cut-btn-s:7px}
-.card,.hl-item,.tile,.prod,.steps li,.faq details,.btn,.icon-btn,.back,.ic,.fab,.bundle,.cartbar,dialog.cart,.nudge,.hint2,.qty{
+.card,.hl-item,.tile,.prod,.steps li,.faq details,.btn,.icon-btn,.back,.ic,.fab,.bundle,.coll,.kc,.hot,.cartbar,dialog.cart,.nudge,.hint2,.qty{
  --c1:var(--cut-l);--c2:var(--cut-s);
  clip-path:polygon(var(--c1) 0,100% 0,100% calc(100% - var(--c2)),calc(100% - var(--c2)) 100%,0 100%,0 var(--c1));
  border-radius:0!important}
@@ -383,7 +406,7 @@ footer nav{display:flex;margin:0}
 
 <header><div class="wrap">
  <a class="logo" href="#top" aria-label="كيان ميكر لاب – الرئيسية"><svg class="m" aria-hidden="true"><use href="#logo-mark"/></svg><svg class="w" aria-hidden="true"><use href="#logo-word"/></svg></a>
- <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#shop">المتجر</a><a href="#how">كيف نشتغل</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
+ <nav aria-label="الأقسام"><a href="#calc">احسب السعر</a><a href="#new">🔥 جديد</a><a href="#shop">المتجر</a><a href="#how">كيف نشتغل</a><a href="#services">الخدمات</a><a href="#materials">الخامات</a><a href="#works">الأعمال</a><a href="#faq">أسئلة</a></nav>
  <div class="tools">
   <button class="icon-btn" id="theme" type="button" aria-label="تبديل الوضع الليلي"><svg><use href="#i-moon"/></svg></button>
   <a class="btn cta-h" href="#calc"><svg><use href="#i-up"/></svg>ارفع ملفك</a>
@@ -396,6 +419,7 @@ footer nav{display:flex;margin:0}
  <h1>ارفع ملف STL،<br>وشوف <em>سعره فوراً</em>.</h1>
  <p class="lead">معاينة ثلاثية الأبعاد لقطعتك، مع حساب الأبعاد والوزن ووقت الطباعة والسعر التقريبي قبل ما تتواصل معنا.</p>
  <ul class="chips">
+  <li class="newchip"><a href="#new" style="color:inherit;text-decoration:none">🔥 جديد: كولكشن الميداليات</a></li>
   <li><svg><use href="#i-check"/></svg>معاينة فورية بالمتصفح</li>
   <li><svg><use href="#i-check"/></svg>ملفك ما بينرفع لأي سيرفر</li>
   <li><svg><use href="#i-check"/></svg>طلب مباشر عبر واتساب</li>
@@ -470,6 +494,10 @@ footer nav{display:flex;margin:0}
 
 <section id="shop" class="alt-bg"><div class="wrap">
  <h2>المتجر</h2><p class="sub">قطع جاهزة منطبعها عالطلب بالـ PLA وباللون اللي بتختاره. ضيف القطع للسلة، وابعت طلبك كله برسالة واتساب وحدة.</p>
+ <div class="coll" id="new">
+  <div class="coll-h"><div><h3><span class="hot">🔥 جديد</span>كولكشن الميداليات</h3><p>ميداليات بتحكي عن شغفك: قهوة، جيم، فوتبول، بوكس، جيمينغ، ولبنان. اختار تصميمك واسألنا عالسعر والألوان.</p></div></div>
+  <div class="coll-grid" id="collGrid"></div>
+ </div>
  <div class="bundles-h"><h3>الباقات</h3><small>قطع بتمشي مع بعض، بطلب واحد</small></div>
  <div class="bundles" id="bundles"></div>
  <div class="bundles-h"><h3>الأقسام</h3></div>
@@ -556,6 +584,7 @@ footer nav{display:flex;margin:0}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="cartbar" id="cartbar" hidden><span>🛒 <b id="cbN">0</b> قطع · <b id="cbT">$0</b></span><button class="btn" type="button" id="cbOpen">شوف السلة</button></div>
+<dialog class="lb" id="lbDlg" aria-label="صورة الميدالية"><img id="lbImg" alt=""><button class="btn wa" type="button" id="lbAsk"><svg><use href="#i-wa"/></svg>اسأل عن السعر عالواتساب</button></dialog>
 <dialog class="cart" id="cartDlg" aria-labelledby="cartTitle"><div class="cart-in">
  <div class="cart-hd"><h3 id="cartTitle">سلتك</h3><button class="icon-btn" type="button" id="cartClose" aria-label="سكّر">✕</button></div>
  <div class="cart-bd">
@@ -696,6 +725,33 @@ var PRODUCTS=[
  {id:57497,c:'gifts',n:'علبة هدية على شكل قلب',g:41,h:5.21,by:'Devmiser',lic:'CC BY',src:'https://www.printables.com/model/57497-heart-shaped-box-v2',img:'assets/products/57497.jpg'},
  {id:56287,c:'gifts',n:'سوار قلوب',g:10,h:1.55,by:'M4NU',lic:'CC BY',src:'https://www.printables.com/model/56287-unchain-my-heart-print-in-place-bracelet',img:'assets/products/56287.jpg'}
 ];
+/* ---- كولكشن الميداليات (بلا سعر: الطلب عالواتساب) ---- */
+var COLLECTION=[ // img: assets/collection/<الملف>.jpg
+ {k:'coffee',n:'ميدالية القهوة',d:'كوب قهوة، حبّات بن، وكرواسون'},
+ {k:'gym',n:'ميدالية الجيم',d:'دمبل، صحن أوزان، وشيكر'},
+ {k:'lebanon',n:'ميدالية لبنان',d:'أرزة، خريطة لبنان، ودلّة قهوة'},
+ {k:'football',n:'ميدالية الفوتبول',d:'طابة، حذاء، وكأس'},
+ {k:'boxing',n:'ميدالية البوكس',d:'كف ملاكمة، كيس، وحبل نط'},
+ {k:'gaming',n:'ميدالية الجيمينغ',d:'يد تحكّم، نرد D20، وقلب بكسل'},
+ {k:'spartan',n:'خوذة إسبارطي',d:'ميدالية خوذة بتفاصيل دقيقة'},
+ {k:'cedar-map',n:'خريطة لبنان والأرزة',d:'ميدالية خريطة لبنان مع الأرزة'}
+];
+(function(){
+ var g=$('collGrid');if(!g)return;
+ function img(c){return 'assets/collection/'+c.k+'.jpg'}
+ g.innerHTML=COLLECTION.map(function(c,i){
+  return '<article class="kc"><button class="ph" type="button" data-z="'+i+'" aria-label="كبّر صورة '+c.n+'"><img src="'+img(c)+'" alt="'+c.n+'" loading="lazy"><span class="hot tag">جديد</span></button>'+
+  '<div class="bd2"><b>'+c.n+'</b><small>'+c.d+'</small><button class="btn wa" type="button" data-ask="'+i+'"><svg><use href="#i-wa"/></svg>اطلبها عالواتساب</button><span class="ask">السعر والألوان بالرسالة</span></div></article>'}).join('');
+ function ask(i){var c=COLLECTION[i];
+  var msg='مرحباً كيان ميكر لاب 👋\nعجبتني «'+c.n+'» من كولكشن الميداليات الجديد.\nقديش سعرها؟ وشو الألوان المتوفرة؟\n\nالصورة: '+location.origin+location.pathname.replace(/[^/]*$/,'')+img(c);
+  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')}
+ var lb=$('lbDlg'),cur=0;
+ g.addEventListener('click',function(e){var a=e.target.closest('[data-ask]');if(a)return ask(+a.dataset.ask);
+  var z=e.target.closest('[data-z]');if(z){cur=+z.dataset.z;$('lbImg').src=img(COLLECTION[cur]);$('lbImg').alt=COLLECTION[cur].n;lb.showModal?lb.showModal():lb.setAttribute('open','')}});
+ $('lbAsk').addEventListener('click',function(){ask(cur)});
+ lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+})();
+
 /* ---- pricing (shared) ---- */
 function unitPrice(cost){return Math.max(CFG.round,Math.round(cost*CFG.fail*CFG.profit/CFG.round)*CFG.round)}
 // رسم تجهيز الطلب: الفرق اللي بيكمّل ربح الطلب لـ CFG.minOrderProfit
