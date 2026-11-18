@@ -224,7 +224,7 @@ details.bd summary{cursor:pointer;width:max-content}
 .bundle .btn{padding:8px 12px;font-size:13.5px}
 @media(max-width:480px){.bundle .row{flex-direction:column;align-items:stretch}.bundle .pr{text-align:right}}
 .btn.add.in{background:var(--accent-2)}
-.cartbar{position:fixed;z-index:26;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:16px;left:90px;max-width:520px;margin-inline-start:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 10px;background:var(--text);color:var(--bg);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.cartbar{position:fixed;z-index:26;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:16px;left:16px;max-width:520px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 10px;background:var(--text);color:var(--bg);box-shadow:0 8px 28px rgba(0,0,0,.3)}
 .cartbar[hidden]{display:none}
 .cartbar span{font-size:14px}.cartbar b{direction:ltr;display:inline-block}
 .cartbar .btn{padding:9px 14px;font-size:14px}
@@ -253,6 +253,12 @@ dialog.cart::backdrop{background:rgba(5,12,16,.55)}
 .linkbtn{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;padding:4px}
 .hint2{font-size:13px;background:var(--accent-soft);padding:8px 10px;margin:0 0 12px}
 .hint2[hidden]{display:none}
+.toast{position:fixed;z-index:30;left:50%;top:calc(70px + env(safe-area-inset-top,0px));transform:translate(-50%,-12px);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:10px 16px;font-size:14px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:opacity .2s,transform .2s;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.cartbar.bump{animation:bump .35s}
+@keyframes bump{40%{transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.toast{transition:none}.cartbar.bump{animation:none}}
+body.has-cart{padding-bottom:84px}
 body.has-cart .fab{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 [hidden]{display:none!important}
 
@@ -548,6 +554,7 @@ footer nav{display:flex;margin:0}
  <p class="paybar"><b>الدفع عند الاستلام.</b> تأكيد الطلبات فوق 10$ بعربون عبر Whish Money.</p>
 </div></footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="cartbar" id="cartbar" hidden><span>🛒 <b id="cbN">0</b> قطع · <b id="cbT">$0</b></span><button class="btn" type="button" id="cbOpen">شوف السلة</button></div>
 <dialog class="cart" id="cartDlg" aria-labelledby="cartTitle"><div class="cart-in">
  <div class="cart-hd"><h3 id="cartTitle">سلتك</h3><button class="icon-btn" type="button" id="cartClose" aria-label="سكّر">✕</button></div>
@@ -701,10 +708,14 @@ var BUNDLES=[ // باقات: c = أيقونة القسم ، items = أرقام �
  {c:'kitchen',n:'باقة المطبخ',items:[83628,509410,467047,215691]},
  {c:'gifts',n:'باقة الهدايا',items:[288069,223241,391094,57497]}
 ];
+var toastT;function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show')},1800)}
+function bumpBar(){var b=$('cartbar');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
 var CART=(function(){
+ // السلة بتعيش بس جوّا نفس التبويب (sessionStorage): بتضل إذا حدّث الصفحة، وبتبلّش فاضية بكل زيارة جديدة
  var items={},KEY='kml-cart';
- try{items=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){items={}}
- function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+ try{localStorage.removeItem(KEY)}catch(e){}
+ try{items=JSON.parse(sessionStorage.getItem(KEY)||'{}')||{}}catch(e){items={}}
+ function save(){try{sessionStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
  function prod(id){return PRODUCTS.filter(function(p){return p.id==id})[0]}
  Object.keys(items).forEach(function(id){if(!prod(id)||!(items[id]>0))delete items[id]});
  var subs=[];
@@ -732,7 +743,7 @@ var CART=(function(){
   return '<div class="bundle"><div class="top"><span class="ic">'+ic(B.c)+'</span><b>'+esc(B.n)+'</b></div><ul>'+L.map(function(x){return '<li>'+esc(x.p.n)+'</li>'}).join('')+'</ul>'+
   '<div class="row"><span class="pr">'+money(t.sub)+'</span><button class="btn add" type="button" data-b="'+i+'"><svg><use href="#i-check"/></svg>ضيف الباقة</button></div></div>'}).join('');
  $('bundles').addEventListener('click',function(e){var b=e.target.closest('button[data-b]');if(!b)return;
-  BUNDLES[b.dataset.b].items.forEach(function(id){if(CART.prod(id))CART.add(id,1)});
+  BUNDLES[b.dataset.b].items.forEach(function(id){if(CART.prod(id))CART.add(id,1)});toast('✓ انضافت '+BUNDLES[b.dataset.b].n+' للسلة');bumpBar();
   b.innerHTML='<svg><use href="#i-check"/></svg>انضافت ✓';setTimeout(function(){b.innerHTML='<svg><use href="#i-check"/></svg>ضيف الباقة'},1600)});
  tiles.innerHTML=keys.map(function(k){
   var L=inCat(k),min=Math.min.apply(null,L.map(function(p){return priceOf(p.g,p.h)}));
@@ -760,7 +771,7 @@ var CART=(function(){
  tiles.addEventListener('click',function(e){var b=e.target.closest('.tile');if(b)open(b.dataset.c,true)});
  catBox.addEventListener('click',function(e){var b=e.target.closest('button');if(b)open(b.dataset.c,false)});
  $('backCats').addEventListener('click',close);
- box.addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(b)CART.add(b.dataset.id,1)});
+ box.addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(!b)return;CART.add(b.dataset.id,1);var p=CART.prod(b.dataset.id);toast('✓ انضاف للسلة: '+p.n);bumpBar()});
  CART.on(renderProducts);
  // cart bar + dialog
  var dlg=$('cartDlg');
@@ -786,13 +797,15 @@ var CART=(function(){
  $('cartClose').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
  $('cartItems').addEventListener('click',function(e){var b=e.target.closest('button[data-q]');if(!b)return;var id=b.dataset.q;CART.set(id,CART.qty(id)+(+b.dataset.d))});
- $('cartClear').addEventListener('click',function(){CART.clear()});
+ $('cartClear').addEventListener('click',function(){CART.clear();dlg.close?dlg.close():dlg.removeAttribute('open');toast('فضيت السلة')});
  $('cartSend').addEventListener('click',function(){
   var L=CART.list(),t=CART.totals(L);if(!t.n)return;
   var msg='مرحباً كيان ميكر لاب، بدي اطلب من المتجر:\n'+L.map(function(x){return '• '+x.p.n+' (#'+x.p.id+') × '+x.q+' = '+money(priceOf(x.p.g,x.p.h)*x.q)}).join('\n')+
    '\n\nسعر القطع: '+money(t.price)+(t.fee?'\nرسم تجهيز الطلب: '+money(t.fee):'')+'\nالتوصيل: '+money(t.del)+'\nالمجموع التقريبي: '+money(t.total)+
    '\n\n• المنطقة: '+($('cArea').value.trim()||'')+'\n• الألوان/ملاحظات: '+($('cNote').value.trim()||'')+'\n• الدفع: '+payTxt(t.sub);
-  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener')});
+  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(msg),'_blank','noopener');
+  CART.clear();$('cArea').value='';$('cNote').value='';dlg.close?dlg.close():dlg.removeAttribute('open');toast('✓ طلبك جاهز بالواتساب، كبس إرسال هونيك');
+ });
 })();
 
 /* ---- STL parsing ---- */
