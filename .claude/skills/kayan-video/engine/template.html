@@ -47,6 +47,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111a21}
 .ph img.bgb{filter:blur(38px) brightness(.36) saturate(1.15);transform:scale(1.2)}
 .frm{position:absolute;left:40px;width:1000px;border-radius:28px;overflow:hidden;border:2px solid rgba(29,229,245,.45);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(29,229,245,.15);background:#0f1a1e}
 .frm.k{border:0;border-radius:0;box-shadow:none;background:#0f1a1e}
+.ulb{position:absolute;left:0;width:1080px;display:flex;justify-content:center;gap:10px;direction:rtl}
+.ulb i{display:block;height:5px;border-radius:3px;background:#1de5f5;transform-origin:50% 50%}
 .fo{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
 .frm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
 .sweep{position:absolute;left:-60%;top:0;width:220%;height:100%;pointer-events:none;mix-blend-mode:screen;opacity:0;background:linear-gradient(110deg,transparent 42%,rgba(150,245,255,.30) 49%,rgba(255,255,255,.42) 50%,rgba(150,245,255,.30) 51%,transparent 58%)}
@@ -116,11 +118,11 @@ const L=SB.scenes.map((s,i)=>{const d=document.createElement('div');d.className=
  if(s.type==='site'||s.type==='image'){ d.innerHTML=`<div class="panel"><div class="foot"><img${s.type==='image'?' class="cover"':''}></div></div><div class="rings"></div>`+CURSOR;
   if(s.type==='image') d.querySelector('img').src=s.src; }
  if(s.type==='photo'){ const band=s.band!=null?s.band:560;
-  if(s.frame){ const fr=s.frame, fw=fr.w||1000, fh=fr.h||Math.round(fw*(fr.aspect||0.75)), fy=fr.y||1180;   // whole picture in a framed card over a blurred copy (owner 2026-11-18: don't crop the pictures)
+  if(s.frame){ const fr=s.frame, fw=fr.w||1000, fh=fr.h||Math.round(fw*(fr.aspect||0.75)), fy=fr.top!=null?fr.top+fh/2:(fr.y||1180);   // whole picture in a framed card over a blurred copy (owner 2026-11-18: don't crop the pictures)
    if((fr.style||'kayan')==='kayan'){ const c=fr.cut||110, L=(1080-fw)/2, T=fy-fh/2; s._fr={L,T,fw,fh}; const dx=18, dy=-18, x0=L+dx, y0=T+dy, x1=x0+fw, y1=y0+fh;   // owner's poster frame: logo-shaped cut corners + offset outline (2026-11-18)
     const pts=`${x0+c},${y0} ${x1},${y0} ${x1},${y1-c} ${x1-c},${y1} ${x0},${y1} ${x0},${y0+c}`;
     const plus=(x,y)=>`<path d="M${x-14} ${y}H${x+14}M${x} ${y-14}V${y+14}" stroke="#1de5f5" stroke-opacity=".7" stroke-width="2"/>`;
-    d.innerHTML=`<div class="ph"><svg class="fo" width="1080" height="1920"><polygon class="fol" points="${pts}" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/><g class="fop" opacity="0">${plus(L-36,T+fh*0.42)}${plus(L+fw+36,T+fh*0.72)}</g></svg><div class="frm k" style="left:${L}px;top:${T}px;width:${fw}px;height:${fh}px;clip-path:polygon(${c}px 0,100% 0,100% calc(100% - ${c}px),calc(100% - ${c}px) 100%,0 100%,0 ${c}px)"><img src="${s.src}" style="object-position:${fr.pos||'50% 50%'}"></div></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`; }
+    d.innerHTML=`<div class="ph"><svg class="fo" width="1080" height="1920"><polygon class="fol" points="${pts}" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/><g class="fop" opacity="0">${plus(L-36,T+fh*0.42)}${plus(L+fw+36,T+fh*0.72)}</g></svg><div class="frm k" style="left:${L}px;top:${T}px;width:${fw}px;height:${fh}px;clip-path:polygon(${c}px 0,100% 0,100% calc(100% - ${c}px),calc(100% - ${c}px) 100%,0 100%,0 ${c}px)"><img src="${s.src}" style="object-position:${fr.pos||'50% 50%'}"></div></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg><div class="ulb" style="top:${T-48}px"><i style="width:120px"></i><i style="width:34px;opacity:.55"></i><i style="width:34px;opacity:.3"></i></div>`; }
    else d.innerHTML=`<div class="ph"><img class="bgb" src="${s.src}"><div class="frm" style="left:${(1080-fw)/2}px;top:${fy-fh/2}px;width:${fw}px;height:${fh}px"><img src="${s.src}" style="object-position:${fr.pos||'50% 50%'}"></div></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`; }
   else d.innerHTML=`<div class="ph"><img src="${s.src}"></div><div class="band"></div><svg class="co" width="1080" height="1920"></svg>`;
   if(s.bandPos==='bottom') d.querySelector('.band').style.cssText=`top:${1920-band-70}px;height:${band+70}px;background:linear-gradient(0deg,#10191e 0,#10191e ${band}px,rgba(16,25,30,0) ${band+70}px)`; else
@@ -211,6 +213,7 @@ window.render=async function(f){
   if(s.type==='photo'){ const img=s.frame?d.querySelector('.frm img'):d.querySelector('.ph img'), ph=d.querySelector('.ph');
    if(s.frame){ const fm=d.querySelector('.frm'), t0=s.start-3; fm.style.opacity=clamp((f-t0)/8); fm.style.transform=`translateY(${80*(1-eo((f-t0)/14))}px)`;
     const bg=d.querySelector('.bgb'); if(bg) bg.style.transform=`scale(${1.2+0.0006*(f-s.start)})`;
+    const ub=d.querySelector('.ulb'); if(ub) [...ub.children].forEach((b,k)=>{const q=eo((f-t0-8-3*k)/12); b.style.transform=`scaleX(${q})`; b.style.opacity=(k?[.55,.3][k-1]:1)*clamp(q*1.5);});
     const ol=d.querySelector('.fol'); if(ol){ ol.style.strokeDashoffset=100*(1-eio((f-t0-6)/18)); d.querySelector('.fop').setAttribute('opacity',clamp((f-t0-14)/8)); } }
    if(FX.pan){ const T=Math.max(1,s.end-s.start+6), u=clamp((f-s.start+3)/T), dir=(i%2?-1:1), pan=(s.pan!=null?s.pan:(s.frame?0:12));
     const z=(s.frame?1.0:1.025)+(s.push!=null?s.push:.0003)*(f-s.start+3)+0.035*(1-eo((f-s.start+3)/20));     // gentle settle-in, slow push: keeps the picture almost whole
