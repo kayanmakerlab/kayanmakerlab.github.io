@@ -58,7 +58,7 @@
    "start": 140,
    "type": "photo",
    "src": "photos/coffee.jpg",
-   "band": 650,
+   "band": 0,
    "push": 0.0004,
    "pan": 10,
    "kicker": [
@@ -69,26 +69,35 @@
    "headlines": [
     {
      "start": 148,
-     "size": 150,
+     "size": 120,
      "lines": [
       [
        "*COFFEE"
       ]
      ],
-     "dir": "ltr"
+     "dir": "ltr",
+     "y": 352
     }
    ],
    "tag": {
     "at": 166,
     "text": "لمدمني القهوة",
-    "y": 525
-   }
+    "y": 440
+   },
+   "frame": {
+    "w": 1000,
+    "aspect": 1.1,
+    "top": 600,
+    "cut": 80,
+    "pos": "50% 55%"
+   },
+   "kickerTop": 214
   },
   {
    "start": 234,
    "type": "photo",
    "src": "photos/gym.jpg",
-   "band": 650,
+   "band": 0,
    "push": 0.0004,
    "pan": 10,
    "kicker": [
@@ -99,26 +108,35 @@
    "headlines": [
     {
      "start": 242,
-     "size": 150,
+     "size": 120,
      "lines": [
       [
        "*GYM"
       ]
      ],
-     "dir": "ltr"
+     "dir": "ltr",
+     "y": 352
     }
    ],
    "tag": {
     "at": 260,
     "text": "لعشاق الحديد",
-    "y": 525
-   }
+    "y": 440
+   },
+   "frame": {
+    "w": 1000,
+    "aspect": 1.1,
+    "top": 600,
+    "cut": 80,
+    "pos": "50% 52%"
+   },
+   "kickerTop": 214
   },
   {
    "start": 328,
    "type": "photo",
    "src": "photos/lebanon.jpg",
-   "band": 650,
+   "band": 0,
    "push": 0.0004,
    "pan": 10,
    "kicker": [
@@ -129,25 +147,34 @@
    "headlines": [
     {
      "start": 336,
-     "size": 150,
+     "size": 120,
      "lines": [
       [
        "*لبنان"
       ]
-     ]
+     ],
+     "y": 352
     }
    ],
    "tag": {
     "at": 354,
     "text": "معك وين ما رحت",
-    "y": 525
-   }
+    "y": 440
+   },
+   "frame": {
+    "w": 1000,
+    "aspect": 1.1,
+    "top": 600,
+    "cut": 80,
+    "pos": "50% 50%"
+   },
+   "kickerTop": 214
   },
   {
    "start": 422,
    "type": "photo",
    "src": "photos/gamer.jpg",
-   "band": 650,
+   "band": 0,
    "push": 0.0004,
    "pan": 10,
    "kicker": [
@@ -158,26 +185,35 @@
    "headlines": [
     {
      "start": 430,
-     "size": 150,
+     "size": 120,
      "lines": [
       [
        "*GAMER"
       ]
      ],
-     "dir": "ltr"
+     "dir": "ltr",
+     "y": 352
     }
    ],
    "tag": {
     "at": 448,
     "text": "للجيمرز",
-    "y": 525
-   }
+    "y": 440
+   },
+   "frame": {
+    "w": 1000,
+    "aspect": 1.1,
+    "top": 600,
+    "cut": 80,
+    "pos": "50% 50%"
+   },
+   "kickerTop": 214
   },
   {
    "start": 516,
    "type": "photo",
    "src": "photos/football.jpg",
-   "band": 650,
+   "band": 0,
    "push": 0.0004,
    "pan": 10,
    "kicker": [
@@ -188,26 +224,35 @@
    "headlines": [
     {
      "start": 524,
-     "size": 150,
+     "size": 120,
      "lines": [
       [
        "*FOOTBALL"
       ]
      ],
-     "dir": "ltr"
+     "dir": "ltr",
+     "y": 352
     }
    ],
    "tag": {
     "at": 542,
     "text": "لعشاق الطابة",
-    "y": 525
-   }
+    "y": 440
+   },
+   "frame": {
+    "w": 1000,
+    "aspect": 1.1,
+    "top": 600,
+    "cut": 80,
+    "pos": "50% 48%"
+   },
+   "kickerTop": 214
   },
   {
    "start": 610,
    "type": "photo",
    "src": "photos/boxing.jpg",
-   "band": 650,
+   "band": 0,
    "push": 0.0004,
    "pan": 10,
    "kicker": [
@@ -218,20 +263,29 @@
    "headlines": [
     {
      "start": 618,
-     "size": 150,
+     "size": 120,
      "lines": [
       [
        "*BOXING"
       ]
      ],
-     "dir": "ltr"
+     "dir": "ltr",
+     "y": 352
     }
    ],
    "tag": {
     "at": 636,
     "text": "لأبطال الحلبة",
-    "y": 525
-   }
+    "y": 440
+   },
+   "frame": {
+    "w": 1000,
+    "aspect": 1.1,
+    "top": 600,
+    "cut": 80,
+    "pos": "50% 50%"
+   },
+   "kickerTop": 214
   },
   {
    "start": 705,
