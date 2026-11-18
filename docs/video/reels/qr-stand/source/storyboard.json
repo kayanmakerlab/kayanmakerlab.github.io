@@ -8,7 +8,7 @@
   {
    "start": 0,
    "type": "photo",
-   "src": "photos/paper.jpg",
+   "src": "photos/paper-wide.jpg",
    "band": 560,
    "headlines": [
     {
@@ -33,7 +33,12 @@
       ]
      ]
     }
-   ]
+   ],
+   "frame": {
+    "w": 1000,
+    "aspect": 0.62,
+    "y": 1190
+   }
   },
   {
    "start": 77,
@@ -54,13 +59,11 @@
   {
    "start": 161,
    "type": "photo",
-   "src": "photos/stand.jpg",
-   "band": 380,
-   "bandPos": "bottom",
+   "src": "photos/stand-wide.jpg",
+   "band": 560,
    "headlines": [
     {
      "start": 171,
-     "y": 1690,
      "lines": [
       [
        "ستاند",
@@ -71,7 +74,6 @@
     },
     {
      "start": 199,
-     "y": 1690,
      "lines": [
       [
        "بالألوان",
@@ -85,24 +87,11 @@
      ]
     }
    ],
-   "callouts": [
-    {
-     "at": 180,
-     "x": 480,
-     "y": 800,
-     "lx": 760,
-     "ly": 640,
-     "label": "QR CODE"
-    },
-    {
-     "at": 192,
-     "x": 470,
-     "y": 1440,
-     "lx": 760,
-     "ly": 1330,
-     "label": "CARD HOLDER"
-    }
-   ]
+   "frame": {
+    "w": 1000,
+    "aspect": 0.78,
+    "y": 1190
+   }
   },
   {
    "start": 256,
