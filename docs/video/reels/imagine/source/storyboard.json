@@ -1,8 +1,8 @@
 {
  "slug": "kayan-reel-imagine",
- "frames": 1080,
- "maxFrames": 1080,
- "audio": null,
+ "frames": 1000,
+ "maxFrames": 1000,
+ "audio": "mix.wav",
  "fx": true,
  "scenes": [
   {
@@ -23,7 +23,7 @@
    },
    "headlines": [
     {
-     "start": 4,
+     "start": 2,
      "y": 355,
      "size": 98,
      "lines": [
@@ -37,10 +37,10 @@
        "*براسك…"
       ]
      ],
-     "end": 62
+     "end": 64
     },
     {
-     "start": 69,
+     "start": 74,
      "y": 355,
      "size": 98,
      "lines": [
@@ -90,7 +90,7 @@
    ]
   },
   {
-   "start": 215,
+   "start": 168,
    "type": "photo",
    "src": "photos/03.jpg",
    "band": 0,
@@ -107,7 +107,7 @@
    },
    "headlines": [
     {
-     "start": 221,
+     "start": 174,
      "y": 355,
      "size": 98,
      "lines": [
@@ -125,7 +125,7 @@
    ]
   },
   {
-   "start": 300,
+   "start": 249,
    "type": "photo",
    "src": "photos/04.jpg",
    "band": 0,
@@ -142,7 +142,7 @@
    },
    "headlines": [
     {
-     "start": 306,
+     "start": 257,
      "y": 355,
      "size": 98,
      "lines": [
@@ -159,7 +159,7 @@
    ]
   },
   {
-   "start": 385,
+   "start": 303,
    "type": "photo",
    "src": "photos/05.jpg",
    "band": 0,
@@ -176,7 +176,25 @@
    },
    "headlines": [
     {
-     "start": 391,
+     "start": 309,
+     "end": 388,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "وكل",
+       "تفصيل",
+       "بيقرّب"
+      ],
+      [
+       "فكرتك",
+       "*من",
+       "*الواقع"
+      ]
+     ]
+    },
+    {
+     "start": 394,
      "y": 355,
      "size": 130,
      "lines": [
@@ -188,7 +206,7 @@
    ]
   },
   {
-   "start": 455,
+   "start": 403,
    "type": "photo",
    "src": "photos/06.jpg",
    "band": 0,
@@ -200,12 +218,12 @@
     "cut": 70,
     "pos": "50% 50%",
     "reveal": {
-     "frames": 22
+     "frames": 12
     }
    },
    "headlines": [
     {
-     "start": 461,
+     "start": 406,
      "y": 355,
      "size": 130,
      "lines": [
@@ -217,7 +235,7 @@
    ]
   },
   {
-   "start": 525,
+   "start": 432,
    "type": "photo",
    "src": "photos/07.jpg",
    "band": 0,
@@ -234,7 +252,7 @@
    },
    "headlines": [
     {
-     "start": 531,
+     "start": 436,
      "y": 355,
      "size": 98,
      "lines": [
@@ -251,7 +269,7 @@
    ]
   },
   {
-   "start": 610,
+   "start": 511,
    "type": "photo",
    "src": "photos/08.jpg",
    "band": 0,
@@ -268,7 +286,7 @@
    },
    "headlines": [
     {
-     "start": 616,
+     "start": 516,
      "y": 355,
      "size": 98,
      "lines": [
@@ -286,12 +304,12 @@
    ]
   },
   {
-   "start": 700,
+   "start": 578,
    "type": "text",
    "headlines": [
     {
-     "start": 704,
-     "end": 748,
+     "start": 586,
+     "end": 620,
      "lines": [
       [
        "إنت",
@@ -300,7 +318,8 @@
      ]
     },
     {
-     "start": 755,
+     "start": 628,
+     "end": 680,
      "lines": [
       [
        "ونحنا"
@@ -310,11 +329,21 @@
        "*لواقع"
       ]
      ]
+    },
+    {
+     "start": 688,
+     "lines": [
+      [
+       "كيان",
+       "ميكر",
+       "*لاب"
+      ]
+     ]
     }
    ]
   },
   {
-   "start": 800,
+   "start": 722,
    "type": "outro",
    "headline": [
     "أفكارك",
@@ -325,6 +354,16 @@
     "كيان",
     "ميكر",
     "*لاب"
+   ],
+   "digits": [
+    68,
+    94,
+    121,
+    144,
+    167,
+    188,
+    214,
+    236
    ]
   }
  ]
