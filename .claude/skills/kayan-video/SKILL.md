@@ -27,6 +27,8 @@ scratchpad (never inside the repo: footage is ~100 MB).
    dark `#0F1A1E`, cyan `#1DE5F5` light, realistic 3D-printed subject in the lower 60 %, top
    35 % dark and empty for the headline band, no text/logos), wait for the images, then build.
    See `docs/brand/KAYAN_RULES.md`.
+2b'. **Fresh pictures every video (owner rule):** never reuse pictures from older reels. Send
+   Flow / Nano Banana prompts for every picture first and wait for them before building.
 2c. **Picture layout (owner rule, don't re-ask):** every picture scene uses the poster-style
    `"frame"` (`{"w":1000,"aspect":1.1,"top":590,"cut":80,"pos":"50% NN%"}`) with all text above it
    (`y` ≈ 372, or kicker + headline + tag pill stacked above `top`). Never full-bleed with bands or

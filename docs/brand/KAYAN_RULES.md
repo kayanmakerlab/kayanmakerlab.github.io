@@ -43,4 +43,8 @@ that specific item.**
   (kicker, headline, subtitle pill) sits **above** the frame at a fixed position, with the accent
   bars between text and picture. Nothing (particles, sweep, pills, labels) is drawn over the
   product; use `pos` to keep the product centred in the frame.
+- **Every new video gets new pictures (owner, 2026-11-20):** don't reuse pictures from earlier
+  reels and don't start building with old ones. First send the owner Google Flow / Nano Banana
+  prompts for every picture the video needs (vertical 9:16, Kayan style, subject centred for the
+  poster frame), wait for the generated pictures, then build.
 
