@@ -1,0 +1,258 @@
+{
+ "slug": "kayan-reel-guess",
+ "frames": 900,
+ "maxFrames": 900,
+ "audio": null,
+ "fx": {
+  "grain": 1,
+  "particles": 1,
+  "glint": 1,
+  "glow": 1,
+  "pan": 1,
+  "blur": 1
+ },
+ "scenes": [
+  {
+   "start": 0,
+   "type": "text",
+   "headlines": [
+    {
+     "start": 3,
+     "end": 36,
+     "lines": [
+      [
+       "خمّن",
+       "*شو",
+       "*هيدي؟"
+      ]
+     ]
+    },
+    {
+     "start": 43,
+     "lines": [
+      [
+       "4",
+       "قطع"
+      ],
+      [
+       "*مطبوعة",
+       "*3D"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 75,
+   "type": "photo",
+   "src": "photos/coffee.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 1000,
+    "aspect": 1.25,
+    "top": 470,
+    "cut": 80,
+    "pos": "50% 55%",
+    "zoom": {
+     "from": 4.0,
+     "at": 153,
+     "frames": 20,
+     "origin": "74% 48%"
+    }
+   },
+   "kicker": [
+    "ROUND",
+    "01"
+   ],
+   "kickerTop": 196,
+   "headlines": [
+    {
+     "start": 81,
+     "end": 149,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "شو",
+       "*هيدي؟"
+      ]
+     ]
+    },
+    {
+     "start": 159,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "ميدالية",
+       "*القهوة"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 225,
+   "type": "photo",
+   "src": "photos/gamer.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 1000,
+    "aspect": 1.25,
+    "top": 470,
+    "cut": 80,
+    "pos": "50% 50%",
+    "zoom": {
+     "from": 4.0,
+     "at": 303,
+     "frames": 20,
+     "origin": "80% 40%"
+    }
+   },
+   "kicker": [
+    "ROUND",
+    "02"
+   ],
+   "kickerTop": 196,
+   "headlines": [
+    {
+     "start": 231,
+     "end": 299,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "شو",
+       "*هيدي؟"
+      ]
+     ]
+    },
+    {
+     "start": 309,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "ميدالية",
+       "*الجيمرز"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 375,
+   "type": "photo",
+   "src": "photos/qr-colors.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 1000,
+    "aspect": 1.25,
+    "top": 470,
+    "cut": 80,
+    "pos": "50% 76%",
+    "zoom": {
+     "from": 4.0,
+     "at": 453,
+     "frames": 20,
+     "origin": "17% 66%"
+    }
+   },
+   "kicker": [
+    "ROUND",
+    "03"
+   ],
+   "kickerTop": 196,
+   "headlines": [
+    {
+     "start": 381,
+     "end": 449,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "شو",
+       "*هيدي؟"
+      ]
+     ]
+    },
+    {
+     "start": 459,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "ستاند",
+       "*QR"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 525,
+   "type": "photo",
+   "src": "photos/lebanon.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 1000,
+    "aspect": 1.25,
+    "top": 470,
+    "cut": 80,
+    "pos": "50% 50%",
+    "zoom": {
+     "from": 4.0,
+     "at": 603,
+     "frames": 20,
+     "origin": "70% 60%"
+    }
+   },
+   "kicker": [
+    "ROUND",
+    "04"
+   ],
+   "kickerTop": 196,
+   "headlines": [
+    {
+     "start": 531,
+     "end": 599,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "شو",
+       "*هيدي؟"
+      ]
+     ]
+    },
+    {
+     "start": 609,
+     "y": 330,
+     "size": 112,
+     "lines": [
+      [
+       "ميدالية",
+       "*لبنان"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 675,
+   "type": "outro",
+   "headline": [
+    "كم",
+    "*عرفت؟"
+   ],
+   "sub": [
+    "اكتبلنا",
+    "*بالتعليقات"
+   ]
+  }
+ ]
+}
