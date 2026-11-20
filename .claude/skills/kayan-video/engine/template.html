@@ -213,6 +213,10 @@ window.render=async function(f){
   if(s.type==='photo'){ const img=s.frame?d.querySelector('.frm img'):d.querySelector('.ph img'), ph=d.querySelector('.ph');
    if(s.frame){ const fm=d.querySelector('.frm'), t0=s.start-3; fm.style.opacity=clamp((f-t0)/8); fm.style.transform=`translateY(${80*(1-eo((f-t0)/14))}px)`;
     const bg=d.querySelector('.bgb'); if(bg) bg.style.transform=`scale(${1.2+0.0006*(f-s.start)})`;
+    if(s.frame.reveal){ const q=eio((f-t0-2)/(s.frame.reveal.frames||22)), fi=d.querySelector('.frm img');   // gallery reveal: picture wipes up inside the frame with a scan line (owner 2026-11-20)
+     fi.style.clipPath=`inset(${(1-q)*100}% 0 0 0)`; fi.style.filter=`brightness(${0.55+0.45*q})`;
+     let sl=d.querySelector('.rvl'); if(!sl){ sl=document.createElement('div'); sl.className='rvl'; sl.style.cssText='position:absolute;left:0;width:100%;height:3px;background:#1de5f5;box-shadow:0 0 18px #1de5f5,0 0 40px rgba(29,229,245,.6);pointer-events:none'; d.querySelector('.frm').appendChild(sl);} 
+     sl.style.top=`${(1-q)*100}%`; sl.style.opacity=q>0&&q<1?1:0; }
     const ub=d.querySelector('.ulb'); if(ub) [...ub.children].forEach((b,k)=>{const q=eo((f-t0-8-3*k)/12); b.style.transform=`scaleX(${q})`; b.style.opacity=(k?[.55,.3][k-1]:1)*clamp(q*1.5);});
     const ol=d.querySelector('.fol'); if(ol){ ol.style.strokeDashoffset=100*(1-eio((f-t0-6)/18)); d.querySelector('.fop').setAttribute('opacity',clamp((f-t0-14)/8)); } }
    if(FX.pan){ const T=Math.max(1,s.end-s.start+6), u=clamp((f-s.start+3)/T), dir=(i%2?-1:1), pan=(s.pan!=null?s.pan:(s.frame?0:12));
