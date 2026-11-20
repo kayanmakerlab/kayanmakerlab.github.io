@@ -43,6 +43,7 @@ The HUD counter shows `NN / TT` with TT = number of scenes.
   "src": "photos/nozzle.jpg",                 // relative to the work dir; ask the user for real KAYAN photos
   "band": 600,  "bandPos": "bottom",   // optional: band at the bottom (subject fills the top); give headlines "y": ~1700                                // dark headline band height (0 = top gradient only, like master scene 09)
   "frame": {"w": 1000, "aspect": 1.15, "top": 590, "cut": 80, "pos": "50% 50%"},   // "top" (px) or "y" (centre); poster-style frame + accent bars above it   // optional: show the WHOLE picture in a framed card over a blurred copy (best for wide pictures; aspect = h/w)
+  // frame "zoom": {"from": 2.6, "at": 150, "frames": 20, "origin": "72% 62%"} starts zoomed on a detail and pulls back to the whole picture at frame "at" (guess-the-object reels)
   "push": 0.0007,                             // push-in per frame (default = master scene 10)
   "kicker": ["KAYAN", "MAKER", "*LAB"],       // optional Latin line above the headline (master scene 10)
   "reveal": { "at": 24, "frames": 16 },       // optional scan-line reveal of the picture, bottom -> band edge

@@ -217,7 +217,8 @@ window.render=async function(f){
     const ol=d.querySelector('.fol'); if(ol){ ol.style.strokeDashoffset=100*(1-eio((f-t0-6)/18)); d.querySelector('.fop').setAttribute('opacity',clamp((f-t0-14)/8)); } }
    if(FX.pan){ const T=Math.max(1,s.end-s.start+6), u=clamp((f-s.start+3)/T), dir=(i%2?-1:1), pan=(s.pan!=null?s.pan:(s.frame?0:12));
     const z=(s.frame?1.0:1.025)+(s.push!=null?s.push:.0003)*(f-s.start+3)+0.035*(1-eo((f-s.start+3)/20));     // gentle settle-in, slow push: keeps the picture almost whole
-    img.style.transform=`translate(${dir*pan*(1-2*u)}px,${-10*u}px) scale(${z})`;
+    let zk=1; const zf=s.frame&&s.frame.zoom; if(zf){ zk=f<zf.at?zf.from:lerp(zf.from,1,eio((f-zf.at)/(zf.frames||20))); img.style.transformOrigin=zf.origin||'50% 50%'; }   // guess-reveal: start zoomed on a detail, pull back to the whole picture
+    img.style.transform=`translate(${dir*pan*(1-2*u)}px,${-10*u}px) scale(${z*zk})`;
     const sw=d.querySelector('.sweep'); if(sw){const q=(f-s.start-8)/30; sw.style.opacity=(q>0&&q<1)?1:0; sw.style.transform=`translateX(${lerp(-45,45,eio(q))}%)`;} }
    else img.style.transform=`scale(${1+(s.push!=null?s.push:.0007)*(f-s.start+3)})`;              // slow push-in, measured x1.058 over 85 frames (master scene 10)
    const co=d.querySelector('.co'); let svg='';
