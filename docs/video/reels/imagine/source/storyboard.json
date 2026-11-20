@@ -1,0 +1,331 @@
+{
+ "slug": "kayan-reel-imagine",
+ "frames": 1080,
+ "maxFrames": 1080,
+ "audio": null,
+ "fx": true,
+ "scenes": [
+  {
+   "start": 0,
+   "type": "photo",
+   "src": "photos/01.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 4,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "تخيّل",
+       "إنو"
+      ],
+      [
+       "أي",
+       "فكرة",
+       "*براسك…"
+      ]
+     ],
+     "end": 62
+    },
+    {
+     "start": 69,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "ممكن",
+       "تصير"
+      ],
+      [
+       "*شي",
+       "*حقيقي!"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 130,
+   "type": "photo",
+   "src": "photos/02.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 136,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "من",
+       "ملف"
+      ],
+      [
+       "*رقمي…"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 215,
+   "type": "photo",
+   "src": "photos/03.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 221,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "لطابعة",
+       "بتبني"
+      ],
+      [
+       "*طبقة",
+       "*فوق",
+       "*طبقة"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 300,
+   "type": "photo",
+   "src": "photos/04.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 306,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "كل",
+       "طبقة"
+      ],
+      [
+       "بتضيف",
+       "*تفاصيل"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 385,
+   "type": "photo",
+   "src": "photos/05.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 391,
+     "y": 355,
+     "size": 130,
+     "lines": [
+      [
+       "*مجسّمات"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 455,
+   "type": "photo",
+   "src": "photos/06.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 461,
+     "y": 355,
+     "size": 130,
+     "lines": [
+      [
+       "*هدايا"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 525,
+   "type": "photo",
+   "src": "photos/07.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 531,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "قطع",
+       "هندسية"
+      ],
+      [
+       "*ونماذج",
+       "*أولية"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 610,
+   "type": "photo",
+   "src": "photos/08.jpg",
+   "band": 0,
+   "push": 0.0002,
+   "frame": {
+    "w": 860,
+    "aspect": 1.34,
+    "top": 545,
+    "cut": 70,
+    "pos": "50% 50%",
+    "reveal": {
+     "frames": 22
+    }
+   },
+   "headlines": [
+    {
+     "start": 616,
+     "y": 355,
+     "size": 98,
+     "lines": [
+      [
+       "وحتى",
+       "قطع",
+       "صعب"
+      ],
+      [
+       "*تلاقيها",
+       "*بالسوق"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 700,
+   "type": "text",
+   "headlines": [
+    {
+     "start": 704,
+     "end": 748,
+     "lines": [
+      [
+       "إنت",
+       "*تخيّل…"
+      ]
+     ]
+    },
+    {
+     "start": 755,
+     "lines": [
+      [
+       "ونحنا"
+      ],
+      [
+       "*منحوّلها",
+       "*لواقع"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "start": 800,
+   "type": "outro",
+   "headline": [
+    "أفكارك",
+    "*حقيقة"
+   ],
+   "sub": [
+    "مع",
+    "كيان",
+    "ميكر",
+    "*لاب"
+   ]
+  }
+ ]
+}
