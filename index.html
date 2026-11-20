@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script>/* منع عرض الموقع داخل موقع تاني (iframe) */if(window.top!==window.self){try{window.top.location=window.self.location}catch(e){document.documentElement.style.display='none'}}</script>
 <title>كيان ميكر لاب | طباعة ثلاثية الأبعاد</title>
 <meta name="description" content="كيان ميكر لاب: ارفع ملف STL، شاهد المعاينة ثلاثية الأبعاد، واعرف السعر التقريبي فوراً.">
 <meta name="theme-color" content="#111a1f">
@@ -600,7 +603,7 @@ footer nav{display:flex;margin:0}
 
 <a class="fab" href="https://wa.me/96181424535" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg><use href="#i-wa"/></svg></a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/vendor/three-r128.min.js"></script>
 <script>
 /* ============ الإعدادات: عدّل الأسعار والخيارات هنا ============ */
 var CFG={
@@ -773,7 +776,7 @@ var CART=(function(){
  try{items=JSON.parse(sessionStorage.getItem(KEY)||'{}')||{}}catch(e){items={}}
  function save(){try{sessionStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
  function prod(id){return PRODUCTS.filter(function(p){return p.id==id})[0]}
- Object.keys(items).forEach(function(id){if(!prod(id)||!(items[id]>0))delete items[id]});
+ Object.keys(items).forEach(function(id){var q=Math.floor(Number(items[id]));if(!prod(id)||!(q>0))delete items[id];else items[id]=Math.min(500,q)});
  var subs=[];
  function changed(){save();subs.forEach(function(f){f()})}
  return{
