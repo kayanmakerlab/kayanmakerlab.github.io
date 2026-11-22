@@ -1,0 +1,8 @@
+{
+  "brand": "KAYAN MAKER LAB",
+  "colors": { "charcoal": "#10191D", "cyan": "#12DFEF", "white": "#FFFFFF" },
+  "font": { "arabic": "IBM Plex Sans Arabic", "latin": "IBM Plex Sans", "mono": "IBM Plex Mono" },
+  "video": { "width": 1080, "height": 1920, "aspect": "9:16", "fps": 30, "codec": "H.264 (libx264, yuv420p)", "audio": "AAC 48 kHz" },
+  "contact": { "whatsapp": "81424535", "website": "kayanmakerlab.com" },
+  "note": "Owner-supplied colours (2026-11-22). The existing video guide uses #1DE5F5 for cyan; confirm which one is the standard before changing the video engine."
+}
