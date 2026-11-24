@@ -23,6 +23,10 @@
 - الموظفين ما بيقدروا يشغّلوا بعض مباشرة. إنت اللي بتنقل الشغل بيناتهم (مثلاً: `production-engineer` بيقدّر، و`accountant` بيسعّر، و`customer-service` بيكتب الرد).
 - التسليمات: `.claude/office/deliverables/<القسم>/`.
 
+## المكتب التفاعلي
+- الصفحة: https://claude.ai/artifact/QJe2SutmaDM2VxmLNKVCZp (المصدر: `.claude/office/office.html`)
+- لما يقول صاحب المشروع **"نفّذ مهام المكتب"**: اقرا مجموعة `tasks` بالـ `ArtifactData` tool (`status` = `new`)، شغّل الموظف (`agent`) على المهمة (`text`)، وبعدين `update` للمستند: `status:"done"` و`result` (ملخّص الرد بـ Markdown). وإذا عدّلت المكتب (موظف جديد، مهارات)، حدّث `TEAM` بـ `office.html` وانشر عنفس الرابط.
+
 ## أمثلة طلبات
 - "اعملي خطة محتوى لشهر كانون الأول" ← `marketing-manager`، بعدين `content-writer` + `designer` + `video-editor`
 - "زبون بدو 20 ميدالية، قديش منحسبلو؟" ← `production-engineer`، بعدين `accountant`، بعدين `customer-service`
