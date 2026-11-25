@@ -7,10 +7,10 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>/* منع عرض الموقع داخل موقع تاني (iframe) */if(window.top!==window.self){try{window.top.location=window.self.location}catch(e){document.documentElement.style.display='none'}}</script>
 <title>كيان ميكر لاب | طباعة ثلاثية الأبعاد</title>
-<meta name="description" content="كيان ميكر لاب: ارفع ملف STL، شاهد المعاينة ثلاثية الأبعاد، واعرف السعر التقريبي فوراً.">
+<meta name="description" content="كيان ميكر لاب: ارفع ملف STL أو 3MF، شاهد المعاينة ثلاثية الأبعاد، واعرف السعر التقريبي فوراً.">
 <meta name="theme-color" content="#111a1f">
 <meta property="og:title" content="كيان ميكر لاب | طباعة ثلاثية الأبعاد">
-<meta property="og:description" content="ارفع ملف STL واعرف سعر طباعته فوراً، واطلب عبر واتساب.">
+<meta property="og:description" content="ارفع ملف STL أو 3MF واعرف سعر طباعته فوراً، واطلب عبر واتساب.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://kayanmakerlab.com/">
 <meta property="og:url" content="https://kayanmakerlab.com/">
@@ -419,7 +419,7 @@ footer nav{display:flex;margin:0}
 <main id="top">
 <div class="hero" id="calc"><div class="wrap">
  <span class="eyebrow"><svg width="14" height="14"><use href="#i-cube"/></svg>طباعة ثلاثية الأبعاد حسب الطلب</span>
- <h1>ارفع ملف STL،<br>وشوف <em>سعره فوراً</em>.</h1>
+ <h1>ارفع ملف STL أو 3MF،<br>وشوف <em>سعره فوراً</em>.</h1>
  <p class="lead">معاينة ثلاثية الأبعاد لقطعتك، مع حساب الأبعاد والوزن ووقت الطباعة والسعر التقريبي قبل ما تتواصل معنا.</p>
  <ul class="chips">
   <li class="newchip"><a href="#new" style="color:inherit;text-decoration:none">🔥 جديد: كولكشن الميداليات</a></li>
@@ -432,11 +432,11 @@ footer nav{display:flex;margin:0}
 
  <div class="calc">
   <div class="card">
-   <div class="view" id="view" tabindex="0" role="button" aria-label="اختر ملف STL">
+   <div class="view" id="view" tabindex="0" role="button" aria-label="اختر ملف STL أو 3MF">
     <div class="hint">
      <div class="up"><svg><use href="#i-file"/></svg></div>
-     <b>اسحب ملف STL هنا</b>أو اضغط لاختيار الملف من جهازك
-     <small id="limitTxt">حتى 300 ميغابايت · Binary أو ASCII</small>
+     <b>اسحب ملف STL أو 3MF هنا</b>أو اضغط لاختيار الملف من جهازك
+     <small id="limitTxt">STL أو 3MF · حتى 300 ميغابايت</small>
     </div>
     <div class="loading" aria-hidden="true"><div class="spin"></div>جاري قراءة الملف…</div>
     <canvas id="cv" aria-label="معاينة ثلاثية الأبعاد للقطعة"></canvas>
@@ -448,7 +448,7 @@ footer nav{display:flex;margin:0}
      </div>
     </div>
    </div>
-   <input type="file" id="file" accept=".stl,model/stl,application/sla" hidden>
+   <input type="file" id="file" accept=".stl,.3mf,model/stl,model/3mf,application/sla" hidden>
    <div class="under">
     <p class="fname" id="fname"></p>
     <button class="btn alt sm" type="button" id="demo"><svg><use href="#i-cube"/></svg>جرّب نموذج تجريبي</button>
@@ -491,7 +491,7 @@ footer nav{display:flex;margin:0}
 <section class="hl" aria-label="معلومات مهمة"><div class="wrap"><div class="hl-grid">
  <div class="hl-item"><div class="ic"><svg><use href="#i-truck"/></svg></div><div><h3>توصيل لكل لبنان</h3><p>5$ للطلب كلّه، لأي منطقة.</p></div></div>
  <div class="hl-item"><div class="ic"><svg><use href="#i-wallet"/></svg></div><div><h3>الدفع عند الاستلام</h3><p>للطلبات فوق 10$، تأكيد بعربون عبر Whish Money.</p></div></div>
- <div class="hl-item"><div class="ic"><svg><use href="#i-zap"/></svg></div><div><h3>سعر فوري لملفك</h3><p>ارفع ملف STL وشوف السعر لحظتها.</p></div></div>
+ <div class="hl-item"><div class="ic"><svg><use href="#i-zap"/></svg></div><div><h3>سعر فوري لملفك</h3><p>ارفع ملف STL أو 3MF وشوف السعر لحظتها.</p></div></div>
  <div class="hl-item"><div class="ic"><svg><use href="#i-ruler"/></svg></div><div><h3>تصميم وهندسة عكسية</h3><p>ما عندك ملف؟ منرسملك القطعة من صورة أو قياس.</p></div></div>
 </div></div></section>
 
@@ -516,7 +516,7 @@ footer nav{display:flex;margin:0}
 <section id="how"><div class="wrap">
  <h2>كيف نشتغل؟</h2><p class="sub">من الملف للقطعة بإيدك بأربع خطوات بسيطة.</p>
  <ol class="steps">
-  <li><h3>ارفع الملف</h3><p>ارفع ملف STL وشوف المعاينة والأبعاد مباشرة.</p></li>
+  <li><h3>ارفع الملف</h3><p>ارفع ملف STL أو 3MF وشوف المعاينة والأبعاد مباشرة.</p></li>
   <li><h3>اختر المواصفات</h3><p>الخامة، اللون، التعبئة، الجودة والكمية، والسعر بيتحدث فوراً.</p></li>
   <li><h3>أرسل الطلب</h3><p>زر واتساب بيجهزلك رسالة فيها كل التفاصيل، وأنت بترفق الملف.</p></li>
   <li><h3>استلم قطعتك</h3><p>منراجع الملف، منأكدلك السعر والموعد، ومنوصّلك القطعة لأي منطقة بلبنان.</p></li>
@@ -526,7 +526,7 @@ footer nav{display:flex;margin:0}
 <section id="services" class="alt-bg"><div class="wrap">
  <h2>خدماتنا</h2><p class="sub">كل شي بيخص الطباعة ثلاثية الأبعاد، من التصميم لحد القطعة النهائية.</p>
  <div class="grid">
-  <div class="card svc"><div class="ic"><svg><use href="#i-file"/></svg></div><h3>طباعة من ملفك</h3><p>عندك ملف STL؟ منطبعه بالخامة واللون والتعبئة اللي بتختارها.</p></div>
+  <div class="card svc"><div class="ic"><svg><use href="#i-file"/></svg></div><h3>طباعة من ملفك</h3><p>عندك ملف STL أو 3MF؟ منطبعه بالخامة واللون والتعبئة اللي بتختارها.</p></div>
   <div class="card svc"><div class="ic"><svg><use href="#i-ruler"/></svg></div><h3>قطع مفقودة وهندسة عكسية</h3><p>منقيس القطعة التالفة، منرسمها من جديد، ومنطبعها بنفس القياس.</p></div>
   <div class="card svc"><div class="ic"><svg><use href="#i-mold"/></svg></div><h3>قوالب ومجسمات</h3><p>قوالب مخصصة وماكيتات ونماذج أولية للمشاريع والفعاليات.</p></div>
   <div class="card svc"><div class="ic"><svg><use href="#i-gift"/></svg></div><h3>هدايا وتحف</h3><p>مجسمات وأسماء وتحف مخصصة لكل مناسبة.</p></div>
@@ -552,6 +552,7 @@ footer nav{display:flex;margin:0}
  <h2>أسئلة شائعة</h2><p class="sub">إذا ما لقيت جوابك، راسلنا عالواتساب.</p>
  <div class="faq">
   <details><summary>هل السعر اللي بتطلعه الحاسبة نهائي؟</summary><p>لا، هو سعر تقديري مبني على حجم القطعة والخامة والتعبئة. منأكدلك السعر النهائي بعد ما نراجع الملف.</p></details>
+  <details><summary>شو الملفات اللي بتقبلوها؟</summary><p>الحاسبة بتقرا <b>STL</b> و<b>3MF</b> (متل ملفات Bambu Studio وPrusaSlicer). إذا الـ 3MF فيه أكتر من قطعة، بنحسبهن كلهن سوا. وإذا عندك صيغة تانية (STEP، OBJ…)، ابعتها عالواتساب ومنشوف.</p></details>
   <details><summary>ما عندي ملف STL، شو بعمل؟</summary><p>أرسلنا صورة الفكرة أو القطعة التالفة مع القياسات، ومنرسملك ياها كملف ثلاثي الأبعاد قبل الطباعة.</p></details>
   <details><summary>أي خامة بختار؟</summary><p>للمجسمات والتحف PLA، للقطع العملية اللي بتتعرض لرطوبة PETG، للحرارة ABS، وللقطع المرنة TPU. شوف قسم <a href="#materials">الخامات</a> أو اسألنا.</p></details>
   <details><summary>شو يعني نسبة التعبئة؟</summary><p>هي كمية المادة جوّا القطعة. 15% خفيفة ومناسبة للمجسمات، 30% للاستخدام العادي، و60% أو أكثر للقطع اللي بتتحمل ضغط.</p></details>
@@ -604,6 +605,7 @@ footer nav{display:flex;margin:0}
 <a class="fab" href="https://wa.me/96181424535" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg><use href="#i-wa"/></svg></a>
 
 <script src="assets/vendor/three-r128.min.js"></script>
+<script src="assets/vendor/fflate-0.8.2.min.js"></script>
 <script>
 /* ============ الإعدادات: عدّل الأسعار والخيارات هنا ============ */
 var CFG={
@@ -867,6 +869,53 @@ var CART=(function(){
  });
 })();
 
+/* ---- 3MF parsing ---- */
+// 3MF = ملف ZIP فيه XML بالمثلثات. منقرا كل القطع بالـ build مع التحويلات، ومنحوّلها لمليمتر
+function parse3MF(buf){
+ function E(m){var e=new Error(m);e.kml=m;return e}
+ if(typeof fflate==='undefined')throw E('تعذّر تحميل قارئ ملفات 3MF. حدّث الصفحة وجرّب مرة تانية.');
+ var z;try{z=fflate.unzipSync(new Uint8Array(buf),{filter:function(f){return /\.model$|\.rels$/i.test(f.name)}})}catch(e){throw E('ملف الـ 3MF تالف أو مش مضغوط صح.')}
+ var names=Object.keys(z),lower={};names.forEach(function(n){lower[n.replace(/^\/+/,'').toLowerCase()]=n});
+ function get(path){var k=lower[String(path).replace(/^\/+/,'').toLowerCase()];return k?new TextDecoder().decode(z[k]):null}
+ var root=null,rels=get('_rels/.rels');
+ if(rels){var m=rels.match(/Target="([^"]+\.model)"/i);if(m)root=m[1]}
+ if(!root||!get(root))root=lower['3d/3dmodel.model']?'3D/3dmodel.model':(names.filter(function(n){return /\.model$/i.test(n)})[0]||null);
+ if(!root)throw E('ما لقينا مجسم بهالملف. إذا هو ملف مقطّع (gcode.3mf)، ابعت ملف الـ 3MF الأصلي أو STL.');
+ var UNIT={micron:.001,millimeter:1,centimeter:10,inch:25.4,foot:304.8,meter:1000},cache={};
+ function attrs(s){var o={},re=/([\w:]+)\s*=\s*"([^"]*)"/g,m;while((m=re.exec(s)))o[m[1]]=m[2];return o}
+ function mat(s){if(!s)return null;var a=s.trim().split(/\s+/).map(Number);return a.length===12&&a.every(isFinite)?a:null}
+ // a ثم b (مصفوفات 3MF بصيغة الصفوف 4×3)
+ function mul(a,b){if(!a)return b;if(!b)return a;var r=new Array(12);
+  for(var i=0;i<4;i++)for(var j=0;j<3;j++){var v=(i===3?b[9+j]:0);for(var k=0;k<3;k++)v+=a[i*3+k]*b[k*3+j];r[i*3+j]=v}return r}
+ function load(path){
+  if(cache[path])return cache[path];
+  var x=get(path);if(x==null)throw E('ملف الـ 3MF ناقص منه جزء ('+path+').');
+  var mu=x.match(/<model\b[^>]*\bunit="([^"]+)"/i),M={unit:UNIT[(mu&&mu[1]||'millimeter').toLowerCase()]||1,obj:{},build:[]};
+  var reObj=/<object\b([^>]*)>([\s\S]*?)<\/object>/g,o;
+  while((o=reObj.exec(x))){var a=attrs(o[1]),body=o[2];
+   if(/<mesh\b/.test(body)){
+    var V=[],T=[],m2,rv=/<vertex\b([^>]*)\/?>/g,rt=/<triangle\b([^>]*)\/?>/g;
+    while((m2=rv.exec(body))){var q=m2[1],xx=/\bx="([^"]+)"/.exec(q),yy=/\by="([^"]+)"/.exec(q),zz=/\bz="([^"]+)"/.exec(q);V.push(+(xx&&xx[1]),+(yy&&yy[1]),+(zz&&zz[1]))}
+    while((m2=rt.exec(body))){var q2=m2[1],v1=/\bv1="(\d+)"/.exec(q2),v2=/\bv2="(\d+)"/.exec(q2),v3=/\bv3="(\d+)"/.exec(q2);if(v1&&v2&&v3)T.push(+v1[1],+v2[1],+v3[1])}
+    M.obj[a.id]={V:V,T:T}}
+   else{var C=[],rc=/<component\b([^>]*)\/?>/g,mc;while((mc=rc.exec(body))){var ca=attrs(mc[1]);C.push({id:ca.objectid,path:ca['p:path']||null,t:mat(ca.transform)})}M.obj[a.id]={C:C}}}
+  var bm=x.match(/<build\b[^>]*>([\s\S]*?)<\/build>/);
+  if(bm){var ri=/<item\b([^>]*)\/?>/g,mi;while((mi=ri.exec(bm[1]))){var ia=attrs(mi[1]);if(ia.printable==='0')continue;M.build.push({id:ia.objectid,path:ia['p:path']||null,t:mat(ia.transform)})}}
+  return cache[path]=M}
+ var out=new Float32Array(9e4),k=0;
+ function push(x,y,z){if(k+3>out.length){var o2=new Float32Array(out.length*2);o2.set(out);out=o2}out[k++]=x;out[k++]=y;out[k++]=z}
+ function emit(path,id,t,depth){
+  if(depth>16)return;var M=load(path),ob=M.obj[id];if(!ob)return;
+  if(ob.C){ob.C.forEach(function(c){emit(c.path||path,c.id,mul(c.t,t),depth+1)});return}
+  var s=M.unit,V=ob.V,T=ob.T;
+  for(var i=0;i<T.length;i++){var j=T[i]*3,x=V[j],y=V[j+1],z=V[j+2];
+   if(t){var nx=x*t[0]+y*t[3]+z*t[6]+t[9],ny=x*t[1]+y*t[4]+z*t[7]+t[10],nz=x*t[2]+y*t[5]+z*t[8]+t[11];x=nx;y=ny;z=nz}
+   push(x*s,y*s,z*s)}}
+ var R=load(root),items=R.build.length?R.build:Object.keys(R.obj).map(function(id){return{id:id,path:null,t:null}});
+ items.forEach(function(it){emit(it.path||root,it.id,it.t,0)});
+ if(!k)throw E('ما لقينا مجسم بهالملف. إذا هو ملف مقطّع (gcode.3mf)، ابعت ملف الـ 3MF الأصلي أو STL.');
+ return out.subarray(0,k)}
+
 /* ---- STL parsing ---- */
 function parseSTL(buf){
  var dv=new DataView(buf),t;
@@ -1003,7 +1052,7 @@ function calc(){
 
 /* ---- loading ---- */
 var MOBILE=matchMedia('(pointer:coarse)').matches,LIMIT=MOBILE?CFG.maxMBMobile:CFG.maxMB;
-$('limitTxt').textContent='حتى '+LIMIT+' ميغابايت · Binary أو ASCII';
+$('limitTxt').textContent='STL أو 3MF · حتى '+LIMIT+' ميغابايت';
 function setBusy(b){view.classList.toggle('busy',b);view.setAttribute('aria-busy',b)}
 function use(t,name){
  var info=analyze(t);
@@ -1016,16 +1065,17 @@ function use(t,name){
  else err.textContent='المعاينة ثلاثية الأبعاد غير مدعومة على هذا المتصفح، بس الحساب شغال.';
  calc();if(ok)resetView()}
 
-function fail(msg){setBusy(false);data=null;$('send').disabled=true;err.textContent=msg||'تعذّر قراءة الملف. تأكد إنه ملف STL سليم.'}
+function fail(msg){setBusy(false);data=null;$('send').disabled=true;view.classList.remove('has');$('fname').textContent='';['sDim','sVol','sW','sT','sP','bMat','bTime','bPrint','bFee','bDel'].forEach(function(i){$(i).textContent='-'});$('warn').hidden=true;$('calcHint').hidden=true;err.textContent=msg||'تعذّر قراءة الملف. تأكد إنه ملف STL أو 3MF سليم.'}
 function load(f){
  err.textContent='';
  if(!f)return;
- if(!/\.stl$/i.test(f.name))return fail('الملف لازم يكون بصيغة STL.');
+ var is3mf=/\.3mf$/i.test(f.name);
+ if(!is3mf&&!/\.stl$/i.test(f.name))return fail('الملف لازم يكون بصيغة STL أو 3MF.');
  if(f.size>LIMIT*1048576)return fail('حجم الملف أكبر من '+LIMIT+' ميغابايت. اضغطه بملف ZIP وابعته مباشرة عالواتساب، ومنحسبلك سعره.');
  setBusy(true);
  f.arrayBuffer().then(function(b){
   return new Promise(function(res){setTimeout(function(){res(b)},30)})
- }).then(function(b){var t=parseSTL(b);b=null;use(t,f.name);setBusy(false)}).catch(function(e){fail(e&&/memory|allocation|Array buffer/i.test(e.message||'')?'الجهاز ما عنده ذاكرة كافية لهالملف. جرّب من كمبيوتر، أو ابعته عالواتساب ومنحسبلك سعره.':null)})}
+ }).then(function(b){var t=is3mf?parse3MF(b):parseSTL(b);b=null;use(t,f.name);setBusy(false)}).catch(function(e){fail(e&&e.kml?e.kml:e&&/memory|allocation|Array buffer/i.test(e.message||'')?'الجهاز ما عنده ذاكرة كافية لهالملف. جرّب من كمبيوتر، أو ابعته عالواتساب ومنحسبلك سعره.':null)})}
 
 function demo(){
  err.textContent='';
